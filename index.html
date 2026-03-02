@@ -1,470 +1,219 @@
 <!DOCTYPE html>
-<html lang="bg">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>🌌 Вселенска Финансова Карта 2005–2036</title>
+<html lang="bg"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cosmic Financial Map 2005-2036</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=DM+Sans:wght@400;500;700&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--au:#D4A843;--bg:#040404;--card:#0a0a0a;--border:#161616;--txt:#ddd8cc;--dim:#444;--green:#4ade80;--red:#ef4444;--orange:#f97316;--blue:#5B99C2;--yellow:#fbbf24}
-body{background:var(--bg);color:var(--txt);font-family:'Cormorant Garamond',Georgia,serif;max-width:880px;margin:0 auto;min-height:100vh;overflow-x:hidden}
+:root{--au:#D4A843;--bg:#040404;--cd:#0a0a0a;--bd:#161616;--tx:#ddd8cc;--gn:#4ade80;--rd:#ef4444;--or:#f97316;--bl:#5B99C2;--yl:#fbbf24}
+body{background:var(--bg);color:var(--tx);font-family:'Cormorant Garamond',Georgia,serif;max-width:880px;margin:0 auto;min-height:100vh;overflow-x:hidden}
 .sf{font-family:'DM Sans',sans-serif}
-.hdr{padding:22px 14px 10px;text-align:center;border-bottom:1px solid #1a1a1a;position:relative;overflow:hidden}
-.hdr::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 120%,rgba(212,168,67,.06),transparent 60%)}
-.hdr h1{font-size:clamp(20px,5vw,34px);font-weight:400;color:var(--au);margin:6px 0 2px;position:relative}
-.sub{color:#333;font-size:10px;position:relative}
-.tag{font-size:8px;color:var(--au);letter-spacing:5px;text-transform:uppercase;position:relative}
-.chart-wrap{padding:0 8px;margin-bottom:4px}
-.chart-wrap svg{width:100%;height:auto;display:block}
-.countries{display:flex;gap:3px;padding:6px 10px;flex-wrap:wrap;justify-content:center}
-.countries button{padding:3px 7px;border-radius:4px;border:1px solid #151515;background:transparent;color:#444;font-size:11px;font-weight:600;cursor:pointer;transition:all .15s}
-.countries button.on{border-color:var(--au);background:rgba(212,168,67,.06);color:var(--au)}
-.mode-btn{padding:3px 9px;border-radius:4px;font-size:9px;font-weight:700;cursor:pointer;border:none;transition:all .15s}
-.top-row{display:flex;justify-content:space-between;align-items:center;padding:4px 10px;flex-wrap:wrap;gap:4px}
-.slider-area{padding:2px 12px 12px}
-.slider-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
-.yr-big{font-size:28px;font-weight:400;color:var(--au)}
-.yr-big.forecast{color:var(--green)}
-.g-info{text-align:right}
-.g-price{font-size:13px;color:var(--au);font-weight:700}
-.track{height:28px;background:#0e0e0e;border-radius:5px;position:relative;cursor:pointer;touch-action:none;overflow:hidden}
-.track-phase{position:absolute;top:0;bottom:0;border-right:1px solid #1a1a1a}
-.track-now{position:absolute;top:0;bottom:0;width:1px;background:rgba(212,168,67,.25);z-index:2}
-.track-fill{position:absolute;left:0;top:0;bottom:0;border-radius:4px 0 0 4px;z-index:1;transition:width .08s}
-.track-thumb{position:absolute;top:-2px;width:24px;height:30px;background:var(--au);border-radius:4px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:7px;color:#000;z-index:3;transition:left .08s}
-.track-thumb.forecast{background:var(--green)}
-.ticks{display:flex;justify-content:space-between;margin-top:3px}
-.ticks span{font-size:7px;color:#333}
-.card{margin:0 10px 6px;padding:12px;background:var(--card);border:1px solid var(--border);border-radius:8px}
-.card-title{font-size:9px;color:var(--au);font-weight:700;letter-spacing:.5px;margin-bottom:6px}
-.insight-row{display:flex;align-items:center;gap:10px}
-.hours-box{text-align:center;min-width:48px}
-.hours-box .yr{font-size:9px;color:#555}
-.hours-box .val{font-size:26px;font-weight:400}
-.hours-box .val.bad{color:var(--red)}
-.hours-box .val.warn{color:var(--yellow)}
-.hours-box .val.good{color:var(--green)}
-.hours-box .val.dim{color:#777}
-.arrow{font-size:18px;color:#222}
-.insight-text{flex:1;font-size:10px;color:#777;line-height:1.5}
-.insight-text b{font-weight:700}
-.sub-info{font-size:9px;color:#444;margin-top:5px;border-top:1px solid #151515;padding-top:4px}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:5px}
-.buy-card{background:#0c0c0c;border-radius:5px;padding:6px;text-align:center}
-.buy-card .icon{font-size:17px}
-.buy-card .lbl{font-size:6px;color:#444;text-transform:uppercase;letter-spacing:.3px}
-.buy-card .num{font-size:17px;font-weight:700}
-.buy-card .num.up{color:var(--green)}
-.buy-card .num.dn{color:var(--red)}
-.buy-card .cmp{font-size:7px;color:#333}
-.metrics{padding:0 10px 6px}
-.metric{background:#0a0a0a;border:1px solid #141414;border-radius:5px;padding:6px;text-align:center}
-.metric .mlbl{font-size:6px;color:#444;text-transform:uppercase}
-.metric .mval{font-size:15px;font-weight:700}
-.metric .msub{font-size:7px;color:#2a2a2a;margin-top:2px}
-.dual-box{margin:0 10px 6px}
-.dual-card{border-radius:6px;padding:8px}
-.dual-card .dtit{font-size:8px;font-weight:700;margin-bottom:3px}
-.dual-card .dprice{font-size:13px;font-weight:700}
-.dual-card .dinfo{font-size:9px;color:#555;line-height:1.6}
-.phase-bar{margin:0 10px 6px;padding:8px 10px;background:#090909;border:1px solid #141414;border-radius:6px;display:flex;gap:8px;align-items:center}
-.phase-bar .pemoji{font-size:16px}
-.phase-bar .pname{font-size:10px;font-weight:700;color:var(--au)}
-.phase-bar .pdesc{font-size:9px;color:#555}
+.hdr{padding:20px 14px 10px;text-align:center;border-bottom:1px solid #1a1a1a;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,rgba(212,168,67,.06),transparent 60%)}
+.hdr h1{font-size:clamp(18px,4.5vw,30px);font-weight:400;color:var(--au);margin:6px 0 2px;position:relative}
+.hdr .sub{color:#333;font-size:10px;position:relative}
+.hdr .tag{font-size:8px;color:var(--au);letter-spacing:5px;text-transform:uppercase;position:relative}
+.bar{display:flex;gap:2px;justify-content:center;padding:4px 10px;flex-wrap:wrap}
+.bar button{padding:3px 6px;border-radius:3px;border:1px solid #151515;background:transparent;color:#444;font-size:10px;font-weight:600;cursor:pointer}
+.bar button.on{border-color:var(--au);background:rgba(212,168,67,.06);color:var(--au)}
+.cht{padding:0 8px;margin-bottom:2px}.cht svg{width:100%;height:auto}
+.lg{display:flex;gap:12px;justify-content:center;font-size:8px;color:#444;margin:2px 0}
+.hw{margin:4px 10px;padding:7px 10px;background:#080805;border:1px solid #1a1a14;border-radius:6px;font-size:9px;color:#666;line-height:1.6}
+.trow{display:flex;justify-content:space-between;align-items:center;padding:4px 10px;flex-wrap:wrap;gap:4px}
+.mbtn{padding:3px 9px;border-radius:4px;font-size:9px;font-weight:700;cursor:pointer;border:none}
+.sa{padding:2px 12px 10px}.sh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.yb{font-size:28px;font-weight:400}.gi{text-align:right}.gp{font-size:13px;color:var(--au);font-weight:700}
+.tk{height:28px;background:#0e0e0e;border-radius:5px;position:relative;cursor:pointer;touch-action:none;overflow:hidden}
+.tp{position:absolute;top:0;bottom:0;border-right:1px solid #1a1a1a}
+.tn{position:absolute;top:0;bottom:0;width:1px;background:rgba(212,168,67,.25);z-index:2}
+.tfl{position:absolute;left:0;top:0;bottom:0;border-radius:4px 0 0 4px;z-index:1;transition:width .08s}
+.tth{position:absolute;top:-2px;width:24px;height:30px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:7px;color:#000;z-index:3;transition:left .08s}
+.tix{display:flex;justify-content:space-between;margin-top:3px}.tix span{font-size:7px;color:#333}
+.cd{margin:0 10px 6px;padding:12px;background:var(--cd);border:1px solid var(--bd);border-radius:8px}
+.cdtl{font-size:9px;color:var(--au);font-weight:700;letter-spacing:.5px;margin-bottom:6px}
+.ir{display:flex;align-items:center;gap:10px}
+.hb{text-align:center;min-width:48px}.hb .yr{font-size:9px;color:#555}.hb .vl{font-size:26px;font-weight:400}
+.hb .vl.bd{color:var(--rd)}.hb .vl.wr{color:var(--yl)}.hb .vl.gd{color:var(--gn)}.hb .vl.dm{color:#777}
+.aw{font-size:18px;color:#222}.it{flex:1;font-size:10px;color:#777;line-height:1.5}.it b{font-weight:700}
+.si{font-size:9px;color:#444;margin-top:5px;border-top:1px solid #151515;padding-top:4px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px}.g2{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.bc{background:#0c0c0c;border-radius:5px;padding:6px;text-align:center}
+.bc .ic{font-size:17px}.bc .lb{font-size:6px;color:#444;text-transform:uppercase;letter-spacing:.3px}
+.bc .nm{font-size:17px;font-weight:700}.bc .nm.up{color:var(--gn)}.bc .nm.dn{color:var(--rd)}.bc .cm{font-size:7px;color:#333}
+.mx{padding:0 10px 6px}
+.mt{background:#0a0a0a;border:1px solid #141414;border-radius:5px;padding:6px;text-align:center}
+.mt .ml{font-size:7px;color:#555;text-transform:uppercase}.mt .mv{font-size:15px;font-weight:700}.mt .ms{font-size:7px;color:#555;margin-top:2px;line-height:1.4}
+.dbox{margin:0 10px 6px}.dc{border-radius:6px;padding:8px}.dc .dt{font-size:8px;font-weight:700;margin-bottom:3px}.dc .dp{font-size:13px;font-weight:700}.dc .di{font-size:9px;color:#555;line-height:1.6}
+.pb{margin:0 10px 6px;padding:8px 10px;background:#090909;border:1px solid #141414;border-radius:6px;display:flex;gap:8px;align-items:center}
+.pb .pe{font-size:16px}.pb .pn{font-size:10px;font-weight:700;color:var(--au)}
 .tip{margin:0 10px 6px;padding:5px 8px;background:rgba(212,168,67,.03);border:1px solid rgba(212,168,67,.06);border-radius:5px;font-size:9px;color:var(--au)}
-.cycle{margin:0 10px 6px;padding:8px;background:#070707;border:1px solid #121212;border-radius:6px}
-.cycle-title{font-size:9px;font-weight:700;color:var(--au);margin-bottom:4px}
-.cycle-bars{display:flex;gap:1px;margin-bottom:4px}
-.cycle-bar{flex:1;cursor:pointer;padding:2px 1px;border-radius:2px;text-align:center;border:1px solid #121212;background:#0a0a0a;transition:all .15s}
-.cycle-bar.on{border-color:rgba(212,168,67,.13)}
-.cycle-bar .cy{font-size:6px;color:#444}
-.cycle-bar .ce{font-size:8px}
-.cycle-info{font-size:8px;color:#444;line-height:1.5}
-.footer{text-align:center;padding:10px;color:#181818;font-size:6px}
-.legend{display:flex;gap:12px;justify-content:center;font-size:8px;color:#444;margin-top:2px}
-</style>
-</head>
-<body>
-<div class="hdr">
-  <div class="tag sf">🌌 Вселенска финансова карта</div>
-  <h1>Покупателна сила в грамове злато</h1>
-  <p class="sub sf">8 държави · 2005–2036 · 16-годишен цикъл · Двойна прогноза</p>
-</div>
-
-<div class="chart-wrap" id="chartWrap"></div>
-<div class="legend sf"><span>━ Исторически</span><span style="color:#4ade80">╌ Оптимистичен</span><span style="color:#f97316">╌ Песимистичен</span></div>
-
-<div style="margin:4px 10px 4px;padding:8px 10px;background:#080805;border:1px solid #1a1a14;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:9px;color:#666;line-height:1.6">
-  <b style="color:#D4A843">Как да четем?</b> Всички цени и заплати са превърнати в <b style="color:#D4A843">грамове злато</b> — универсална мярка, която не зависи от инфлация или валутни курсове. Ако заплатата ти расте 10%, но златото расте 50% — в реалност ставаш по-беден. Плъзгай слайдера и виж как се променя светът.
-</div>
-
-<div class="top-row">
-  <div class="countries" id="coBar"></div>
-  <button class="mode-btn sf" id="modeBtn" onclick="toggleMode()">🌞 Оптимистичен</button>
-</div>
-
-<div class="slider-area">
-  <div class="slider-head">
-    <div><span class="yr-big sf" id="yrBig">2026</span><span class="sf" id="fcLabel" style="font-size:9px;margin-left:4px;display:none">📡</span></div>
-    <div class="g-info sf">
-      <div class="g-price" id="gPrice">1g = €155</div>
-      <div style="font-size:9px;color:#444" id="gSub">×11.7 от 2005</div>
-    </div>
-  </div>
-  <div class="track" id="track">
-    <div id="trackPhases"></div>
-    <div class="track-now" id="trackNow"></div>
-    <div class="track-fill" id="trackFill"></div>
-    <div class="track-thumb sf" id="trackThumb">2026</div>
-  </div>
-  <div class="ticks sf" id="ticks"></div>
-</div>
-
-<div class="card" id="insightCard">
-  <div class="card-title sf">⏱ ПРЕДСТАВИ СИ: Работиш на минимална заплата. Колко часа трябва да работиш, за да спестиш за 1 грам злато?</div>
-  <div class="insight-row">
-    <div class="hours-box"><div class="yr sf">2005</div><div class="val dim" id="hrs05">15<span style="font-size:12px">ч</span></div></div>
-    <div class="arrow">→</div>
-    <div class="hours-box"><div class="yr sf" id="hrsYrLbl">2026</div><div class="val bad" id="hrsNow">95<span style="font-size:12px">ч</span></div></div>
-    <div class="insight-text sf" id="insightTxt"></div>
-  </div>
-  <div class="sub-info sf" id="subInfo"></div>
-</div>
-
-<div class="card">
-  <div class="card-title sf" id="buyTitle">🪙 1 ГРАМ ЗЛАТО (€155) КУПУВА В БЪЛГАРИЯ:</div>
-  <div class="grid3" id="buyGrid"></div>
-</div>
-
-<div class="dual-box grid2" id="dualBox" style="display:none"></div>
-
-<div class="metrics grid3" id="metricsGrid"></div>
-
-<div class="phase-bar" id="phaseBar"></div>
-<div class="tip sf" id="tipBox"></div>
-
-<div class="cycle">
-  <div class="cycle-title sf">📜 16-годишен цикъл (GoldBroker, JPM, математически потвърден)</div>
-  <div class="cycle-bars" id="cycleBars"></div>
-  <div class="cycle-info sf">
-    Дъна: <b style="color:#4ade80">1968→1984→2000→2016</b> (16г) · Пикове: <b style="color:#fbbf24">1980, 2011, ~2028?</b> (11-12г от дъно) · Корекция: <b style="color:#ef4444">~2029-2032</b> (-30-40%)
-  </div>
-</div>
-
-<div class="footer sf">
-  BLS · OECD · Eurostat · НСИ · WGC · ECB · JPMorgan · UBS · Wells Fargo · GoldBroker · World Bank · Eurofound · 2026<br>
-  Прогнозите НЕ са инвестиционен съвет. Миналото не гарантира бъдещето.
-</div>
-
+.cyc{margin:0 10px 6px;padding:8px;background:#070707;border:1px solid #121212;border-radius:6px}
+.cyt{font-size:9px;font-weight:700;color:var(--au);margin-bottom:4px}
+.cyb{display:flex;gap:1px;margin-bottom:4px}
+.cybb{cursor:pointer;padding:2px 1px;border-radius:2px;text-align:center;border:1px solid #121212;background:#0a0a0a}
+.cybb.on{border-color:rgba(212,168,67,.13)}.cybb .cv{font-size:6px;color:#444}.cybb .ce{font-size:8px}
+.cyi{font-size:8px;color:#444;line-height:1.5}
+.ft{text-align:center;padding:10px;color:#181818;font-size:6px}
+</style></head><body>
+<div class="hdr"><div class="tag sf">🌌 Cosmic Financial Map</div><h1 id="T"></h1><p class="sub sf" id="S"></p></div>
+<div class="bar" id="LB"></div>
+<div class="cht" id="CH"></div>
+<div class="lg sf"><span>━ History</span><span style="color:var(--gn)">╌ Optimistic</span><span style="color:var(--or)">╌ Pessimistic</span></div>
+<div class="hw sf"><b style="color:var(--au)" id="HT"></b> <span id="HX"></span></div>
+<div class="trow"><div class="bar" id="CB" style="padding:0"></div><button class="mbtn sf" id="MB"></button></div>
+<div class="sa"><div class="sh"><div><span class="yb sf" id="YB">2026</span><span class="sf" id="FL" style="font-size:9px;margin-left:4px;display:none"></span></div><div class="gi sf"><div class="gp" id="GP"></div><div style="font-size:9px;color:#444" id="GS"></div></div></div>
+<div class="tk" id="TK"><div id="TPH"></div><div class="tn" id="TN"></div><div class="tfl" id="TF"></div><div class="tth sf" id="TT">2026</div></div><div class="tix sf" id="TX"></div></div>
+<div class="cd"><div class="cdtl sf" id="IQ"></div><div class="ir"><div class="hb"><div class="yr sf">2005</div><div class="vl dm" id="H5"></div></div><div class="aw">→</div><div class="hb"><div class="yr sf" id="HL"></div><div class="vl bd" id="HN"></div></div><div class="it sf" id="IX"></div></div><div class="si sf" id="SI"></div></div>
+<div class="cd"><div class="cdtl sf" id="BT"></div><div class="g3" id="BG"></div></div>
+<div class="dbox g2" id="DB" style="display:none"></div>
+<div class="mx g3" id="MG"></div>
+<div class="pb" id="PB"></div><div class="tip sf" id="TI"></div>
+<div class="cyc"><div class="cyt sf" id="CT"></div><div class="cyb" id="CYB"></div><div class="cyi sf" id="CI"></div></div>
+<div class="ft sf" id="FT"></div>
 <script>
-// ═══ DATA ═══
+
 const G$={2005:445,2006:604,2007:696,2008:872,2009:972,2010:1225,2011:1572,2012:1669,2013:1411,2014:1266,2015:1160,2016:1251,2017:1257,2018:1269,2019:1393,2020:1770,2021:1799,2022:1800,2023:1943,2024:2386,2025:2900,2026:5200};
 const GF={2027:{o:7800,p:5500},2028:{o:9200,p:5000},2029:{o:7200,p:4000},2030:{o:6200,p:3600},2031:{o:5800,p:3300},2032:{o:5400,p:3100},2033:{o:5700,p:3000},2034:{o:6100,p:3200},2035:{o:6700,p:3500},2036:{o:7400,p:3800}};
-const gOz=31.1035;
-const g1=(y,m)=>{if(G$[y])return+(G$[y]/gOz).toFixed(2);const f=GF[y];return f?+((m==='o'?f.o:f.p)/gOz).toFixed(2):0};
-const gDol=(y,m)=>{if(G$[y])return G$[y];const f=GF[y];return f?(m==='o'?f.o:f.p):0};
-const FX={EUR:1,USD:.93,BGN:.51,NOK:.084,CZK:.04,CHF:1.06};
-const toE=(v,c)=>+(v*(FX[c]||1)).toFixed(2);
-const toL=(eur,c)=>c==='EUR'?eur:+(eur/(FX[c]||1)).toFixed(2);
-const grow=(b,ro,rp)=>{const r={};for(let i=1;i<=10;i++){const y=2026+i;r[y]={o:+(b*Math.pow(1+ro,i)).toFixed(2),p:+(b*Math.pow(1+rp,i)).toFixed(2)};}return r;};
-const gv=(obj,y,m)=>{const v=obj[y];if(v!==undefined)return typeof v==='object'?(m==='o'?v.o:v.p):v;const ks=Object.keys(obj).map(Number).sort((a,b)=>a-b);if(y<=ks[0]){const v0=obj[ks[0]];return typeof v0==='object'?(m==='o'?v0.o:v0.p):v0;}if(y>=ks[ks.length-1]){const vn=obj[ks[ks.length-1]];return typeof vn==='object'?(m==='o'?vn.o:vn.p):vn;}let l=ks[0],h=ks[ks.length-1];for(let i=0;i<ks.length-1;i++){if(ks[i]<=y&&ks[i+1]>=y){l=ks[i];h=ks[i+1];break;}}const vl=typeof obj[l]==='object'?(m==='o'?obj[l].o:obj[l].p):obj[l];const vh=typeof obj[h]==='object'?(m==='o'?obj[h].o:obj[h].p):obj[h];return+(vl+(y-l)/(h-l)*(vh-vl)).toFixed(2);};
+const OZ=31.1035,FX={EUR:1,USD:.93,BGN:.51,NOK:.084,CZK:.04,CHF:1.06,JPY:.006,CNY:.13};
+const g1=(y,m)=>{if(G$[y])return+(G$[y]/OZ).toFixed(2);const f=GF[y];return f?+((m==='o'?f.o:f.p)/OZ).toFixed(2):0};
+const gD=(y,m)=>{if(G$[y])return G$[y];const f=GF[y];return f?(m==='o'?f.o:f.p):0};
+const tE=(v,c)=>+(v*(FX[c]||1)).toFixed(2),tL=(e,c)=>c==='EUR'?e:+(e/(FX[c]||1)).toFixed(2);
+const gw=(b,ro,rp)=>{const r={};for(let i=1;i<=10;i++)r[2026+i]={o:+(b*Math.pow(1+ro,i)).toFixed(2),p:+(b*Math.pow(1+rp,i)).toFixed(2)};return r};
+const gv=(o,y,m)=>{const v=o[y];if(v!==undefined)return typeof v==='object'?(m==='o'?v.o:v.p):v;const k=Object.keys(o).map(Number).sort((a,b)=>a-b);if(y<=k[0]){const z=o[k[0]];return typeof z==='object'?(m==='o'?z.o:z.p):z}if(y>=k[k.length-1]){const z=o[k[k.length-1]];return typeof z==='object'?(m==='o'?z.o:z.p):z}let l=k[0],h=k[k.length-1];for(let i=0;i<k.length-1;i++){if(k[i]<=y&&k[i+1]>=y){l=k[i];h=k[i+1];break}}const vl=typeof o[l]==='object'?(m==='o'?o[l].o:o[l].p):o[l],vh=typeof o[h]==='object'?(m==='o'?o[h].o:o[h].p):o[h];return+(vl+(y-l)/(h-l)*(vh-vl)).toFixed(2)};
 
 const CC={
-  bg:{f:"🇧🇬",n:"България",cur:"EUR",
-    minW:{2005:77,2010:123,2015:184,2018:261,2020:312,2022:363,2025:551,2026:620,...grow(620,.08,.04)},
-    avgW:{2005:171,2010:317,2015:450,2018:562,2020:664,2022:807,2025:1163,2026:1280,...grow(1280,.06,.03)},
-    food:{2005:28,2010:41,2015:50,2018:56,2020:64,2022:87,2025:105,2026:110,...grow(110,.035,.02)},
-    gas:{2005:.72,2010:1,2015:.97,2018:1.07,2020:.92,2022:1.58,2025:1.22,2026:1.25,...grow(1.25,.02,.01)},
-    elec:{2005:.051,2010:.071,2015:.092,2018:.097,2020:.102,2022:.112,2025:.128,2026:.133,...grow(.133,.025,.01)},
-    tip:"🇪🇺 В еврозоната от 01.01.2026! Заплата ↑705% в евро, но в злато ↓84%"},
-  de:{f:"🇩🇪",n:"Германия",cur:"EUR",
-    minW:{2005:0,2010:0,2015:1473,2018:1498,2020:1544,2022:1621,2025:2161,2026:2343,...grow(2343,.04,.02)},
-    avgW:{2005:2800,2010:3050,2015:3510,2018:3800,2020:3920,2022:4100,2025:4550,2026:4700,...grow(4700,.025,.01)},
-    food:{2005:100,2010:118,2015:132,2018:142,2020:155,2022:195,2025:220,2026:225,...grow(225,.02,.012)},
-    gas:{2005:1.22,2010:1.38,2015:1.35,2018:1.40,2020:1.25,2022:2,2025:1.70,2026:1.65,...grow(1.65,.01,.005)},
-    elec:{2005:.187,2010:.236,2015:.295,2018:.297,2020:.302,2022:.348,2025:.384,2026:.39,...grow(.39,.02,.01)},
-    tip:"Мин. заплата от 2015. +13.9% за 2027 потвърдено! €500 млрд инфраструктура."},
-  ch:{f:"🇨🇭",n:"Швейцария",cur:"CHF",
-    minW:{2005:3400,2010:3500,2015:3600,2018:3700,2020:3800,2022:3900,2025:4100,2026:4200,...grow(4200,.015,.008)},
-    avgW:{2005:5600,2010:6000,2015:6450,2018:6600,2020:6750,2022:6900,2025:7350,2026:7500,...grow(7500,.018,.01)},
-    food:{2005:212,2010:239,2015:257,2018:270,2020:286,2022:329,2025:366,2026:376,...grow(376,.02,.01)},
-    gas:{2005:1.42,2010:1.55,2015:1.50,2018:1.55,2020:1.40,2022:2.15,2025:1.80,2026:1.78,...grow(1.78,.01,.005)},
-    elec:{2005:.14,2010:.18,2015:.20,2018:.20,2020:.21,2022:.22,2025:.27,2026:.29,...grow(.29,.02,.01)},
-    tip:"CHF = safe haven като златото. Няма национална мин. заплата."},
-  us:{f:"🇺🇸",n:"САЩ",cur:"USD",
-    minW:{2005:893,2010:1257,2015:1257,2018:1257,2020:1257,2022:1257,2025:1257,2026:1257,...grow(1257,.01,0)},
-    avgW:{2005:3270,2010:3600,2015:4050,2018:4450,2020:4750,2022:5300,2025:5950,2026:6100,...grow(6100,.03,.015)},
-    food:{2005:121,2010:141,2015:163,2018:171,2020:184,2022:223,2025:251,2026:260,...grow(260,.03,.02)},
-    gas:{2005:.60,2010:.72,2015:.62,2018:.73,2020:.58,2022:1.28,2025:.88,2026:.90,...grow(.90,.02,.01)},
-    elec:{2005:.085,2010:.098,2015:.105,2018:.109,2020:.107,2022:.118,2025:.135,2026:.14,...grow(.14,.025,.015)},
-    tip:"$7.25/ч ЗАМРАЗЕНА от 2009 — 17 години без промяна!"},
-  no:{f:"🇳🇴",n:"Норвегия",cur:"NOK",
-    minW:{2005:18000,2010:21000,2015:23000,2018:25000,2020:27000,2022:29000,2025:23000,2026:24000,...grow(24000,.03,.015)},
-    avgW:{2005:31000,2010:38000,2015:42580,2018:47500,2020:50500,2022:53150,2025:59370,2026:61090,...grow(61090,.025,.015)},
-    food:{2005:1400,2010:1700,2015:1900,2018:2050,2020:2200,2022:2600,2025:3000,2026:3100,...grow(3100,.025,.015)},
-    gas:{2005:10.5,2010:12,2015:13,2018:15.5,2020:14,2022:22,2025:19,2026:19.5,...grow(19.5,.015,.008)},
-    elec:{2005:.65,2010:.80,2015:.60,2018:.50,2020:.25,2022:2.50,2025:.80,2026:.85,...grow(.85,.03,.01)},
-    tip:"Няма офиц. мин. заплата. Секторни ~200 NOK/ч. Хидроенергия."},
-  at:{f:"🇦🇹",n:"Австрия",cur:"EUR",
-    minW:{2005:1100,2010:1260,2015:1350,2018:1500,2020:1500,2022:1500,2025:1850,2026:1900,...grow(1900,.035,.02)},
-    avgW:{2005:2600,2010:2900,2015:3100,2018:3300,2020:3400,2022:3600,2025:4200,2026:4400,...grow(4400,.025,.012)},
-    food:{2005:95,2010:112,2015:125,2018:135,2020:145,2022:185,2025:212,2026:218,...grow(218,.02,.012)},
-    gas:{2005:1.05,2010:1.18,2015:1.15,2018:1.22,2020:1.05,2022:1.85,2025:1.50,2026:1.48,...grow(1.48,.01,.005)},
-    elec:{2005:.15,2010:.19,2015:.20,2018:.20,2020:.21,2022:.28,2025:.30,2026:.31,...grow(.31,.02,.01)},
-    tip:"Колективни договори ~€1500+. AMA-Gütesiegel = качество."},
-  gr:{f:"🇬🇷",n:"Гърция",cur:"EUR",
-    minW:{2005:668,2010:863,2012:684,2015:684,2018:684,2020:758,2022:832,2025:968,2026:1027,...grow(1027,.05,.025)},
-    avgW:{2005:1800,2010:2000,2015:1400,2018:1500,2020:1500,2022:1600,2025:1850,2026:1920,...grow(1920,.03,.015)},
-    food:{2005:85,2010:100,2015:85,2018:90,2020:95,2022:125,2025:148,2026:152,...grow(152,.025,.015)},
-    gas:{2005:.95,2010:1.40,2015:1.42,2018:1.55,2020:1.30,2022:2.10,2025:1.72,2026:1.68,...grow(1.68,.01,.005)},
-    elec:{2005:.065,2010:.105,2015:.155,2018:.155,2020:.160,2022:.280,2025:.200,2026:.21,...grow(.21,.025,.012)},
-    tip:"Кризата 2010-15: заплатите ПАДНАХА 33%! Зехтинът ×3 за 3г."},
-  es:{f:"🇪🇸",n:"Испания",cur:"EUR",
-    minW:{2005:599,2010:739,2015:757,2018:859,2020:1108,2022:1166,2025:1381,2026:1381,...grow(1381,.04,.02)},
-    avgW:{2005:2000,2010:2250,2015:2100,2018:2250,2020:2300,2022:2450,2025:2850,2026:2950,...grow(2950,.03,.015)},
-    food:{2005:90,2010:108,2015:105,2018:112,2020:120,2022:155,2025:178,2026:183,...grow(183,.025,.015)},
-    gas:{2005:.95,2010:1.15,2015:1.18,2018:1.25,2020:1.08,2022:1.85,2025:1.52,2026:1.50,...grow(1.50,.01,.005)},
-    elec:{2005:.09,2010:.15,2015:.22,2018:.24,2020:.23,2022:.30,2025:.26,2026:.27,...grow(.27,.02,.01)},
-    tip:"Мин. заплата ↑131%. Zara = испанско, но fast fashion."},
-  cz:{f:"🇨🇿",n:"Чехия",cur:"CZK",
-    minW:{2005:7185,2010:8000,2015:9200,2018:12200,2020:14600,2022:16200,2025:20800,2026:20800,...grow(20800,.06,.03)},
-    avgW:{2005:19000,2010:24100,2015:26500,2018:32500,2020:35600,2022:40300,2025:47500,2026:49000,...grow(49000,.04,.02)},
-    food:{2005:1200,2010:1400,2015:1500,2018:1700,2020:1850,2022:2400,2025:2800,2026:2880,...grow(2880,.03,.018)},
-    gas:{2005:28,2010:31,2015:30,2018:32,2020:28,2022:48,2025:38,2026:37,...grow(37,.015,.008)},
-    elec:{2005:2.8,2010:4.2,2015:4,2018:3.8,2020:4.2,2022:7.5,2025:6.5,2026:6.8,...grow(6.8,.02,.01)},
-    tip:"Мин. заплата ↑190%. Най-скъп ток в ЕС (PPS)! Rohlík = символ."}
+bg:{f:"🇧🇬",n:"Bulgaria",cur:"EUR",minW:{2005:77,2010:123,2015:184,2018:261,2020:312,2022:363,2025:551,2026:620,...gw(620,.08,.04)},avgW:{2005:171,2010:317,2015:450,2018:562,2020:664,2022:807,2025:1163,2026:1280,...gw(1280,.06,.03)},food:{2005:28,2010:41,2015:50,2018:56,2020:64,2022:87,2025:105,2026:110,...gw(110,.035,.02)},gas:{2005:.72,2010:1,2015:.97,2018:1.07,2020:.92,2022:1.58,2025:1.22,2026:1.25,...gw(1.25,.02,.01)},elec:{2005:.051,2010:.071,2015:.092,2018:.097,2020:.102,2022:.112,2025:.128,2026:.133,...gw(.133,.025,.01)},tip:"🇪🇺 Eurozone 2026! Wage +705% but gold -84%"},
+de:{f:"🇩🇪",n:"Germany",cur:"EUR",minW:{2005:0,2010:0,2015:1473,2018:1498,2020:1544,2022:1621,2025:2161,2026:2343,...gw(2343,.04,.02)},avgW:{2005:2800,2010:3050,2015:3510,2018:3800,2020:3920,2022:4100,2025:4550,2026:4700,...gw(4700,.025,.01)},food:{2005:100,2010:118,2015:132,2018:142,2020:155,2022:195,2025:220,2026:225,...gw(225,.02,.012)},gas:{2005:1.22,2010:1.38,2015:1.35,2018:1.40,2020:1.25,2022:2,2025:1.70,2026:1.65,...gw(1.65,.01,.005)},elec:{2005:.187,2010:.236,2015:.295,2018:.297,2020:.302,2022:.348,2025:.384,2026:.39,...gw(.39,.02,.01)},tip:"Min wage since 2015. +13.9% 2027!"},
+ch:{f:"🇨🇭",n:"Swiss",cur:"CHF",minW:{2005:3400,2010:3500,2015:3600,2018:3700,2020:3800,2022:3900,2025:4100,2026:4200,...gw(4200,.015,.008)},avgW:{2005:5600,2010:6000,2015:6450,2018:6600,2020:6750,2022:6900,2025:7350,2026:7500,...gw(7500,.018,.01)},food:{2005:212,2010:239,2015:257,2018:270,2020:286,2022:329,2025:366,2026:376,...gw(376,.02,.01)},gas:{2005:1.42,2010:1.55,2015:1.50,2018:1.55,2020:1.40,2022:2.15,2025:1.80,2026:1.78,...gw(1.78,.01,.005)},elec:{2005:.14,2010:.18,2015:.20,2018:.20,2020:.21,2022:.22,2025:.27,2026:.29,...gw(.29,.02,.01)},tip:"CHF=safe haven. No min wage."},
+us:{f:"🇺🇸",n:"USA",cur:"USD",minW:{2005:893,2010:1257,2015:1257,2018:1257,2020:1257,2022:1257,2025:1257,2026:1257,...gw(1257,.01,0)},avgW:{2005:3270,2010:3600,2015:4050,2018:4450,2020:4750,2022:5300,2025:5950,2026:6100,...gw(6100,.03,.015)},food:{2005:121,2010:141,2015:163,2018:171,2020:184,2022:223,2025:251,2026:260,...gw(260,.03,.02)},gas:{2005:.60,2010:.72,2015:.62,2018:.73,2020:.58,2022:1.28,2025:.88,2026:.90,...gw(.90,.02,.01)},elec:{2005:.085,2010:.098,2015:.105,2018:.109,2020:.107,2022:.118,2025:.135,2026:.14,...gw(.14,.025,.015)},tip:"$7.25/h FROZEN since 2009!"},
+no:{f:"🇳🇴",n:"Norway",cur:"NOK",minW:{2005:18000,2010:21000,2015:23000,2018:25000,2020:27000,2022:29000,2025:23000,2026:24000,...gw(24000,.03,.015)},avgW:{2005:31000,2010:38000,2015:42580,2018:47500,2020:50500,2022:53150,2025:59370,2026:61090,...gw(61090,.025,.015)},food:{2005:1400,2010:1700,2015:1900,2018:2050,2020:2200,2022:2600,2025:3000,2026:3100,...gw(3100,.025,.015)},gas:{2005:10.5,2010:12,2015:13,2018:15.5,2020:14,2022:22,2025:19,2026:19.5,...gw(19.5,.015,.008)},elec:{2005:.65,2010:.80,2015:.60,2018:.50,2020:.25,2022:2.50,2025:.80,2026:.85,...gw(.85,.03,.01)},tip:"No min wage. ~200 NOK/h."},
+at:{f:"🇦🇹",n:"Austria",cur:"EUR",minW:{2005:1100,2010:1260,2015:1350,2018:1500,2020:1500,2022:1500,2025:1850,2026:1900,...gw(1900,.035,.02)},avgW:{2005:2600,2010:2900,2015:3100,2018:3300,2020:3400,2022:3600,2025:4200,2026:4400,...gw(4400,.025,.012)},food:{2005:95,2010:112,2015:125,2018:135,2020:145,2022:185,2025:212,2026:218,...gw(218,.02,.012)},gas:{2005:1.05,2010:1.18,2015:1.15,2018:1.22,2020:1.05,2022:1.85,2025:1.50,2026:1.48,...gw(1.48,.01,.005)},elec:{2005:.15,2010:.19,2015:.20,2018:.20,2020:.21,2022:.28,2025:.30,2026:.31,...gw(.31,.02,.01)},tip:"Collective agreements."},
+gr2:{f:"🇬🇷",n:"Greece",cur:"EUR",minW:{2005:668,2010:863,2012:684,2015:684,2018:684,2020:758,2022:832,2025:968,2026:1027,...gw(1027,.05,.025)},avgW:{2005:1800,2010:2000,2015:1400,2018:1500,2020:1500,2022:1600,2025:1850,2026:1920,...gw(1920,.03,.015)},food:{2005:85,2010:100,2015:85,2018:90,2020:95,2022:125,2025:148,2026:152,...gw(152,.025,.015)},gas:{2005:.95,2010:1.40,2015:1.42,2018:1.55,2020:1.30,2022:2.10,2025:1.72,2026:1.68,...gw(1.68,.01,.005)},elec:{2005:.065,2010:.105,2015:.155,2018:.155,2020:.160,2022:.280,2025:.200,2026:.21,...gw(.21,.025,.012)},tip:"Crisis 2010-15: wages -33%!"},
+es:{f:"🇪🇸",n:"Spain",cur:"EUR",minW:{2005:599,2010:739,2015:757,2018:859,2020:1108,2022:1166,2025:1381,2026:1381,...gw(1381,.04,.02)},avgW:{2005:2000,2010:2250,2015:2100,2018:2250,2020:2300,2022:2450,2025:2850,2026:2950,...gw(2950,.03,.015)},food:{2005:90,2010:108,2015:105,2018:112,2020:120,2022:155,2025:178,2026:183,...gw(183,.025,.015)},gas:{2005:.95,2010:1.15,2015:1.18,2018:1.25,2020:1.08,2022:1.85,2025:1.52,2026:1.50,...gw(1.50,.01,.005)},elec:{2005:.09,2010:.15,2015:.22,2018:.24,2020:.23,2022:.30,2025:.26,2026:.27,...gw(.27,.02,.01)},tip:"Min wage +131%."},
+jp:{f:"🇯🇵",n:"Japan",cur:"JPY",minW:{2005:106880,2010:116800,2015:127680,2018:144320,2020:153600,2022:168800,2025:179360,2026:182880,...gw(182880,.05,.03)},avgW:{2005:335000,2010:316000,2015:304000,2018:360000,2020:370000,2022:380000,2025:515000,2026:530000,...gw(530000,.04,.02)},food:{2005:12000,2010:11500,2015:12500,2018:13000,2020:13500,2022:16000,2025:18500,2026:19000,...gw(19000,.03,.02)},gas:{2005:125,2010:135,2015:130,2018:145,2020:135,2022:170,2025:175,2026:178,...gw(178,.015,.008)},elec:{2005:20,2010:21,2015:25,2018:24,2020:23,2022:31,2025:35,2026:36,...gw(36,.02,.01)},tip:"¥1121/h 2025. Target ¥1500 by 2029."},
+cn:{f:"🇨🇳",n:"China",cur:"CNY",minW:{2005:690,2010:1120,2015:2020,2018:2420,2020:2480,2022:2590,2025:2690,2026:2740,...gw(2740,.05,.03)},avgW:{2005:1700,2010:3600,2015:6200,2018:8000,2020:9500,2022:11000,2025:13000,2026:14000,...gw(14000,.06,.03)},food:{2005:300,2010:450,2015:600,2018:700,2020:800,2022:1000,2025:1100,2026:1150,...gw(1150,.035,.02)},gas:{2005:3.80,2010:6.50,2015:5.90,2018:7.10,2020:5.60,2022:8.80,2025:7.80,2026:7.90,...gw(7.90,.015,.008)},elec:{2005:.45,2010:.55,2015:.56,2018:.55,2020:.54,2022:.60,2025:.65,2026:.68,...gw(.68,.02,.01)},tip:"Shanghai ¥2740/mo. Factory of world."}
 };
+const PH=[{a:2005,b:2010,e:"🟢",bg:"rgba(74,222,128,.06)"},{a:2011,b:2013,e:"🔴",bg:"rgba(239,68,68,.06)"},{a:2014,b:2018,e:"🟡",bg:"rgba(100,100,100,.04)"},{a:2019,b:2026,e:"🟢",bg:"rgba(74,222,128,.06)"},{a:2027,b:2028,e:"🔥",bg:"rgba(251,191,36,.09)"},{a:2029,b:2032,e:"🔴",bg:"rgba(239,68,68,.06)"},{a:2033,b:2036,e:"🟡",bg:"rgba(100,100,100,.04)"}];
 
-const PH=[
-  {a:2005,b:2010,e:"🟢",l:"Ръст",d:"Златото се пробужда от дъно 2000",bg:"rgba(74,222,128,.06)"},
-  {a:2011,b:2013,e:"🔴",l:"Корекция",d:"Пик $1920→$1180",bg:"rgba(239,68,68,.06)"},
-  {a:2014,b:2018,e:"🟡",l:"Стагнация",d:"~$1200-1300 'сън'",bg:"rgba(100,100,100,.04)"},
-  {a:2019,b:2026,e:"🟢",l:"Експлозия",d:"COVID+войни = $445→$5200 (×11.7!)",bg:"rgba(74,222,128,.06)"},
-  {a:2027,b:2028,e:"🔥",l:"Пик?",d:"Цикъл пик 11-12г от 2016",bg:"rgba(251,191,36,.09)"},
-  {a:2029,b:2032,e:"🔴",l:"Корекция?",d:"4-5г спад ако цикълът държи",bg:"rgba(239,68,68,.06)"},
-  {a:2033,b:2036,e:"🟡",l:"Ново дъно?",d:"~2032 дъно → нов цикъл",bg:"rgba(100,100,100,.04)"}
-];
-const EV={2005:"Злато $445/oz",2008:"Lehman Brothers",2011:"Пик $1920",2015:"DE мин. заплата!",2016:"Злато дъно $1060",2020:"COVID-19",2022:"Война Украйна",2025:"Злато $2900",2026:"🇧🇬 еврозона! $5200",2027:"🔥 Пик? JPM $6300+",2028:"Цикъл пик зона",2029:"Корекция?",2032:"Очаквано дъно"};
+const LL={
+bg:{tl:"Покупателна сила в грамове злато",sb:"10 държави · 2005–2036 · 16-год. цикъл",ht:"Как да четем?",hx:"Всички цени и заплати са в грамове злато — мярка, независима от инфлация. Ако заплатата расте 10% но златото 50% — ставаш по-беден.",op:"🌞 Оптимистичен",ps:"🌧️ Песимистичен",fc:"ПРОГНОЗА",hq:"⏱ Работиш на мин. заплата. Колко часа за 1g злато?",wu:"Заплата +",sn:"но",gu:"злато +",bf:"Преди:",nw:"Сега:",wd:"раб.дни",ls:"Труд ↓",vg:"спрямо златото.",rr:"Рядко: заплата > злато!",bt:"🪙 С 1g ЗЛАТО купуваш:",gl:"Литра бензин",kw:"kWh ток",ff:"Дни храна (4чл.)",tk:"Резервоар≈50L→",hh:"Домакинство≈300kWh/м",mr:"повече!",ft:"🛒 ХРАНА ОТ ЗАПЛАТАТА",fs:"Семейство ~",fp:"/мес храна.",fi:"Мин. заплата",fh:"❌ Над половината!",f3:"⚠️ Над 1/3",fo:"✅ Под 1/3",gt:"💰 ЗАПЛАТА=ЗЛАТО",gwt:"С 1 мин. заплата",gc:"купуваш",ga:"злато.",gp:"по-бедни в злато",gri:"↑ По-богати!",wt:"📅 1 ЗАПЛАТА=СЕДМИЦИ ХРАНА",we:"семейството яде",wk:"седмици",ct:"📜 16-год. цикъл",ci:'Дъна: <b style="color:var(--gn)">1968→1984→2000→2016</b> · Пикове: <b style="color:var(--yl)">1980,2011,~2028?</b> · Корекция: <b style="color:var(--rd)">~2029-2032</b>',dc:"НЕ е инвестиционен съвет.",mn:"Мін.",av:"Средна",ig:"В злато",hr:"ч",wm:"/мес"},
+en:{tl:"Purchasing Power in Gold Grams",sb:"10 countries · 2005–2036 · 16-year cycle",ht:"How to read?",hx:"All prices & wages in gold grams — independent of inflation. If wages grow 10% but gold 50% — you're poorer.",op:"🌞 Optimistic",ps:"🌧️ Pessimistic",fc:"FORECAST",hq:"⏱ Min wage. How many hours for 1g gold?",wu:"Wage +",sn:"but",gu:"gold +",bf:"Before:",nw:"Now:",wd:"work days",ls:"Labor ↓",vg:"vs gold.",rr:"Rare: wages beat gold!",bt:"🪙 WITH 1g GOLD you buy:",gl:"Liters gas",kw:"kWh elec",ff:"Days food (fam 4)",tk:"Full tank≈50L→",hh:"Household≈300kWh/mo",mr:"more!",ft:"🛒 FOOD FROM SALARY",fs:"Family ~",fp:"/mo food.",fi:"Min wage",fh:"❌ Over half!",f3:"⚠️ Over 1/3",fo:"✅ Under 1/3",gt:"💰 SALARY=GOLD",gwt:"With 1 min wage",gc:"you buy",ga:"gold.",gp:"poorer in gold",gri:"↑ Richer!",wt:"📅 1 SALARY=WEEKS FOOD",we:"family eats for",wk:"weeks",ct:"📜 16-year gold cycle",ci:'Bottoms: <b style="color:var(--gn)">1968→1984→2000→2016</b> · Peaks: <b style="color:var(--yl)">1980,2011,~2028?</b> · Correction: <b style="color:var(--rd)">~2029-2032</b>',dc:"NOT investment advice.",mn:"Min",av:"Avg",ig:"In gold",hr:"h",wm:"/mo"},
+de:{tl:"Kaufkraft in Goldgramm",sb:"10 Länder · 2005–2036 · 16-J.-Zyklus",ht:"Wie liest man?",hx:"Alle Preise & Löhne in Goldgramm — unabhängig von Inflation. Schiebe den Regler.",op:"🌞 Optimistisch",ps:"🌧️ Pessimistisch",fc:"PROGNOSE",hq:"⏱ Mindestlohn. Stunden für 1g Gold?",wu:"Lohn +",sn:"aber",gu:"Gold +",bf:"Vorher:",nw:"Jetzt:",wd:"Arbeitstage",ls:"Arbeit ↓",vg:"ggü. Gold.",rr:"Selten: Lohn>Gold!",bt:"🪙 MIT 1g GOLD kaufst du:",gl:"Liter Benzin",kw:"kWh Strom",ff:"Tage Essen (4P.)",tk:"Volltanken≈50L→",hh:"Haushalt≈300kWh/M",mr:"mehr!",ft:"🛒 ESSEN VOM GEHALT",fs:"Familie ~",fp:"/Mon.",fi:"Mindestlohn",fh:"❌ Über Hälfte!",f3:"⚠️ Über 1/3",fo:"✅ Unter 1/3",gt:"💰 GEHALT=GOLD",gwt:"Mit 1 Mindestlohn",gc:"kaufst du",ga:"Gold.",gp:"ärmer in Gold",gri:"↑ Reicher!",wt:"📅 1 GEHALT=WOCHEN ESSEN",we:"Familie isst",wk:"Wochen",ct:"📜 16-J.-Goldzyklus",ci:'Tiefs: <b style="color:var(--gn)">1968→1984→2000→2016</b> · Hochs: <b style="color:var(--yl)">1980,2011,~2028?</b> · Korrektur: <b style="color:var(--rd)">~2029-2032</b>',dc:"KEINE Anlageberatung.",mn:"Mind.",av:"Durchschn.",ig:"In Gold",hr:"Std",wm:"/Mon"},
+it:{tl:"Potere d'acquisto in grammi d'oro",sb:"10 paesi · 2005–2036 · ciclo 16 anni",ht:"Come leggere?",hx:"Prezzi e salari in grammi d'oro — indipendente dall'inflazione. Trascina il cursore.",op:"🌞 Ottimistico",ps:"🌧️ Pessimistico",fc:"PREVISIONE",hq:"⏱ Salario minimo. Ore per 1g d'oro?",wu:"Salario +",sn:"ma",gu:"oro +",bf:"Prima:",nw:"Ora:",wd:"giorni lav.",ls:"Lavoro ↓",vg:"vs oro.",rr:"Raro: salario>oro!",bt:"🪙 CON 1g D'ORO compri:",gl:"Litri benzina",kw:"kWh elettr.",ff:"Giorni cibo (fam.4)",tk:"Pieno≈50L→",hh:"Casa≈300kWh/m",mr:"di più!",ft:"🛒 CIBO DAL SALARIO",fs:"Famiglia ~",fp:"/mese.",fi:"Sal. minimo",fh:"❌ Più della metà!",f3:"⚠️ Più di 1/3",fo:"✅ Sotto 1/3",gt:"💰 SALARIO=ORO",gwt:"Con 1 sal. minimo",gc:"compri",ga:"d'oro.",gp:"più poveri in oro",gri:"↑ Più ricchi!",wt:"📅 1 SALARIO=SETTIMANE CIBO",we:"la famiglia mangia",wk:"settimane",ct:"📜 Ciclo 16 anni oro",ci:'Minimi: <b style="color:var(--gn)">1968→1984→2000→2016</b> · Picchi: <b style="color:var(--yl)">1980,2011,~2028?</b> · Correzione: <b style="color:var(--rd)">~2029-2032</b>',dc:"NON è consulenza.",mn:"Min.",av:"Media",ig:"In oro",hr:"ore",wm:"/mese"},
+fr:{tl:"Pouvoir d'achat en grammes d'or",sb:"10 pays · 2005–2036 · cycle 16 ans",ht:"Comment lire?",hx:"Prix & salaires en grammes d'or — indépendant de l'inflation. Glissez le curseur.",op:"🌞 Optimiste",ps:"🌧️ Pessimiste",fc:"PRÉVISION",hq:"⏱ SMIC. Heures pour 1g d'or?",wu:"Salaire +",sn:"mais",gu:"or +",bf:"Avant:",nw:"Maint.:",wd:"jours ouvrés",ls:"Travail ↓",vg:"face à l'or.",rr:"Rare: salaire>or!",bt:"🪙 AVEC 1g D'OR tu achètes:",gl:"Litres essence",kw:"kWh élec",ff:"Jours nourriture (4p.)",tk:"Plein≈50L→",hh:"Ménage≈300kWh/m",mr:"de plus!",ft:"🛒 ALIMENTATION/SALAIRE",fs:"Famille ~",fp:"/mois.",fi:"SMIC",fh:"❌ Plus de moitié!",f3:"⚠️ Plus d'1/3",fo:"✅ Moins d'1/3",gt:"💰 SALAIRE=OR",gwt:"Avec 1 SMIC",gc:"tu achètes",ga:"d'or.",gp:"plus pauvres",gri:"↑ Plus riches!",wt:"📅 1 SALAIRE=SEMAINES",we:"la famille mange",wk:"semaines",ct:"📜 Cycle 16 ans",ci:'Creux: <b style="color:var(--gn)">1968→1984→2000→2016</b> · Pics: <b style="color:var(--yl)">1980,2011,~2028?</b> · Correction: <b style="color:var(--rd)">~2029-2032</b>',dc:"PAS un conseil financier.",mn:"SMIC",av:"Moyen",ig:"En or",hr:"h",wm:"/mois"}
+};
+let lang='bg',yr=2026,co='bg',md='o',drg=false;
+const t=k=>(LL[lang]||LL.en)[k]||(LL.en)[k]||k;
+const $=id=>document.getElementById(id);
 
-let yr=2026, co='bg', md='o', dragging=false;
+function bLB(){const e=$('LB');e.innerHTML='';
+const lb={bg:'🇧🇬 БГ',en:'🇬🇧 EN',de:'🇩🇪 DE',it:'🇮🇹 IT',fr:'🇫🇷 FR'};
+Object.keys(LL).forEach(k=>{const b=document.createElement('button');b.className='sf'+(lang===k?' on':'');b.textContent=lb[k]||k;b.addEventListener('click',()=>{lang=k;bLB();R()});e.appendChild(b)})}
 
-function render(){
-  const c=CC[co], iF=yr>2026;
-  const gP=g1(yr,md), gP05=g1(2005,'o'), gOzNow=gDol(yr,md);
-  const gEur=+(gP*FX.USD).toFixed(2);
-  const loc1g=toL(gEur,c.cur);
-  const minW=gv(c.minW,yr,md), avgW=gv(c.avgW,yr,md);
-  const food=gv(c.food,yr,md), gas=gv(c.gas,yr,md), elec=gv(c.elec,yr,md);
-  const minW05=gv(c.minW,2005,md), food05=gv(c.food,2005,md);
-  const gas05=gv(c.gas,2005,md), elec05=gv(c.elec,2005,md);
-  const minE=toE(minW,c.cur), minE05=toE(minW05,c.cur), avgE=toE(avgW,c.cur);
-  const loc1g05=toL(g1(2005,'o')*FX.USD,c.cur);
-  const minGr=gEur>0?+(minE/gEur).toFixed(2):0;
-  const minGr05=g1(2005,'o')*FX.USD>0?+(minE05/(g1(2005,'o')*FX.USD)).toFixed(2):0;
-  // What 1g buys
-  const g1Gas=gas>0?+(loc1g/gas).toFixed(1):0;
-  const g1Elec=elec>0?Math.round(loc1g/elec):0;
-  const g1FoodD=food>0?+(loc1g/(food/7)).toFixed(1):0;
-  const g1Gas05=gas05>0?+(loc1g05/gas05).toFixed(1):0;
-  const g1Elec05=elec05>0?Math.round(loc1g05/elec05):0;
-  const g1FoodD05=food05>0?+(loc1g05/(food05/7)).toFixed(1):0;
-  // Hours for 1g
-  const hrRate=minW>0?minW/160:0;
-  const hrs1g=hrRate>0?+(loc1g/hrRate).toFixed(1):0;
-  const hrRate05=minW05>0?minW05/160:0;
-  const hrs1g05=hrRate05>0?+(loc1g05/hrRate05).toFixed(1):0;
-  const foodPct=minW>0?+((food*4.33)/minW*100).toFixed(0):0;
-  const ph=PH.find(p=>yr>=p.a&&yr<=p.b)||PH[PH.length-1];
-  const mc=md==='o'?'#4ade80':'#f97316';
-  const pct=((yr-2005)/31)*100;
+function bCB(){const e=$('CB');e.innerHTML='';
+Object.entries(CC).forEach(([k,v])=>{const b=document.createElement('button');b.className='sf'+(co===k?' on':'');b.textContent=v.f;b.title=v.n;
+b.style.cssText='padding:3px 6px;border-radius:4px;border:1px solid '+(co===k?'var(--au)':'#151515')+';background:'+(co===k?'rgba(212,168,67,.06)':'transparent')+';color:'+(co===k?'var(--au)':'#444')+';font-size:12px;cursor:pointer';
+b.addEventListener('click',()=>{co=k;bCB();R()});e.appendChild(b)})}
 
-  // Year + price
-  const yrEl=document.getElementById('yrBig');
-  yrEl.textContent=yr;yrEl.className='yr-big sf'+(iF?' forecast':'');yrEl.style.color=iF?mc:'var(--au)';
-  document.getElementById('fcLabel').style.display=iF?'inline':'none';
-  document.getElementById('gPrice').textContent=`${c.f} 1g = €${gEur}`;
-  document.getElementById('gSub').textContent=`$${gP.toFixed(0)}/g · ×${(gP/gP05).toFixed(1)} от 2005${EV[yr]?' · '+EV[yr]:''}`;
+function bST(){let h='';PH.forEach(p=>{h+='<div class="tp" style="left:'+((p.a-2005)/31*100)+'%;width:'+((p.b-p.a+1)/31*100)+'%;background:'+p.bg+'"></div>'});$('TPH').innerHTML=h;$('TN').style.left=((2026-2005)/31*100)+'%';$('TX').innerHTML=[2005,2010,2015,2020,2026,2030,2036].map(y=>'<span>'+y+'</span>').join('')}
 
-  // Slider
-  const fill=document.getElementById('trackFill');
-  fill.style.width=pct+'%';
-  fill.style.background=`linear-gradient(90deg,#1a1408,${iF?mc:'var(--au)'})`;
-  const thumb=document.getElementById('trackThumb');
-  thumb.style.left=`calc(${pct}% - 12px)`;
-  thumb.textContent=yr;
-  thumb.style.background=iF?mc:'var(--au)';
-  thumb.className='track-thumb sf'+(iF?' forecast':'');
+function bCH(){const W=620,H=140,pts=[];for(let y=2005;y<=2036;y++)pts.push({y,o:G$[y]||(GF[y]?GF[y].o:0),p:G$[y]||(GF[y]?GF[y].p:0),h:!!G$[y]});
+const mx=Math.max(...pts.map(d=>d.o)),x=y=>((y-2005)/31)*W,yc=v=>H-10-v/mx*(H-20);
+let s='<svg viewBox="0 0 '+W+' '+H+'">';PH.forEach(p=>{s+='<rect x="'+x(p.a)+'" width="'+(x(p.b+1)-x(p.a))+'" y="0" height="'+(H-10)+'" fill="'+p.bg+'" rx="2"/>'});
+s+='<line x1="'+x(2026)+'" y1="0" x2="'+x(2026)+'" y2="'+(H-10)+'" stroke="#D4A843" stroke-width="1" stroke-dasharray="3,3" opacity=".3"/>';
+s+='<polygon points="'+pts.map(d=>x(d.y)+','+yc(d.o)).join(' ')+' '+W+','+(H-10)+' 0,'+(H-10)+'" fill="rgba(212,168,67,.15)"/>';
+const hp=pts.filter(d=>d.h),fp=pts.filter(d=>!d.h||d.y===2026);
+s+='<polyline points="'+hp.map(d=>x(d.y)+','+yc(d.o)).join(' ')+'" fill="none" stroke="#D4A843" stroke-width="2"/>';
+s+='<polyline points="'+fp.map(d=>x(d.y)+','+yc(d.o)).join(' ')+'" fill="none" stroke="var(--gn)" stroke-width="1.5" stroke-dasharray="4,3"/>';
+s+='<polyline points="'+fp.map(d=>x(d.y)+','+yc(d.p)).join(' ')+'" fill="none" stroke="var(--or)" stroke-width="1.5" stroke-dasharray="4,3"/>';
+[2005,2010,2015,2020,2026,2030,2036].forEach(y=>{s+='<text x="'+x(y)+'" y="'+H+'" fill="#333" font-size="7" font-family="DM Sans" text-anchor="middle">'+y+'</text>'});
+s+='<circle id="CD" cx="0" cy="0" r="5" fill="#D4A843" stroke="#000" stroke-width="1.5"/><text id="CLL" x="0" y="0" fill="#D4A843" font-size="9" font-family="DM Sans" text-anchor="middle" font-weight="bold"></text></svg>';
+$('CH').innerHTML=s}
 
-  // Hours insight
-  document.getElementById('hrs05').innerHTML=hrs1g05+'<span style="font-size:12px">ч</span>';
-  document.getElementById('hrsYrLbl').textContent=yr+(iF?` (${md==='o'?'опт.':'пес.'})`:'');
-  document.getElementById('hrsYrLbl').style.color=iF?mc:'#555';
-  const hrsEl=document.getElementById('hrsNow');
-  hrsEl.innerHTML=hrs1g+'<span style="font-size:12px">ч</span>';
-  hrsEl.className='val '+(hrs1g>50?'bad':hrs1g>20?'warn':'good');
-  const wageGrowthPct=minE05>0?((minE/minE05-1)*100).toFixed(0):0;
-  const goldGrowthPct=(gP05*FX.USD)>0?((gEur/(gP05*FX.USD)-1)*100).toFixed(0):0;
-  const pctChg=hrs1g05>0?((1-hrs1g05/hrs1g)*100).toFixed(0):0;
-  const daysPer1g=hrs1g>0?(hrs1g/8).toFixed(1):0;
-  const daysPer1g05=hrs1g05>0?(hrs1g05/8).toFixed(1):0;
-  document.getElementById('insightTxt').innerHTML=hrs1g>hrs1g05
-    ?`${c.f} <b>Заплатата порасна +${wageGrowthPct}%</b> (€${minE05}→€${minE}), звучи добре! Но <b>златото порасна +${goldGrowthPct}%</b>. Преди: ${daysPer1g05} работни дни за 1g. Сега: <b style="color:var(--red)">${daysPer1g} работни дни</b>. Трудът ти се обезцени <b style="color:var(--red)">↓${pctChg}%</b> спрямо златото.`
-    :'<b style="color:var(--green)">Рядък случай: заплатата расте по-бързо от златото!</b> Трудът ти купува повече злато.';
-  document.getElementById('subInfo').innerHTML=`Мин. заплата: €${minE05} → €${minE}/мес · Средна: €${avgE}/мес · В злато: ${minGr05.toFixed(1)}g → ${minGr.toFixed(1)}g · <span style="color:#555">Ставка: ${(minW/160).toFixed(2)} ${c.cur}/час</span>`;
+function uCH(){const W=620,H=140,mx=Math.max(...Object.values(G$),...Object.values(GF).map(f=>f.o));
+const oz=gD(yr,md),cx=((yr-2005)/31)*W,cy=H-10-oz/mx*(H-20),mc=yr>2026?(md==='o'?'#4ade80':'#f97316'):'#D4A843';
+const d=$('CD'),l=$('CLL');if(d){d.setAttribute('cx',cx);d.setAttribute('cy',cy);d.setAttribute('fill',mc)}if(l){l.setAttribute('x',cx);l.setAttribute('y',cy-10);l.textContent='$'+oz;l.setAttribute('fill',mc)}}
 
-  // What 1g buys
-  document.getElementById('buyTitle').innerHTML=`🪙 АКО ИМАШ 1 ГРАМ ЗЛАТО (= €${gEur} днес), можеш да купиш:`;
-  const buys=[
-    {i:'⛽',l:'Литра бензин',v:g1Gas,v0:g1Gas05,ex:`Пълен резервоар ≈ 50L → нужни ${(50/g1Gas).toFixed(1)}g`},
-    {i:'⚡',l:'Киловатчаса ток',v:g1Elec,v0:g1Elec05,ex:`Средно домакинство ≈ 300 kWh/мес`},
-    {i:'👨‍👩‍👧‍👦',l:'Дни храна за семейство от 4',v:g1FoodD,v0:g1FoodD05,ex:`(${Math.round(food)} ${c.cur}/седм ÷ 7 = ${(food/7).toFixed(0)} ${c.cur}/ден)`}
-  ];
-  document.getElementById('buyGrid').innerHTML=buys.map(x=>{
-    const up=parseFloat(x.v)>=parseFloat(x.v0);
-    return`<div class="buy-card"><div class="icon">${x.i}</div><div class="lbl sf">${x.l}</div><div class="num sf ${up?'up':'dn'}">${x.v}</div><div class="cmp sf">2005: ${x.v0} · ${up?'×'+(x.v/x.v0).toFixed(1)+' повече!':'↓'+((1-x.v/x.v0)*100).toFixed(0)+'%'}</div><div class="cmp sf" style="color:#444;margin-top:2px">${x.ex}</div></div>`;
-  }).join('');
+function R(){
+const c=CC[co],iF=yr>2026,gP=g1(yr,md),gP05=g1(2005,'o'),gEur=+(gP*FX.USD).toFixed(2);
+const loc=tL(gEur,c.cur),minW=gv(c.minW,yr,md),avgW=gv(c.avgW,yr,md);
+const food=gv(c.food,yr,md),gas=gv(c.gas,yr,md),elec=gv(c.elec,yr,md);
+const minW05=gv(c.minW,2005,md),food05=gv(c.food,2005,md),gas05=gv(c.gas,2005,md),elec05=gv(c.elec,2005,md);
+const minE=tE(minW,c.cur),minE05=tE(minW05,c.cur),avgE=tE(avgW,c.cur);
+const loc05=tL(g1(2005,'o')*FX.USD,c.cur);
+const mGr=gEur>0?+(minE/gEur).toFixed(2):0,mGr05=g1(2005,'o')*FX.USD>0?+(minE05/(g1(2005,'o')*FX.USD)).toFixed(2):0;
+const g1G=gas>0?+(loc/gas).toFixed(1):0,g1E=elec>0?Math.round(loc/elec):0,g1F=food>0?+(loc/(food/7)).toFixed(1):0;
+const g1G05=gas05>0?+(loc05/gas05).toFixed(1):0,g1E05=elec05>0?Math.round(loc05/elec05):0,g1F05=food05>0?+(loc05/(food05/7)).toFixed(1):0;
+const hR=minW>0?minW/160:0,hrs=hR>0?+(loc/hR).toFixed(1):0;
+const hR05=minW05>0?minW05/160:0,hrs05=hR05>0?+(loc05/hR05).toFixed(1):0;
+const fPct=minW>0?+((food*4.33)/minW*100).toFixed(0):0;
+const ph=PH.find(p=>yr>=p.a&&yr<=p.b)||PH[PH.length-1];
+const mc=md==='o'?'#4ade80':'#f97316',pct=((yr-2005)/31)*100;
 
-  // Dual forecast
-  const db=document.getElementById('dualBox');
-  if(iF){
-    db.style.display='grid';
-    db.innerHTML=[{m:'o',l:'🌞 Оптимистичен',cl:'#4ade80'},{m:'p',l:'🌧️ Песимистичен',cl:'#f97316'}].map(sc=>{
-      const gPx=g1(yr,sc.m),gEx=+(gPx*FX.USD).toFixed(2),loc1gx=toL(gEx,c.cur);
-      const minWx=gv(c.minW,yr,sc.m),foodx=gv(c.food,yr,sc.m),gasx=gv(c.gas,yr,sc.m);
-      const hrsx=minWx>0?+(loc1gx/(minWx/160)).toFixed(0):0;
-      const g1Fx=foodx>0?+(loc1gx/(foodx/7)).toFixed(1):0;
-      const g1Gx=gasx>0?+(loc1gx/gasx).toFixed(0):0;
-      const daysWork=hrsx>0?(hrsx/8).toFixed(1):0;
-      return`<div class="dual-card" style="background:${sc.cl}08;border:1px solid ${sc.cl}1a"><div class="dtit sf" style="color:${sc.cl}">${sc.l}</div><div class="dprice sf" style="color:${sc.cl}">1g злато = €${gEx}</div><div class="dinfo sf">$${gDol(yr,sc.m)}/унция<br>⏱ ${hrsx}ч (${daysWork} работни дни) за 1g<br>⛽ 1g = ${g1Gx} литра бензин<br>👨‍👩‍👧‍👦 1g = ${g1Fx} дни храна</div></div>`;
-    }).join('');
-  } else db.style.display='none';
+// Translate
+$('T').textContent=t('tl');$('S').textContent=t('sb');$('HT').textContent=t('ht');$('HX').textContent=t('hx');$('IQ').textContent=t('hq');
+$('CT').textContent=t('ct');$('CI').innerHTML=t('ci');$('FT').innerHTML='BLS·OECD·Eurostat·WGC·ECB·JPM·UBS·2026<br>'+t('dc');
 
-  // Metrics — clear human explanations
-  const weeksFood=food>0?(minW/food).toFixed(1):0;
-  const foodMonthly=food>0?(food*4.33).toFixed(0):0;
-  document.getElementById('metricsGrid').innerHTML=`
-    <div class="metric">
-      <div class="mlbl sf">🛒 ХРАНА ОТ ЗАПЛАТАТА</div>
-      <div class="mval sf" style="color:${foodPct>50?'var(--red)':foodPct>35?'var(--yellow)':'var(--green)'}">${foodPct}%</div>
-      <div class="msub sf" style="color:#555;line-height:1.4">Семейство харчи ~${foodMonthly} ${c.cur}/мес за храна.<br>Мин. заплата е ${Math.round(minW)} ${c.cur}.<br>${foodPct>50?'❌ Повече от половината заплата!':foodPct>35?'⚠️ Над 1/3 от заплатата':'✅ Под 1/3 — поносимо'}</div>
-    </div>
-    <div class="metric">
-      <div class="mlbl sf">💰 ЗАПЛАТА = ГРАМОВЕ ЗЛАТО</div>
-      <div class="mval sf" style="color:${minGr<minGr05?'var(--red)':'var(--green)'}">${minGr.toFixed(1)}g</div>
-      <div class="msub sf" style="color:#555;line-height:1.4">С 1 мин. заплата (€${minE})<br>можеш да купиш ${minGr.toFixed(1)}g злато.<br>2005: ${minGr05.toFixed(1)}g · ${minGr<minGr05?'↓ '+(((1-minGr/minGr05)*100).toFixed(0))+'% по-бедни в злато':'↑ По-богати в злато!'}</div>
-    </div>
-    <div class="metric">
-      <div class="mlbl sf">📅 1 ЗАПЛАТА = СЕДМИЦИ ХРАНА</div>
-      <div class="mval sf" style="color:var(--blue)">${weeksFood}</div>
-      <div class="msub sf" style="color:#555;line-height:1.4">С 1 мин. заплата (${Math.round(minW)} ${c.cur})<br>семейството може да се<br>храни ${weeksFood} седмици${weeksFood>5?' ✅':weeksFood>3?' ⚠️':' ❌'}</div>
-    </div>`;
+// Mode btn
+const mb=$('MB');mb.textContent=md==='o'?t('op'):t('ps');mb.style.color=mc;mb.style.borderColor=mc+'33';mb.style.background=mc+'08';
+mb.onclick=()=>{md=md==='o'?'p':'o';R()};
 
-  // Phase
-  document.getElementById('phaseBar').innerHTML=`<span class="pemoji">${ph.e}</span><div class="sf"><div class="pname">${ph.l} (${ph.a}–${ph.b})</div><div class="pdesc">${ph.d}</div></div>`;
-  document.getElementById('tipBox').textContent=c.tip;
+// Year
+$('YB').textContent=yr;$('YB').style.color=iF?mc:'var(--au)';
+const fl=$('FL');fl.style.display=iF?'inline':'none';fl.textContent=iF?'📡 '+t('fc'):'';fl.style.color=mc;
+$('GP').textContent=c.f+' 1g = €'+gEur;
+$('GS').textContent='$'+gP.toFixed(0)+'/g · ×'+(gP/gP05).toFixed(1)+' 2005';
 
-  // Cycle bars
-  document.getElementById('cycleBars').innerHTML=PH.map(p=>{
-    const on=yr>=p.a&&yr<=p.b;
-    return`<div class="cycle-bar${on?' on':''}" onclick="yr=${Math.round((p.a+p.b)/2)};render();updateChart();" style="flex:${p.b-p.a+1};${on?'background:'+p.bg:''}"><div class="cy sf">${p.a}</div><div class="ce">${p.e}</div></div>`;
-  }).join('');
+// Slider
+$('TF').style.width=pct+'%';$('TF').style.background='linear-gradient(90deg,#1a1408,'+(iF?mc:'var(--au)')+')';
+const th=$('TT');th.style.left='calc('+pct+'% - 12px)';th.textContent=yr;th.style.background=iF?mc:'var(--au)';
 
-  // Mode button
-  const mb=document.getElementById('modeBtn');
-  mb.textContent=md==='o'?'🌞 Оптимистичен':'🌧️ Песимистичен';
-  mb.style.color=mc;mb.style.borderColor=mc+'33';mb.style.background=mc+'08';
+// Hours
+$('H5').innerHTML=hrs05+'<span style="font-size:12px">'+t('hr')+'</span>';
+$('HL').textContent=yr;$('HL').style.color=iF?mc:'#555';
+const he=$('HN');he.innerHTML=hrs+'<span style="font-size:12px">'+t('hr')+'</span>';he.className='vl '+(hrs>50?'bd':hrs>20?'wr':'gd');
+const wP=minE05>0?((minE/minE05-1)*100).toFixed(0):0,aP=(gP05*FX.USD)>0?((gEur/(gP05*FX.USD)-1)*100).toFixed(0):0;
+const lP=hrs05>0?((1-hrs05/hrs)*100).toFixed(0):0,d1=(hrs/8).toFixed(1),d05=(hrs05/8).toFixed(1);
+$('IX').innerHTML=hrs>hrs05?c.f+' <b>'+t('wu')+wP+'%</b> (€'+minE05+'→€'+minE+'), '+t('sn')+' <b>'+t('gu')+aP+'%</b>. '+t('bf')+' '+d05+' '+t('wd')+'. '+t('nw')+' <b style="color:var(--rd)">'+d1+' '+t('wd')+'</b>. '+t('ls')+' <b style="color:var(--rd)">'+lP+'%</b> '+t('vg'):'<b style="color:var(--gn)">'+t('rr')+'</b>';
+$('SI').innerHTML=t('mn')+': €'+minE05+' → €'+minE+t('wm')+' · '+t('av')+': €'+avgE+t('wm')+' · '+t('ig')+': '+mGr05.toFixed(1)+'g → '+mGr.toFixed(1)+'g';
 
-  // Update chart marker
-  updateChart();
-}
+// Buy cards
+$('BT').innerHTML=t('bt')+' (€'+gEur+')';
+const buys=[{i:'⛽',l:t('gl'),v:g1G,v0:g1G05,ex:t('tk')+(g1G>0?(50/g1G).toFixed(1):0)+'g'},{i:'⚡',l:t('kw'),v:g1E,v0:g1E05,ex:t('hh')},{i:'👨‍👩‍👧‍👦',l:t('ff'),v:g1F,v0:g1F05,ex:'('+Math.round(food)+' '+c.cur+'/'+t('wk')+')'}];
+$('BG').innerHTML=buys.map(x=>{const up=parseFloat(x.v)>=parseFloat(x.v0);return'<div class="bc"><div class="ic">'+x.i+'</div><div class="lb sf">'+x.l+'</div><div class="nm sf '+(up?'up':'dn')+'">'+x.v+'</div><div class="cm sf">2005: '+x.v0+' · '+(up?'×'+(x.v/x.v0).toFixed(1)+' '+t('mr'):'↓'+((1-x.v/x.v0)*100).toFixed(0)+'%')+'</div><div class="cm sf" style="color:#444;margin-top:2px">'+x.ex+'</div></div>'}).join('');
 
-function buildChart(){
-  const W=620,H=140;
-  const pts=[];
-  for(let y=2005;y<=2036;y++){
-    pts.push({y,o:G$[y]||(GF[y]?GF[y].o:0),p:G$[y]||(GF[y]?GF[y].p:0),h:!!G$[y]});
-  }
-  const mx=Math.max(...pts.map(d=>d.o));
-  const x=y=>((y-2005)/31)*W;
-  const yc=(v)=>H-10-v/mx*(H-20);
+// Dual forecast
+const db=$('DB');
+if(iF){db.style.display='grid';
+db.innerHTML=[{m:'o',l:t('op'),cl:'#4ade80'},{m:'p',l:t('ps'),cl:'#f97316'}].map(sc=>{
+const gx=g1(yr,sc.m),gex=+(gx*FX.USD).toFixed(2),lx=tL(gex,c.cur);
+const mwx=gv(c.minW,yr,sc.m),fx=gv(c.food,yr,sc.m),gsx=gv(c.gas,yr,sc.m);
+const hx=mwx>0?+(lx/(mwx/160)).toFixed(0):0,fdx=fx>0?+(lx/(fx/7)).toFixed(1):0,glx=gsx>0?+(lx/gsx).toFixed(0):0;
+return'<div class="dc" style="background:'+sc.cl+'08;border:1px solid '+sc.cl+'1a"><div class="dt sf" style="color:'+sc.cl+'">'+sc.l+'</div><div class="dp sf" style="color:'+sc.cl+'">1g=€'+gex+'</div><div class="di sf">$'+gD(yr,sc.m)+'/oz<br>⏱ '+hx+t('hr')+' ('+(hx/8).toFixed(1)+' '+t('wd')+')/1g<br>⛽ '+glx+' '+t('gl')+'<br>👨‍👩‍👧‍👦 '+fdx+' '+t('ff')+'</div></div>'}).join('')}else db.style.display='none';
 
-  let svg=`<svg viewBox="0 0 ${W} ${H}">`;
-  svg+=`<defs><linearGradient id="gf" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D4A843" stop-opacity=".25"/><stop offset="100%" stop-color="#D4A843" stop-opacity="0"/></linearGradient></defs>`;
-  // Phase bgs
-  PH.forEach(p=>{svg+=`<rect x="${x(p.a)}" width="${x(p.b+1)-x(p.a)}" y="0" height="${H-10}" fill="${p.bg}" rx="2"/>`;});
-  // 2026 line
-  svg+=`<line x1="${x(2026)}" y1="0" x2="${x(2026)}" y2="${H-10}" stroke="#D4A843" stroke-width="1" stroke-dasharray="3,3" opacity=".3"/>`;
-  svg+=`<text x="${x(2026)+3}" y="10" fill="#D4A843" font-size="7" font-family="DM Sans,sans-serif" opacity=".5">ДНЕС</text>`;
-  // Fill area
-  svg+=`<polygon points="${pts.map(d=>`${x(d.y)},${yc(d.o)}`).join(' ')} ${W},${H-10} 0,${H-10}" fill="url(#gf)" opacity=".4"/>`;
-  // Historical line
-  const histPts=pts.filter(d=>d.h);
-  svg+=`<polyline points="${histPts.map(d=>`${x(d.y)},${yc(d.o)}`).join(' ')}" fill="none" stroke="#D4A843" stroke-width="2"/>`;
-  // Forecast lines
-  const fcPts=pts.filter(d=>!d.h||d.y===2026);
-  svg+=`<polyline points="${fcPts.map(d=>`${x(d.y)},${yc(d.o)}`).join(' ')}" fill="none" stroke="#4ade80" stroke-width="1.5" stroke-dasharray="4,3"/>`;
-  svg+=`<polyline points="${fcPts.map(d=>`${x(d.y)},${yc(d.p)}`).join(' ')}" fill="none" stroke="#f97316" stroke-width="1.5" stroke-dasharray="4,3"/>`;
-  // Labels
-  svg+=`<text x="${x(2028)}" y="18" fill="#fbbf24" font-size="7" font-family="DM Sans,sans-serif" text-anchor="middle" opacity=".7">ПИК?</text>`;
-  svg+=`<text x="${x(2032)}" y="${yc(3100)+15}" fill="#ef4444" font-size="7" font-family="DM Sans,sans-serif" text-anchor="middle" opacity=".7">ДЪНО?</text>`;
-  // Axis
-  [2005,2010,2015,2020,2026,2030,2036].forEach(y=>{svg+=`<text x="${x(y)}" y="${H}" fill="#333" font-size="7" font-family="DM Sans,sans-serif" text-anchor="middle">${y}</text>`;});
-  // Marker (will be updated)
-  svg+=`<circle id="chartDot" cx="0" cy="0" r="5" fill="#D4A843" stroke="#000" stroke-width="1.5"/>`;
-  svg+=`<text id="chartLbl" x="0" y="0" fill="#D4A843" font-size="9" font-family="DM Sans,sans-serif" text-anchor="middle" font-weight="bold"></text>`;
-  svg+=`</svg>`;
-  document.getElementById('chartWrap').innerHTML=svg;
-}
+// Metrics
+const wkF=food>0?(minW/food).toFixed(1):0,fM=food>0?(food*4.33).toFixed(0):0;
+$('MG').innerHTML='<div class="mt"><div class="ml sf">'+t('ft')+'</div><div class="mv sf" style="color:'+(fPct>50?'var(--rd)':fPct>35?'var(--yl)':'var(--gn)')+'">'+fPct+'%</div><div class="ms sf">'+t('fs')+fM+' '+c.cur+t('fp')+'<br>'+t('fi')+' '+Math.round(minW)+' '+c.cur+'<br>'+(fPct>50?t('fh'):fPct>35?t('f3'):t('fo'))+'</div></div>'
++'<div class="mt"><div class="ml sf">'+t('gt')+'</div><div class="mv sf" style="color:'+(mGr<mGr05?'var(--rd)':'var(--gn)')+'">'+mGr.toFixed(1)+'g</div><div class="ms sf">'+t('gwt')+' (€'+minE+')<br>'+t('gc')+' '+mGr.toFixed(1)+'g '+t('ga')+'<br>2005: '+mGr05.toFixed(1)+'g · '+(mGr<mGr05?'↓'+((1-mGr/mGr05)*100).toFixed(0)+'% '+t('gp'):t('gri'))+'</div></div>'
++'<div class="mt"><div class="ml sf">'+t('wt')+'</div><div class="mv sf" style="color:var(--bl)">'+wkF+'</div><div class="ms sf">'+t('we')+'<br>'+wkF+' '+t('wk')+(wkF>5?' ✅':wkF>3?' ⚠️':' ❌')+'</div></div>';
 
-function updateChart(){
-  const W=620,H=140;
-  const mx=Math.max(...Object.values(G$),...Object.values(GF).map(f=>f.o));
-  const oz=gDol(yr,md);
-  const cx=((yr-2005)/31)*W;
-  const cy=H-10-oz/mx*(H-20);
-  const mc=yr>2026?(md==='o'?'#4ade80':'#f97316'):'#D4A843';
-  const dot=document.getElementById('chartDot');
-  const lbl=document.getElementById('chartLbl');
-  if(dot){dot.setAttribute('cx',cx);dot.setAttribute('cy',cy);dot.setAttribute('fill',mc);}
-  if(lbl){lbl.setAttribute('x',cx);lbl.setAttribute('y',cy-10);lbl.textContent='$'+oz;lbl.setAttribute('fill',mc);}
-}
+// Phase & tip
+$('PB').innerHTML='<span class="pe">'+ph.e+'</span><div class="sf"><div class="pn">'+ph.e+' ('+ph.a+'–'+ph.b+')</div></div>';
+$('TI').textContent=c.tip;
 
-// ═══ INIT ═══
-function buildCountries(){
-  document.getElementById('coBar').innerHTML=Object.entries(CC).map(([k,v])=>
-    `<button class="sf${co===k?' on':''}" onclick="co='${k}';buildCountries();render();">${v.f} ${v.n}</button>`
-  ).join('');
-}
-function buildSliderTrack(){
-  let h='';
-  PH.forEach(p=>{h+=`<div class="track-phase" style="left:${((p.a-2005)/31)*100}%;width:${((p.b-p.a+1)/31)*100}%;background:${p.bg}"></div>`;});
-  document.getElementById('trackPhases').innerHTML=h;
-  document.getElementById('trackNow').style.left=((2026-2005)/31)*100+'%';
-  document.getElementById('ticks').innerHTML=[2005,2010,2015,2020,2026,2030,2036].map(y=>`<span>${y}</span>`).join('');
-}
-function toggleMode(){md=md==='o'?'p':'o';render();}
+// Cycle bars
+$('CYB').innerHTML=PH.map(p=>{const on=yr>=p.a&&yr<=p.b;return'<div class="cybb'+(on?' on':'')+'" data-yr="'+Math.round((p.a+p.b)/2)+'" style="flex:'+(p.b-p.a+1)+(on?';background:'+p.bg:'')+'"'+'><div class="cv sf">'+p.a+'</div><div class="ce">'+p.e+'</div></div>'}).join('');
+document.querySelectorAll('.cybb').forEach(el=>{el.addEventListener('click',function(){yr=parseInt(this.dataset.yr);R();uCH()})});
+uCH()}
 
-// Slider interaction
-const track=document.getElementById('track');
-function sliderPos(e){
-  const r=track.getBoundingClientRect();
-  const cx=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
-  yr=Math.min(2036,Math.max(2005,Math.round(2005+cx/r.width*31)));
-  render();
-}
-track.addEventListener('mousedown',e=>{dragging=true;sliderPos(e);});
-window.addEventListener('mousemove',e=>{if(dragging){e.preventDefault();sliderPos(e);}});
-window.addEventListener('mouseup',()=>dragging=false);
-track.addEventListener('touchstart',e=>{dragging=true;sliderPos(e);},{passive:true});
-window.addEventListener('touchmove',e=>{if(dragging){e.preventDefault();sliderPos(e);}},{passive:false});
-window.addEventListener('touchend',()=>dragging=false);
+// Slider
+const tk=$('TK');
+function sP(e){const r=tk.getBoundingClientRect();const cx=(e.touches?e.touches[0].clientX:e.clientX)-r.left;yr=Math.min(2036,Math.max(2005,Math.round(2005+cx/r.width*31)));R()}
+tk.addEventListener('mousedown',e=>{drg=true;sP(e)});
+window.addEventListener('mousemove',e=>{if(drg){e.preventDefault();sP(e)}});
+window.addEventListener('mouseup',()=>drg=false);
+tk.addEventListener('touchstart',e=>{drg=true;sP(e)},{passive:true});
+window.addEventListener('touchmove',e=>{if(drg){e.preventDefault();sP(e)}},{passive:false});
+window.addEventListener('touchend',()=>drg=false);
 
-buildChart();
-buildCountries();
-buildSliderTrack();
-render();
-</script>
-</body>
-</html>
+bCH();bLB();bCB();bST();R();
+</script></body></html>
