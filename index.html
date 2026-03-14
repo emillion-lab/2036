@@ -78,7 +78,7 @@ body{background:var(--bg);color:var(--tx);font-family:'Cormorant Garamond',Georg
 <div class="pb" id="PB"></div><div class="tip sf" id="TI"></div>
 <div class="cyc"><div class="cyt sf" id="CT"></div><div class="cyb" id="CYB"></div><div class="cyi sf" id="CI"></div></div>
 <div class="ft sf" id="FT"></div>
-</div><!-- /mainPanel -->
+</div>
 <script>
 
 const G$={2005:445,2006:604,2007:696,2008:872,2009:972,2010:1225,2011:1572,2012:1669,2013:1411,2014:1266,2015:1160,2016:1251,2017:1257,2018:1269,2019:1393,2020:1770,2021:1799,2022:1800,2023:1943,2024:2386,2025:2900,2026:5200};
@@ -105,19 +105,288 @@ cn:{f:"🇨🇳",n:"China",cur:"CNY",minW:{2005:690,2010:1120,2015:2020,2018:242
 const PH=[{a:2005,b:2010,e:"🟢",bg:"rgba(74,222,128,.06)"},{a:2011,b:2013,e:"🔴",bg:"rgba(239,68,68,.06)"},{a:2014,b:2018,e:"🟡",bg:"rgba(100,100,100,.04)"},{a:2019,b:2026,e:"🟢",bg:"rgba(74,222,128,.06)"},{a:2027,b:2028,e:"🔥",bg:"rgba(251,191,36,.09)"},{a:2029,b:2032,e:"🔴",bg:"rgba(239,68,68,.06)"},{a:2033,b:2036,e:"🟡",bg:"rgba(100,100,100,.04)"}];
 
 const LL={
-bg:{tl:"Покупателна сила в грамове злато",sb:"10 държави · 2005–2036 · 16-год. цикъл",ht:"Как да четем?",hx:"Всички цени и заплати са в грамове злато — мярка, независима от инфлация. Ако заплатата расте 10% но златото 50% — ставаш по-беден.",op:"🌞 Оптимистичен",ps:"🌧️ Песимистичен",fc:"ПРОГНОЗА",hq:"⏱ Работиш на мин. заплата. Колко часа за 1g злато?",wu:"Заплата +",sn:"но",gu:"злато +",bf:"Преди:",nw:"Сега:",wd:"раб.дни",ls:"Труд ↓",vg:"спрямо златото.",rr:"Рядко: заплата > злато!",bt:"🪙 С 1g ЗЛАТО купуваш:",gl:"Литра бензин",kw:"kWh ток",ff:"Дни храна (4чл.)",tk:"Резервоар≈50L→",hh:"Домакинство≈300kWh/м",mr:"повече!",ft:"🛒 ХРАНА ОТ ЗАПЛАТАТА",fs:"Семейство ~",fp:"/мес храна.",fi:"Мин. заплата",fh:"❌ Над половината!",f3:"⚠️ Над 1/3",fo:"✅ Под 1/3",gt:"💰 ЗАПЛАТА=ЗЛАТО",gwt:"С 1 мин. заплата",gc:"купуваш",ga:"злато.",gp:"по-бедни в злато",gri:"↑ По-богати!",wt:"📅 1 ЗАПЛАТА=СЕДМИЦИ ХРАНА",we:"семейството яде",wk:"седмици",ct:"📜 16-год. цикъл",ci:'Дъна: <b style="color:var(--gn)">1968→1984→2000→2016</b> · Пикове: <b style="color:var(--yl)">1980,2011,~2028?</b> · Корекция: <b style="color:var(--rd)">~2029-2032</b>',dc:"НЕ е инвестиционен съвет.",mn:"Мін.",av:"Средна",ig:"В злато",hr:"ч",wm:"/мес",hgl:"🌌 Злато: 106 години (1920–2036)",hsb:"Логаритмична скала · Кликни десетилетие · 📊 = данни по държави",hdl:"━ Дни храна за 1g злато",hhl:"━ Часове труд (мін.запл.) за 1g",hbs:"Кошница: 5lb месо, 10lb картофи, 5lb брашно, хляб, мляко, яйца, ориз, захар",hyr:"Год.",hgg:"1g=$",hmw:"Мін.з./ч",hdf:"🛒 Дни храна/g",hhg:"⏱ ч/g",hhd:"🍽 ч/ден храна",hwk:"$/седм",hbk:"🛒 Кошница",hin:"какво включва",hth:"часа",hlb:"труд на мін.запл.",hm1:"Повече от 1 раб.ден!",hl1:"По-малко от 1 раб.ден",hdg:"дни храна/g",hch:"Промяна",hbm:"1g купува ПОВЕЧЕ храна",hbl:"1g купува по-малко",hle:"= злато евтино",hme:"= средно",hhe:"= скъпо",hcy:"📜 16-год. цикъл (GoldBroker/JPM)",hpa:"Фаза A",hri:"ръст",hpk:"пик→корекция",hbt:"дъно (купувай)",hbn:"Дъна",hps:"Пикове",hnw:"Сега",hqi:"Скритата инфлация: качеството пада!",hmt:"Месо",hm50:"1950: фермерско, без хормони",hm26:"2026: индустриално, водна инжекция +20-30%",hb26:"2026: подобрители, shrinkflation",he50:"1950: свободни кокошки",he26:"2026: клеткови, по-малки",hpo:"Картофи",hpq:"по-малки, повече химия",hcl:"Дрехи",hc50:"1960: памук, вълна, 10+ год.",hc26:"2026: полиестер, fast fashion",hsh:"Shrinkflation",hsq:"Пакетите: чипс 200g→150g",hef:"Ефект",heq:"Реалната инфлация +15-30% по-висока",hrd:"истински дни храна",h1d:"1 ден",h1w:"1 седм."},
-en:{tl:"Purchasing Power in Gold Grams",sb:"10 countries · 2005–2036 · 16-year cycle",ht:"How to read?",hx:"All prices & wages in gold grams — independent of inflation. If wages grow 10% but gold 50% — you're poorer.",op:"🌞 Optimistic",ps:"🌧️ Pessimistic",fc:"FORECAST",hq:"⏱ Min wage. How many hours for 1g gold?",wu:"Wage +",sn:"but",gu:"gold +",bf:"Before:",nw:"Now:",wd:"work days",ls:"Labor ↓",vg:"vs gold.",rr:"Rare: wages beat gold!",bt:"🪙 WITH 1g GOLD you buy:",gl:"Liters gas",kw:"kWh elec",ff:"Days food (fam 4)",tk:"Full tank≈50L→",hh:"Household≈300kWh/mo",mr:"more!",ft:"🛒 FOOD FROM SALARY",fs:"Family ~",fp:"/mo food.",fi:"Min wage",fh:"❌ Over half!",f3:"⚠️ Over 1/3",fo:"✅ Under 1/3",gt:"💰 SALARY=GOLD",gwt:"With 1 min wage",gc:"you buy",ga:"gold.",gp:"poorer in gold",gri:"↑ Richer!",wt:"📅 1 SALARY=WEEKS FOOD",we:"family eats for",wk:"weeks",ct:"📜 16-year gold cycle",ci:'Bottoms: <b style="color:var(--gn)">1968→1984→2000→2016</b> · Peaks: <b style="color:var(--yl)">1980,2011,~2028?</b> · Correction: <b style="color:var(--rd)">~2029-2032</b>',dc:"NOT investment advice.",mn:"Min",av:"Avg",ig:"In gold",hr:"h",wm:"/mo",hgl:"🌌 Gold: 106 Years (1920–2036)",hsb:"Log scale · Click decade · 📊 = full country data",hdl:"━ Days of food per 1g gold",hhl:"━ Hours of labor (min.wage) per 1g",hbs:"Basket: 5lb beef, 10lb potatoes, 5lb flour, bread, milk, eggs, rice, sugar",hyr:"Year",hgg:"1g=$",hmw:"Min.w./h",hdf:"🛒 Days food/g",hhg:"⏱ h/g",hhd:"🍽 h/day food",hwk:"$/wk",hbk:"🛒 Basket",hin:"includes",hth:"hours",hlb:"labor at min.wage",hm1:"More than 1 work day!",hl1:"Less than 1 work day",hdg:"days food/g",hch:"Change",hbm:"1g buys MORE food",hbl:"1g buys less food",hle:"= gold cheap",hme:"= medium",hhe:"= expensive",hcy:"📜 16-year cycle (GoldBroker/JPM)",hpa:"Phase A",hri:"growth",hpk:"peak→correction",hbt:"bottom (buy)",hbn:"Bottoms",hps:"Peaks",hnw:"Now",hqi:"Hidden inflation: quality drops!",hmt:"Meat",hm50:"1950: farm-raised, no hormones",hm26:"2026: industrial, water-injected +20-30%",hb26:"2026: additives, shrinkflation",he50:"1950: free-range hens",he26:"2026: caged, smaller, paler",hpo:"Potatoes",hpq:"smaller, more chemicals",hcl:"Clothes",hc50:"1960: cotton, wool, 10+ years",hc26:"2026: polyester, fast fashion",hsh:"Shrinkflation",hsq:"Packages: chips 200g→150g",hef:"Effect",heq:"Real inflation +15-30% higher",hrd:"real days of food",h1d:"1 day",h1w:"1 week"},
-de:{tl:"Kaufkraft in Goldgramm",sb:"10 Länder · 2005–2036 · 16-J.-Zyklus",ht:"Wie liest man?",hx:"Alle Preise & Löhne in Goldgramm — unabhängig von Inflation. Schiebe den Regler.",op:"🌞 Optimistisch",ps:"🌧️ Pessimistisch",fc:"PROGNOSE",hq:"⏱ Mindestlohn. Stunden für 1g Gold?",wu:"Lohn +",sn:"aber",gu:"Gold +",bf:"Vorher:",nw:"Jetzt:",wd:"Arbeitstage",ls:"Arbeit ↓",vg:"ggü. Gold.",rr:"Selten: Lohn>Gold!",bt:"🪙 MIT 1g GOLD kaufst du:",gl:"Liter Benzin",kw:"kWh Strom",ff:"Tage Essen (4P.)",tk:"Volltanken≈50L→",hh:"Haushalt≈300kWh/M",mr:"mehr!",ft:"🛒 ESSEN VOM GEHALT",fs:"Familie ~",fp:"/Mon.",fi:"Mindestlohn",fh:"❌ Über Hälfte!",f3:"⚠️ Über 1/3",fo:"✅ Unter 1/3",gt:"💰 GEHALT=GOLD",gwt:"Mit 1 Mindestlohn",gc:"kaufst du",ga:"Gold.",gp:"ärmer in Gold",gri:"↑ Reicher!",wt:"📅 1 GEHALT=WOCHEN ESSEN",we:"Familie isst",wk:"Wochen",ct:"📜 16-J.-Goldzyklus",ci:'Tiefs: <b style="color:var(--gn)">1968→1984→2000→2016</b> · Hochs: <b style="color:var(--yl)">1980,2011,~2028?</b> · Korrektur: <b style="color:var(--rd)">~2029-2032</b>',dc:"KEINE Anlageberatung.",mn:"Mind.",av:"Durchschn.",ig:"In Gold",hr:"Std",wm:"/Mon",hgl:"🌌 Gold: 106 Jahre (1920–2036)",hsb:"Log. Skala · Jahrzehnt klicken · 📊 = Länderdaten",hdl:"━ Tage Essen pro 1g Gold",hhl:"━ Arbeitsstunden (MiLo) pro 1g",hbs:"Warenkorb: Fleisch, Kartoffeln, Mehl, Brot, Milch, Eier, Reis, Zucker",hyr:"Jahr",hgg:"1g=$",hmw:"MiLo/h",hdf:"🛒 Tage/g",hhg:"⏱ Std/g",hhd:"🍽 Std/Tag",hwk:"$/Wo",hbk:"🛒 Warenkorb",hin:"enthält",hth:"Stunden",hlb:"Arbeit bei MiLo",hm1:"Mehr als 1 Arbeitstag!",hl1:"Weniger als 1 Arbeitstag",hdg:"Tage/g",hch:"Änderung",hbm:"1g kauft MEHR",hbl:"1g kauft weniger",hle:"= Gold günstig",hme:"= mittel",hhe:"= teuer",hcy:"📜 16-J.-Zyklus (GoldBroker/JPM)",hpa:"Phase A",hri:"Anstieg",hpk:"Hoch→Korrektur",hbt:"Tief (kaufen)",hbn:"Tiefs",hps:"Hochs",hnw:"Jetzt",hqi:"Versteckte Inflation: Qualität sinkt!",hmt:"Fleisch",hm50:"1950: Bauernhof, ohne Hormone",hm26:"2026: industriell, Wasser +20-30%",hb26:"2026: Zusatzstoffe, Shrinkflation",he50:"1950: Freilandhühner",he26:"2026: Käfighaltung, kleiner",hpo:"Kartoffeln",hpq:"kleiner, mehr Chemie",hcl:"Kleidung",hc50:"1960: Baumwolle, Wolle, 10+ J.",hc26:"2026: Polyester, Fast Fashion",hsh:"Shrinkflation",hsq:"Packungen: Chips 200g→150g",hef:"Effekt",heq:"Reale Inflation +15-30% höher",hrd:"echte Tage Essen",h1d:"1 Tag",h1w:"1 Woche"},
-it:{tl:"Potere d'acquisto in grammi d'oro",sb:"10 paesi · 2005–2036 · ciclo 16 anni",ht:"Come leggere?",hx:"Prezzi e salari in grammi d'oro — indipendente dall'inflazione. Trascina il cursore.",op:"🌞 Ottimistico",ps:"🌧️ Pessimistico",fc:"PREVISIONE",hq:"⏱ Salario minimo. Ore per 1g d'oro?",wu:"Salario +",sn:"ma",gu:"oro +",bf:"Prima:",nw:"Ora:",wd:"giorni lav.",ls:"Lavoro ↓",vg:"vs oro.",rr:"Raro: salario>oro!",bt:"🪙 CON 1g D'ORO compri:",gl:"Litri benzina",kw:"kWh elettr.",ff:"Giorni cibo (fam.4)",tk:"Pieno≈50L→",hh:"Casa≈300kWh/m",mr:"di più!",ft:"🛒 CIBO DAL SALARIO",fs:"Famiglia ~",fp:"/mese.",fi:"Sal. minimo",fh:"❌ Più della metà!",f3:"⚠️ Più di 1/3",fo:"✅ Sotto 1/3",gt:"💰 SALARIO=ORO",gwt:"Con 1 sal. minimo",gc:"compri",ga:"d'oro.",gp:"più poveri in oro",gri:"↑ Più ricchi!",wt:"📅 1 SALARIO=SETTIMANE CIBO",we:"la famiglia mangia",wk:"settimane",ct:"📜 Ciclo 16 anni oro",ci:'Minimi: <b style="color:var(--gn)">1968→1984→2000→2016</b> · Picchi: <b style="color:var(--yl)">1980,2011,~2028?</b> · Correzione: <b style="color:var(--rd)">~2029-2032</b>',dc:"NON è consulenza.",mn:"Min.",av:"Media",ig:"In oro",hr:"ore",wm:"/mese",hgl:"🌌 Oro: 106 Anni (1920–2036)",hsb:"Scala log. · Clicca decennio · 📊 = dati paese",hdl:"━ Giorni cibo per 1g oro",hhl:"━ Ore lavoro (sal.min.) per 1g",hbs:"Paniere: carne, patate, farina, pane, latte, uova, riso, zucchero",hyr:"Anno",hgg:"1g=$",hmw:"Sal.m/h",hdf:"🛒 Giorni/g",hhg:"⏱ ore/g",hhd:"🍽 ore/giorno",hwk:"$/sett",hbk:"🛒 Paniere",hin:"include",hth:"ore",hlb:"lavoro a sal.min.",hm1:"Più di 1 giorno lav.!",hl1:"Meno di 1 giorno lav.",hdg:"giorni/g",hch:"Variazione",hbm:"1g compra DI PIÙ",hbl:"1g compra meno",hle:"= oro economico",hme:"= medio",hhe:"= costoso",hcy:"📜 Ciclo 16 anni (GoldBroker/JPM)",hpa:"Fase A",hri:"crescita",hpk:"picco→correzione",hbt:"fondo (comprare)",hbn:"Minimi",hps:"Picchi",hnw:"Ora",hqi:"Inflazione nascosta: qualità cala!",hmt:"Carne",hm50:"1950: allevamento, senza ormoni",hm26:"2026: industriale, acqua +20-30%",hb26:"2026: additivi, shrinkflation",he50:"1950: galline libere",he26:"2026: in gabbia, più piccole",hpo:"Patate",hpq:"più piccole, più chimica",hcl:"Vestiti",hc50:"1960: cotone, lana, 10+ anni",hc26:"2026: poliestere, fast fashion",hsh:"Shrinkflation",hsq:"Confezioni: patatine 200g→150g",hef:"Effetto",heq:"Inflazione reale +15-30% superiore",hrd:"giorni veri di cibo",h1d:"1 giorno",h1w:"1 sett."},
-fr:{tl:"Pouvoir d'achat en grammes d'or",sb:"10 pays · 2005–2036 · cycle 16 ans",ht:"Comment lire?",hx:"Prix & salaires en grammes d'or — indépendant de l'inflation. Glissez le curseur.",op:"🌞 Optimiste",ps:"🌧️ Pessimiste",fc:"PRÉVISION",hq:"⏱ SMIC. Heures pour 1g d'or?",wu:"Salaire +",sn:"mais",gu:"or +",bf:"Avant:",nw:"Maint.:",wd:"jours ouvrés",ls:"Travail ↓",vg:"face à l'or.",rr:"Rare: salaire>or!",bt:"🪙 AVEC 1g D'OR tu achètes:",gl:"Litres essence",kw:"kWh élec",ff:"Jours nourriture (4p.)",tk:"Plein≈50L→",hh:"Ménage≈300kWh/m",mr:"de plus!",ft:"🛒 ALIMENTATION/SALAIRE",fs:"Famille ~",fp:"/mois.",fi:"SMIC",fh:"❌ Plus de moitié!",f3:"⚠️ Plus d'1/3",fo:"✅ Moins d'1/3",gt:"💰 SALAIRE=OR",gwt:"Avec 1 SMIC",gc:"tu achètes",ga:"d'or.",gp:"plus pauvres",gri:"↑ Plus riches!",wt:"📅 1 SALAIRE=SEMAINES",we:"la famille mange",wk:"semaines",ct:"📜 Cycle 16 ans",ci:'Creux: <b style="color:var(--gn)">1968→1984→2000→2016</b> · Pics: <b style="color:var(--yl)">1980,2011,~2028?</b> · Correction: <b style="color:var(--rd)">~2029-2032</b>',dc:"PAS un conseil financier.",mn:"SMIC",av:"Moyen",ig:"En or",hr:"h",wm:"/mois",hgl:"🌌 Or: 106 Ans (1920–2036)",hsb:"Éch. log. · Cliquez décennie · 📊 = données pays",hdl:"━ Jours nourriture par 1g or",hhl:"━ Heures travail (SMIC) par 1g",hbs:"Panier: viande, p.d.terre, farine, pain, lait, oeufs, riz, sucre",hyr:"Année",hgg:"1g=$",hmw:"SMIC/h",hdf:"🛒 Jours/g",hhg:"⏱ h/g",hhd:"🍽 h/jour",hwk:"$/sem",hbk:"🛒 Panier",hin:"contient",hth:"heures",hlb:"travail au SMIC",hm1:"Plus de 1 jour!",hl1:"Moins de 1 jour",hdg:"jours/g",hch:"Variation",hbm:"1g achète PLUS",hbl:"1g achète moins",hle:"= or bon marché",hme:"= moyen",hhe:"= cher",hcy:"📜 Cycle 16 ans (GoldBroker/JPM)",hpa:"Phase A",hri:"hausse",hpk:"pic→correction",hbt:"creux (acheter)",hbn:"Creux",hps:"Pics",hnw:"Maint.",hqi:"Inflation cachée: qualité baisse!",hmt:"Viande",hm50:"1950: élevage, sans hormones",hm26:"2026: industriel, eau +20-30%",hb26:"2026: additifs, shrinkflation",he50:"1950: poules libres",he26:"2026: en cage, plus petits",hpo:"P.d.terre",hpq:"plus petites, plus chimie",hcl:"Vêtements",hc50:"1960: coton, laine, 10+ ans",hc26:"2026: polyester, fast fashion",hsh:"Shrinkflation",hsq:"Emballages: chips 200g→150g",hef:"Effet",heq:"Inflation réelle +15-30% supérieure",hrd:"jours vrais de nourriture",h1d:"1 jour",h1w:"1 sem."}
+bg:{tl:"Покупателна сила в грамове злато",sb:"10 държави · 2005–2036 · 16-год. цикъл",ht:"Как да четем?",hx:"Всички цени и заплати са в грамове злато — мярка, независима от инфлация. Ако заплатата расте 10% но златото 50% — ставаш по-беден.",op:"🌞 Оптимистичен",ps:"🌧️ Песимистичен",fc:"ПРОГНОЗА",hq:"⏱ Работиш на мин. заплата. Колко часа за 1g злато?",wu:"Заплата +",sn:"но",gu:"злато +",bf:"Преди:",nw:"Сега:",wd:"раб.дни",ls:"Труд ↓",vg:"спрямо златото.",rr:"Рядко: заплата > злато!",bt:"🪙 С 1g ЗЛАТО купуваш:",gl:"Литра бензин",kw:"kWh ток",ff:"Дни храна (4чл.)",tk:"Резервоар≈50L→",hh:"Домакинство≈300kWh/м",mr:"повече!",ft:"🛒 ХРАНА ОТ ЗАПЛАТАТА",fs:"Семейство ~",fp:"/мес храна.",fi:"Мин. заплата",fh:"❌ Над половината!",f3:"⚠️ Над 1/3",fo:"✅ Под 1/3",gt:"💰 ЗАПЛАТА=ЗЛАТО",gwt:"С 1 мин. заплата",gc:"купуваш",ga:"злато.",gp:"по-бедни в злато",gri:"↑ По-богати!",wt:"📅 1 ЗАПЛАТА=СЕДМИЦИ ХРАНА",we:"семейството яде",wk:"седмици",ct:"📜 16-год. цикъл",ci:'Дъна: <b style="color:var(--gn)">1968→1984→2000→2016</b> · Пикове: <b style="color:var(--yl)">1980,2011,~2028?</b> · Корекция: <b style="color:var(--rd)">~2029-2032</b>',dc:"НЕ е инвестиционен съвет.",mn:"Мін.",av:"Средна",ig:"В злато",hr:"ч",wm:"/мес",
+hgl:"🌌 Злато: 106 години (1920–2036)",hsb:"Логаритмична скала · Кликни десетилетие · 📊 = данни по държави",
+hdl:"━ Дни храна за 1g злато",hhl:"━ Часове труд (мін.запл.) за 1g",
+hbs:"Кошница: 5lb месо, 10lb картофи, 5lb брашно, хляб, мляко, яйца, ориз, захар",
+hyr:"Год.",hgg:"1g=$",hmw:"Мін.з./ч",hdf:"🛒 Дни храна/g",hhg:"⏱ ч/g",hhd:"🍽 ч/ден храна",hwk:"$/седм",hbk:"🛒 Кошница",hin:"включва",hth:"часа",hlb:"труд на мін.запл.",hm1:"Повече от 1 раб.ден!",hl1:"По-малко от 1 раб.ден",hdg:"дни храна/g",hch:"Промяна",hbm:"1g купува ПОВЕЧЕ храна",hbl:"1g купува по-малко",hle:"= злато евтино",hme:"= средно",hhe:"= скъпо",
+hcy:"📜 16-год. цикъл (GoldBroker/JPM)",hpa:"Фаза A",hri:"ръст",hpk:"пик→корекция",hbt:"дъно (купувай)",hbn:"Дъна",hps:"Пикове",hnw:"Сега",
+hqi:"Скритата инфлация: качеството пада!",hmt:"Месо",hm50:"1950: фермерско, без хормони",hm26:"2026: индустриално, водна инжекция +20-30%",hb26:"2026: подобрители, shrinkflation",he50:"1950: свободни кокошки",he26:"2026: клеткови, по-малки",hpo:"Картофи",hpq:"по-малки, повече химия",hcl:"Дрехи",hc50:"1960: памук, вълна, 10+ год.",hc26:"2026: полиестер, fast fashion",hsh:"Shrinkflation",hsq:"Пакетите: чипс 200g→150g",hef:"Ефект",heq:"Реалната инфлация +15-30% по-висока",hrd:"истински дни храна",h1d:"1 ден",h1w:"1 седм.",
+hhistbtn:"📜 История 1920–2036",hcountrybtn:"📊 → Режим държави",
+hbasket:"Кошница",hincludes:"включва",hweekly:"седм.",hworkday:"раб.ден",
+hgold_cheap:"🟢 <2 дни = злато евтино",hgold_med:"🟡 2-7 дни = средно",hgold_exp:"🔴 >7 дни = скъпо",
+hpeak1968:"🏆 1968: За 45 мин. работа купуваш 1g злато, което хранеше семейството ти 19 часа",
+hcycle_desc:'<b style="color:var(--gn)">Фаза A</b> = ръст · <b style="color:var(--yl)">B</b> = пик→корекция · <b style="color:var(--rd)">C</b> = дъно (купувай)',
+hcycle_now:"Сега",hcycle_phase:"Фаза",
+hquality_title:"⚠️ Скритата инфлация: качеството пада!",
+hquality_desc:"Кошницата е на <b>една и съща цена</b>, но реално получаваш <b>по-малко</b>:",
+hquality_meat1:"1950: фермерско, без хормони",hquality_meat2:"2026: индустриално, водна инжекция +20-30%",
+hquality_bread:"2026: подобрители, shrinkflation",
+hquality_eggs1:"1950: свободни кокошки",hquality_eggs2:"2026: клеткови, по-малки",
+hquality_potato:"по-малки, повече химия",
+hquality_clothes1:"1960: памук, вълна, 10+ год.",hquality_clothes2:"2026: полиестер, fast fashion",
+hquality_shrink:"Пакетите: чипс 200g→150g",
+hquality_effect:"Реалната инфлация +15-30% по-висока",
+hquality_result:"Ако кошницата от 1960 беше със <b>същото качество</b> днес, тя щеше да струва <b>×1.3-1.5 повече</b>.",
+hquality_realdays:"Това означава: 1g злато (2026) реално купува НЕ 19.5, а по-скоро <b style=\"color:var(--au)\">~13-15 \"истински\" дни храна</b>.",
+hdaysfoodperg:"дни храна/g",hleader_line:"━ Дни храна за 1g",hleader_hours:"━ Часове труд за 1g",
+hdec_1920_t:"Златен стандарт & Ревящите 20-ти",hdec_1920_d:"Златото е фиксирано на $20.67/oz от 1879г. Един грам струва $0.66 — толкова евтино, че дори не купува 1 ден храна за семейство.",
+hdec_1920_f:["Злато ФИКСИРАНО на $20.67/oz по закон — 1 грам = $0.66","Кошница ~$7.50/седмица → 1g злато = само 0.6 ДНИ храна","Няма мінімална заплата — средна ~$100/мес","Форд Model T = $260 = 12.6oz злато = 394 грама","1929: Крахът на Уол Стрийт → Великата депресия"],
+hdec_1930_t:"Депресия & FDR конфискува златото",hdec_1930_d:"Голямата депресия унищожава спестяванията. Рузвелт забранява частното злато и вдига цената с 69%. Кошницата пада до $5.50 (дефлация).",
+hdec_1930_f:["1933: Рузвелт КОНФИСКУВА частното злато!","Злато скача от $20.67→$35 за нощ (+69%)","Притежанието на злато ЗАБРАНЕНО за граждани","1938: Първата мін. заплата $0.25/час","1g = $1.13 → 1.4 дни храна за семейство"],
+hdec_1940_t:"WWII & Бретън Уудс",hdec_1940_d:"Войната рационира всичко. Бретън Уудс прави долара еквивалент на злато — $35/oz. Златният грам купува около 1 ден храна за семейство.",
+hdec_1940_f:["1944: Бретън Уудс → $ фиксиран на $35/oz","Храна и бензин РАЦИОНИРАНИ","Мін. заплата: $0.30→$0.40/час","1g злато = $1.11 → ~1 ден храна","Доларът става световна резервна валута"],
+hdec_1950_t:"Следвоенен бум, златото спи",hdec_1950_d:"Бум на икономиката, субурбанизация. Минималната заплата се утроява, но златото е заковано. 1g купува всё по-малко.",
+hdec_1950_f:["Злато заковано на ~$38-40 за 20 ГОДИНИ","Мін. заплата: $0.75/час (×3 от 1938!)","1g = $1.29 → само 1.1 дни храна","Златото ГУБИ покупателна сила","Заплатите растат, златото стои на място"],
+hdec_1960_t:"Виетнам & Gold Pool се разпада",hdec_1960_d:"Пикът на мін. заплата + ниско злато = златният грам купува по-малко от 1 ден храна! За 45 мин. работа можеш да купиш 1g злато.",
+hdec_1960_f:["Държавите тайно продават злато за да задържат $35","1968: Gold Pool се срива! Пазарът надделява","Мін. заплата $1.60/час — ИСТОРИЧЕСКИ пик!","1g = $1.17 → САМО 0.8 дни храна","Най-евтиното злато в историята! 🏆"],
+hdec_1970_t:"Никсън! Златото е СВОБОДНО",hdec_1970_d:"КЛЮЧОВИЯТ момент. Никсън откачва долара от златото. Златото се покачва 17× за 10 години! Кой печели? Този с злато.",
+hdec_1970_f:["1971: Никсън ПРЕКРАТЯВА конвертируемостта на $!","Злато: $36→$615/oz за 10 години 🚀","Нефтена криза 1973 → инфлация 14%","1g(1980) = $19.77 → 4.9 ДНИ храна!","Часове за 1g: 0.7ч(1970)→6.4ч(1980)"],
+hdec_1980_t:"Пик & 20-годишен мечи пазар",hdec_1980_d:"Златната треска свършва. Централната банка смазва инфлацията с лихви от 20%. Златото пада наполовина. Ерата на акциите.",
+hdec_1980_f:["1980 пик: $615/oz → 1g = $19.77","Volcker вдига лихвите до 20% → златото пада!","$615→$317 до 1985 (почти -50%)","1g(1985) = $10.19 → 2.4 дни храна","Акциите бумтят, златото забравено 20 години"],
+hdec_1990_t:"Изгубеното десетилетие на златото",hdec_1990_d:"Златото е 'мъртво'. Централните банки продават резерви. Дот-ком балонът прави всички 'богати' на хартия. 1g злато купува само 1.5 дни храна.",
+hdec_1990_f:["Злато удря 20-годишно дъно: $279 (1999)","Централните банки РАЗПРОДАВАТ златни резерви","Интернет бум → всички искат .com акции","1g(2000) = $8.97 → 1.5 дни храна","Мін. заплата: $4.25→$5.15/час"],
+hdec_2000_t:"Златото се събужда",hdec_2000_d:"Балонът се спука. Акциите губят 50%. Златото тръгва нагоре и не спира 12 години.",
+hdec_2000_f:["2001: Дот-ком крах → злато дъно $271","9/11 → търсене на сигурност","2008: Lehman Brothers → злато $872","1g: $8.97(2000)→$13.18(2005)","📊 Кликни за пълни данни по държави"],
+hdec_2010_t:"Бичи пазар & корекция",hdec_2010_d:"Златото удря рекорд, после коригира с 45%. Но централните банки вече КУПУВАТ вместо да продават. Мін. заплата замразена — $7.25 от 2009.",
+hdec_2010_f:["2011: Ново ATH $1,920/oz → 1g = $50.5","1g(2011) = 7.2 дни храна за семейство","2016: Цикъл дъно $1,060","Централните банки → НЕТНИ купувачи","Мін. заплата $7.25 ЗАМРАЗЕНА от 2009 🥶"],
+hdec_2020_t:"Експлозия & Нова реалност",hdec_2020_d:"Пандемия, война в Украйна, рекордно печатане на пари. Златото ЕКСПЛОДИРА. 1 грам = $167 = почти 20 дни храна за семейство. Минималната заплата е замразена 17 години!",
+hdec_2020_f:["COVID 2020: злато пробива $2,000","2024: Централни банки купуват рекордни 1,037 тона","2026: $5,200! → 1g = $167 = 19.5 ДНИ храна!","$7.25/час × 23ч = 1 ГРАМ злато","България влиза в Еврозоната 01.01.2026"],
+hdec_2030_t:"Прогноза: Пик & Корекция",hdec_2030_d:"Ако 16-годишният цикъл продължи, пикът е около 2028, после корекция. Въпросът не е 'колко струва златото?' а 'колко МАЛКО струват парите?'.",
+hdec_2030_f:["~2028: Възможен пик ~$9,200/oz → 1g ≈ $296","1g(2028) ≈ 35 дни храна = 5 СЕДМИЦИ!","~2029-32: Корекция -30-40%","16-годишен цикъл (1968→1984→2000→2016)","Златото = термометър на доверието в системата"],
+hevents:{1920:"Златен стандарт. $1=$20.67 злато.",1925:"Бум. UK връща златния стандарт.",1929:"24 окт: Черният четвъртък — Уол Стрийт се срива!",1930:"Великата депресия. 25% безработица.",1932:"Дъно на депресията. Кошница $5.20.",1933:"FDR конфискува златото! Забранява частно притежание.",1934:"Злато: $20.67→$35 (+69%). Девалвация.",1938:"Първа минимална заплата: $0.25/час.",1940:"WWII — рациониране на храна, бензин.",1944:"Бретън Уудс: $ = $35/oz.",1945:"Край на WWII.",1950:"Корейска война. Субурбанизация.",1955:"Средна класа: кола, къща, хладилник.",1960:"JFK. Космическа надпревара.",1965:"Vietnam ескалира.",1967:"Gold Pool под натиск.",1968:"Gold Pool се разпада! Мін.з.=$1.60/ч (пик!).",1970:"Vietnam. Инфлация тръгва.",1971:"15 авг: НИКСЪН ЗАТВАРЯ ЗЛАТНИЯ ПРОЗОРЕЦ!",1973:"Петролно ембарго. Бензин: $0.39→$0.53.",1974:"Златото вече легално за американци.",1975:"Рецесия. Инфлация 12%.",1978:"Иранска революция наближава.",1979:"Иранска криза. Злато→$306.",1980:"Злато ПИК $850! Инфлация 14%! Volcker: 20%.",1982:"Рецесия 10.8% безработица.",1985:"Плаза акорд: $ отслабва.",1987:"Черен понеделник: -22% за 1 ден.",1989:"Берлинската стена пада.",1990:"Разпад на СССР.",1995:"Интернет бум. Amazon, eBay.",1997:"Азиатска криза.",1999:"Dot-com балон. Злато дъно: $279!",2000:"Dot-com крах.",2002:"9/11 последици. Злато→$310.",2004:"Злато→$410. Iraq война."}
+},
+en:{tl:"Purchasing Power in Gold Grams",sb:"10 countries · 2005–2036 · 16-year cycle",ht:"How to read?",hx:"All prices & wages in gold grams — independent of inflation. If wages grow 10% but gold 50% — you're poorer.",op:"🌞 Optimistic",ps:"🌧️ Pessimistic",fc:"FORECAST",hq:"⏱ Min wage. How many hours for 1g gold?",wu:"Wage +",sn:"but",gu:"gold +",bf:"Before:",nw:"Now:",wd:"work days",ls:"Labor ↓",vg:"vs gold.",rr:"Rare: wages beat gold!",bt:"🪙 WITH 1g GOLD you buy:",gl:"Liters gas",kw:"kWh elec",ff:"Days food (fam 4)",tk:"Full tank≈50L→",hh:"Household≈300kWh/mo",mr:"more!",ft:"🛒 FOOD FROM SALARY",fs:"Family ~",fp:"/mo food.",fi:"Min wage",fh:"❌ Over half!",f3:"⚠️ Over 1/3",fo:"✅ Under 1/3",gt:"💰 SALARY=GOLD",gwt:"With 1 min wage",gc:"you buy",ga:"gold.",gp:"poorer in gold",gri:"↑ Richer!",wt:"📅 1 SALARY=WEEKS FOOD",we:"family eats for",wk:"weeks",ct:"📜 16-year gold cycle",ci:'Bottoms: <b style="color:var(--gn)">1968→1984→2000→2016</b> · Peaks: <b style="color:var(--yl)">1980,2011,~2028?</b> · Correction: <b style="color:var(--rd)">~2029-2032</b>',dc:"NOT investment advice.",mn:"Min",av:"Avg",ig:"In gold",hr:"h",wm:"/mo",
+hgl:"🌌 Gold: 106 Years (1920–2036)",hsb:"Log scale · Click decade · 📊 = full country data",
+hdl:"━ Days of food per 1g gold",hhl:"━ Hours of labor (min.wage) per 1g",
+hbs:"Basket: 5lb beef, 10lb potatoes, 5lb flour, bread, milk, eggs, rice, sugar",
+hyr:"Year",hgg:"1g=$",hmw:"Min.w./h",hdf:"🛒 Days food/g",hhg:"⏱ h/g",hhd:"🍽 h/day food",hwk:"$/wk",hbk:"🛒 Basket",hin:"includes",hth:"hours",hlb:"labor at min.wage",hm1:"More than 1 work day!",hl1:"Less than 1 work day",hdg:"days food/g",hch:"Change",hbm:"1g buys MORE food",hbl:"1g buys less food",hle:"= gold cheap",hme:"= medium",hhe:"= expensive",
+hcy:"📜 16-year cycle (GoldBroker/JPM)",hpa:"Phase A",hri:"growth",hpk:"peak→correction",hbt:"bottom (buy)",hbn:"Bottoms",hps:"Peaks",hnw:"Now",
+hqi:"Hidden inflation: quality drops!",hmt:"Meat",hm50:"1950: farm-raised, no hormones",hm26:"2026: industrial, water-injected +20-30%",hb26:"2026: additives, shrinkflation",he50:"1950: free-range hens",he26:"2026: caged, smaller, paler",hpo:"Potatoes",hpq:"smaller, more chemicals",hcl:"Clothes",hc50:"1960: cotton, wool, 10+ years",hc26:"2026: polyester, fast fashion",hsh:"Shrinkflation",hsq:"Packages: chips 200g→150g",hef:"Effect",heq:"Real inflation +15-30% higher",hrd:"real days of food",h1d:"1 day",h1w:"1 week",
+hhistbtn:"📜 History 1920–2036",hcountrybtn:"📊 → Country Mode",
+hbasket:"Basket",hincludes:"includes",hweekly:"wk",hworkday:"work day",
+hgold_cheap:"🟢 <2 days = gold cheap",hgold_med:"🟡 2-7 days = medium",hgold_exp:"🔴 >7 days = expensive",
+hpeak1968:"🏆 1968: 45 min of work buys 1g gold that feeds your family for 19 hours",
+hcycle_desc:'<b style="color:var(--gn)">Phase A</b> = growth · <b style="color:var(--yl)">B</b> = peak→correction · <b style="color:var(--rd)">C</b> = bottom (buy)',
+hcycle_now:"Now",hcycle_phase:"Phase",
+hquality_title:"⚠️ Hidden inflation: quality drops!",
+hquality_desc:"The basket is the <b>same price</b>, but you actually get <b>less</b>:",
+hquality_meat1:"1950: farm-raised, no hormones",hquality_meat2:"2026: industrial, water-injected +20-30%",
+hquality_bread:"2026: additives, shrinkflation",
+hquality_eggs1:"1950: free-range hens",hquality_eggs2:"2026: caged, smaller",
+hquality_potato:"smaller, more chemicals",
+hquality_clothes1:"1960: cotton, wool, 10+ years",hquality_clothes2:"2026: polyester, fast fashion",
+hquality_shrink:"Packages: chips 200g→150g",
+hquality_effect:"Real inflation +15-30% higher",
+hquality_result:"If the 1960 basket had the <b>same quality</b> today, it would cost <b>×1.3-1.5 more</b>.",
+hquality_realdays:"That means: 1g gold (2026) really buys NOT 19.5 but closer to <b style=\"color:var(--au)\">~13-15 real days of food</b>.",
+hdaysfoodperg:"days food/g",hleader_line:"━ Days food per 1g",hleader_hours:"━ Work hours per 1g",
+hdec_1920_t:"Gold Standard & Roaring 20s",hdec_1920_d:"Gold fixed at $20.67/oz since 1879. One gram costs $0.66 — so cheap it cannot buy 1 day of family food. The gold standard means every dollar is convertible to gold.",
+hdec_1920_f:["Gold FIXED at $20.67/oz by law — 1 gram = $0.66","Basket ~$7.50/wk → 1g gold = only 0.6 DAYS of food","No minimum wage — average ~$100/mo","Ford Model T = $260 = 12.6oz gold = 394 grams","1929: Wall Street Crash → Great Depression"],
+hdec_1930_t:"Depression & FDR Gold Confiscation",hdec_1930_d:"The Great Depression destroys savings. FDR bans private gold and raises the price by 69%. The basket drops to $5.50 (deflation). The first minimum wage is introduced — $0.25/hr.",
+hdec_1930_f:["1933: FDR CONFISCATES private gold!","Gold jumps $20.67→$35 overnight (+69%)","Owning gold ILLEGAL for citizens","1938: First minimum wage $0.25/hr","1g = $1.13 → 1.4 days of family food"],
+hdec_1940_t:"WWII & Bretton Woods",hdec_1940_d:"War rations everything. Bretton Woods makes the dollar equivalent to gold — $35/oz. A gold gram buys about 1 day of family food.",
+hdec_1940_f:["1944: Bretton Woods → $ fixed at $35/oz","Food and gas RATIONED","Min wage: $0.30→$0.40/hr","1g gold = $1.11 → ~1 day of food","Dollar becomes world reserve currency"],
+hdec_1950_t:"Post-War Boom, Gold Sleeps",hdec_1950_d:"Economic boom, suburbanization. Minimum wage triples but gold is frozen. 1g buys less and less.",
+hdec_1950_f:["Gold stuck at ~$38-40 for 20 YEARS","Min wage: $0.75/hr (×3 from 1938!)","1g = $1.29 → only 1.1 days food","Gold LOSES purchasing power","Wages rise, gold stays flat"],
+hdec_1960_t:"Vietnam & Gold Pool Collapse",hdec_1960_d:"Peak min wage + low gold = a gold gram buys less than 1 day of food! 45 min of work buys 1g gold. Never this cheap again.",
+hdec_1960_f:["Govts secretly sell gold to hold $35","1968: Gold Pool collapses! Market wins","Min wage $1.60/hr — ALL-TIME PEAK!","1g = $1.17 → ONLY 0.8 days food","Cheapest gold in history! 🏆"],
+hdec_1970_t:"Nixon Shock! Gold Goes FREE",hdec_1970_d:"THE KEY MOMENT. Nixon detaches dollar from gold. Gold rises 17× in 10 years! Who wins? Those holding gold.",
+hdec_1970_f:["1971: Nixon ENDS dollar convertibility!","Gold: $36→$615/oz in 10 years 🚀","Oil crisis 1973 → 14% inflation","1g(1980) = $19.77 → 4.9 DAYS food!","Hours per 1g: 0.7h(1970)→6.4h(1980)"],
+hdec_1980_t:"Peak & 20-Year Bear Market",hdec_1980_d:"The gold rush ends. The Fed crushes inflation with 20% rates. Gold drops by half. The stock era begins — S&P 500 rises 10× in 20 years.",
+hdec_1980_f:["1980 peak: $615/oz → 1g = $19.77","Volcker raises rates to 20% → gold crashes!","$615→$317 by 1985 (almost -50%)","1g(1985) = $10.19 → 2.4 days food","Stocks boom, gold forgotten for 20 years"],
+hdec_1990_t:"Gold's Lost Decade",hdec_1990_d:"Gold is 'dead'. Central banks sell reserves. The dot-com bubble makes everyone 'rich' on paper. 1g gold buys only 1.5 days of food.",
+hdec_1990_f:["Gold hits 20-year low: $279 (1999)","Central banks SELL gold reserves","Internet boom → everyone wants .com stocks","1g(2000) = $8.97 → 1.5 days food","Min wage: $4.25→$5.15/hr"],
+hdec_2000_t:"Gold Awakens",hdec_2000_d:"The bubble bursts. Stocks lose 50%. Gold starts rising and does not stop for 12 years.",
+hdec_2000_f:["2001: Dot-com crash → gold bottom $271","9/11 → safe haven demand","2008: Lehman Brothers → gold $872","1g: $8.97(2000)→$13.18(2005)","📊 Click for full country data"],
+hdec_2010_t:"Bull Run & Correction",hdec_2010_d:"Gold hits a record then corrects 45%. But central banks now BUY instead of selling. Min wage frozen — $7.25 since 2009.",
+hdec_2010_f:["2011: New ATH $1,920/oz → 1g = $50.5","1g(2011) = 7.2 days family food","2016: Cycle bottom $1,060","Central banks → NET BUYERS","Min wage $7.25 FROZEN since 2009 🥶"],
+hdec_2020_t:"Explosion & New Reality",hdec_2020_d:"Pandemic, Ukraine war, record money printing. Gold EXPLODES. 1 gram = $167 = almost 20 days of family food. Minimum wage frozen 17 years!",
+hdec_2020_f:["COVID 2020: gold breaks $2,000","2024: Central banks buy record 1,037 tonnes","2026: $5,200! → 1g = $167 = 19.5 DAYS food!","$7.25/hr × 23h = 1 GRAM of gold","Bulgaria joins Eurozone 01.01.2026"],
+hdec_2030_t:"Forecast: Peak & Correction",hdec_2030_d:"If the 16-year cycle continues, peak is around 2028, then correction. The question is not 'how much is gold worth?' but 'how LITTLE is money worth?'.",
+hdec_2030_f:["~2028: Possible peak ~$9,200/oz → 1g ≈ $296","1g(2028) ≈ 35 days food = 5 WEEKS!","~2029-32: Correction -30-40%","16-year cycle (1968→1984→2000→2016)","Gold = thermometer of trust in the system"],
+hevents:{1920:"Gold standard. $1=$20.67 gold.",1925:"Boom. UK returns to gold standard.",1929:"Oct 24: Black Thursday — Wall St crashes!",1930:"Great Depression. 25% unemployment.",1932:"Depression bottom. Basket $5.20.",1933:"FDR confiscates gold! Private ownership banned.",1934:"Gold: $20.67→$35 (+69%). Devaluation.",1938:"First minimum wage: $0.25/hr.",1940:"WWII — food, gas rationing.",1944:"Bretton Woods: $ = $35/oz.",1945:"End of WWII.",1950:"Korean War. Suburbanization.",1955:"Middle class: car, house, fridge.",1960:"JFK. Space race. Abundance.",1965:"Vietnam escalates.",1967:"Gold Pool under pressure.",1968:"Gold Pool collapses! Min.w.=$1.60/hr (peak!).",1970:"Vietnam. Inflation rises.",1971:"Aug 15: NIXON CLOSES THE GOLD WINDOW!",1973:"Oil embargo. Gas: $0.39→$0.53.",1974:"Gold now legal for Americans.",1975:"Recession. 12% inflation.",1978:"Iranian revolution approaching.",1979:"Iran crisis. Gold→$306.",1980:"Gold PEAK $850! 14% inflation! Volcker: 20%.",1982:"Recession 10.8% unemployment.",1985:"Plaza Accord: $ weakens.",1987:"Black Monday: -22% in 1 day.",1989:"Berlin Wall falls.",1990:"USSR dissolves.",1995:"Internet boom. Amazon, eBay.",1997:"Asian crisis.",1999:"Dot-com bubble. Gold bottom: $279!",2000:"Dot-com crash.",2002:"9/11 aftermath. Gold→$310.",2004:"Gold→$410. Iraq war."}
+},
+de:{tl:"Kaufkraft in Goldgramm",sb:"10 Länder · 2005–2036 · 16-J.-Zyklus",ht:"Wie liest man?",hx:"Alle Preise & Löhne in Goldgramm — unabhängig von Inflation. Schiebe den Regler.",op:"🌞 Optimistisch",ps:"🌧️ Pessimistisch",fc:"PROGNOSE",hq:"⏱ Mindestlohn. Stunden für 1g Gold?",wu:"Lohn +",sn:"aber",gu:"Gold +",bf:"Vorher:",nw:"Jetzt:",wd:"Arbeitstage",ls:"Arbeit ↓",vg:"ggü. Gold.",rr:"Selten: Lohn>Gold!",bt:"🪙 MIT 1g GOLD kaufst du:",gl:"Liter Benzin",kw:"kWh Strom",ff:"Tage Essen (4P.)",tk:"Volltanken≈50L→",hh:"Haushalt≈300kWh/M",mr:"mehr!",ft:"🛒 ESSEN VOM GEHALT",fs:"Familie ~",fp:"/Mon.",fi:"Mindestlohn",fh:"❌ Über Hälfte!",f3:"⚠️ Über 1/3",fo:"✅ Unter 1/3",gt:"💰 GEHALT=GOLD",gwt:"Mit 1 Mindestlohn",gc:"kaufst du",ga:"Gold.",gp:"ärmer in Gold",gri:"↑ Reicher!",wt:"📅 1 GEHALT=WOCHEN ESSEN",we:"Familie isst",wk:"Wochen",ct:"📜 16-J.-Goldzyklus",ci:'Tiefs: <b style="color:var(--gn)">1968→1984→2000→2016</b> · Hochs: <b style="color:var(--yl)">1980,2011,~2028?</b> · Korrektur: <b style="color:var(--rd)">~2029-2032</b>',dc:"KEINE Anlageberatung.",mn:"Mind.",av:"Durchschn.",ig:"In Gold",hr:"Std",wm:"/Mon",
+hgl:"🌌 Gold: 106 Jahre (1920–2036)",hsb:"Log. Skala · Jahrzehnt klicken · 📊 = Länderdaten",
+hdl:"━ Tage Essen pro 1g Gold",hhl:"━ Arbeitsstunden (MiLo) pro 1g",
+hbs:"Warenkorb: Fleisch, Kartoffeln, Mehl, Brot, Milch, Eier, Reis, Zucker",
+hyr:"Jahr",hgg:"1g=$",hmw:"MiLo/h",hdf:"🛒 Tage/g",hhg:"⏱ Std/g",hhd:"🍽 Std/Tag",hwk:"$/Wo",hbk:"🛒 Warenkorb",hin:"enthält",hth:"Stunden",hlb:"Arbeit bei MiLo",hm1:"Mehr als 1 Arbeitstag!",hl1:"Weniger als 1 Arbeitstag",hdg:"Tage/g",hch:"Änderung",hbm:"1g kauft MEHR",hbl:"1g kauft weniger",hle:"= Gold günstig",hme:"= mittel",hhe:"= teuer",
+hcy:"📜 16-J.-Zyklus (GoldBroker/JPM)",hpa:"Phase A",hri:"Anstieg",hpk:"Hoch→Korrektur",hbt:"Tief (kaufen)",hbn:"Tiefs",hps:"Hochs",hnw:"Jetzt",
+hqi:"Versteckte Inflation: Qualität sinkt!",hmt:"Fleisch",hm50:"1950: Bauernhof, ohne Hormone",hm26:"2026: industriell, Wasser +20-30%",hb26:"2026: Zusatzstoffe, Shrinkflation",he50:"1950: Freilandhühner",he26:"2026: Käfighaltung, kleiner",hpo:"Kartoffeln",hpq:"kleiner, mehr Chemie",hcl:"Kleidung",hc50:"1960: Baumwolle, Wolle, 10+ J.",hc26:"2026: Polyester, Fast Fashion",hsh:"Shrinkflation",hsq:"Packungen: Chips 200g→150g",hef:"Effekt",heq:"Reale Inflation +15-30% höher",hrd:"echte Tage Essen",h1d:"1 Tag",h1w:"1 Woche",
+hhistbtn:"📜 Geschichte 1920–2036",hcountrybtn:"📊 → Ländermodus",
+hbasket:"Warenkorb",hincludes:"enthält",hweekly:"Wo",hworkday:"Arbeitstag",
+hgold_cheap:"🟢 <2 Tage = Gold günstig",hgold_med:"🟡 2-7 Tage = mittel",hgold_exp:"🔴 >7 Tage = teuer",
+hpeak1968:"🏆 1968: 45 Min. Arbeit kauft 1g Gold = 19 Std. Essen für die Familie",
+hcycle_desc:'<b style="color:var(--gn)">Phase A</b> = Anstieg · <b style="color:var(--yl)">B</b> = Hoch→Korrektur · <b style="color:var(--rd)">C</b> = Tief (kaufen)',
+hcycle_now:"Jetzt",hcycle_phase:"Phase",
+hquality_title:"⚠️ Versteckte Inflation: Qualität sinkt!",
+hquality_desc:"Der Warenkorb hat den <b>gleichen Preis</b>, aber du bekommst <b>weniger</b>:",
+hquality_meat1:"1950: Bauernhof, ohne Hormone",hquality_meat2:"2026: industriell, Wasser +20-30%",
+hquality_bread:"2026: Zusatzstoffe, Shrinkflation",
+hquality_eggs1:"1950: Freilandhühner",hquality_eggs2:"2026: Käfighaltung, kleiner",
+hquality_potato:"kleiner, mehr Chemie",
+hquality_clothes1:"1960: Baumwolle, Wolle, 10+ J.",hquality_clothes2:"2026: Polyester, Fast Fashion",
+hquality_shrink:"Packungen: Chips 200g→150g",
+hquality_effect:"Reale Inflation +15-30% höher",
+hquality_result:"Wenn der Korb von 1960 heute die <b>gleiche Qualität</b> hätte, würde er <b>×1.3-1.5 mehr</b> kosten.",
+hquality_realdays:"Das bedeutet: 1g Gold (2026) kauft NICHT 19,5, sondern eher <b style=\"color:var(--au)\">~13-15 echte Tage Essen</b>.",
+hdaysfoodperg:"Tage/g",hleader_line:"━ Tage Essen pro 1g",hleader_hours:"━ Arbeitsstunden pro 1g",
+hdec_1920_t:"Goldstandard & Goldene Zwanziger",hdec_1920_d:"Gold seit 1879 bei $20,67/oz. Ein Gramm kostet $0,66 — so billig, dass es nicht mal 1 Tag Familienessen kauft.",
+hdec_1920_f:["Gold FIXIERT bei $20,67/oz — 1 Gramm = $0,66","Warenkorb ~$7,50/Wo → 1g Gold = nur 0,6 TAGE Essen","Kein Mindestlohn — Durchschnitt ~$100/Mon","Ford Model T = $260 = 12,6oz Gold = 394 Gramm","1929: Wall-Street-Crash → Große Depression"],
+hdec_1930_t:"Depression & FDR konfisziert Gold",hdec_1930_d:"Die Große Depression vernichtet Ersparnisse. FDR verbietet Privatgold und erhöht den Preis um 69%. Deflation.",
+hdec_1930_f:["1933: FDR KONFISZIERT Privatgold!","Gold springt $20,67→$35 über Nacht (+69%)","Goldbesitz ILLEGAL für Bürger","1938: Erster Mindestlohn $0,25/Std","1g = $1,13 → 1,4 Tage Familienessen"],
+hdec_1940_t:"WWII & Bretton Woods",hdec_1940_d:"Krieg rationiert alles. Bretton Woods macht den Dollar zu Gold — $35/oz. Ein Goldgramm kauft ca. 1 Tag Familienessen.",
+hdec_1940_f:["1944: Bretton Woods → $ fixiert bei $35/oz","Essen und Benzin RATIONIERT","Mindestlohn: $0,30→$0,40/Std","1g Gold = $1,11 → ~1 Tag Essen","Dollar wird Weltleitwährung"],
+hdec_1950_t:"Nachkriegsboom, Gold schläft",hdec_1950_d:"Wirtschaftsboom, Suburbanisierung. Mindestlohn verdreifacht sich, aber Gold liegt fest. 1g kauft immer weniger.",
+hdec_1950_f:["Gold bei ~$38-40 für 20 JAHRE","Mindestlohn: $0,75/Std (×3 ab 1938!)","1g = $1,29 → nur 1,1 Tage Essen","Gold VERLIERT Kaufkraft","Löhne steigen, Gold steht still"],
+hdec_1960_t:"Vietnam & Gold Pool kollabiert",hdec_1960_d:"Höchster Mindestlohn + niedriges Gold = ein Goldgramm kauft weniger als 1 Tag Essen! 45 Min. Arbeit = 1g Gold.",
+hdec_1960_f:["Regierungen verkaufen heimlich Gold für $35","1968: Gold Pool kollabiert! Markt gewinnt","Mindestlohn $1,60/Std — HISTORISCHER Höchstwert!","1g = $1,17 → NUR 0,8 Tage Essen","Billigstes Gold in der Geschichte! 🏆"],
+hdec_1970_t:"Nixon-Schock! Gold wird FREI",hdec_1970_d:"DER SCHLÜSSELMOMENT. Nixon löst Dollar von Gold. Gold steigt 17× in 10 Jahren! Wer gewinnt? Goldbesitzer.",
+hdec_1970_f:["1971: Nixon BEENDET Dollar-Konvertierbarkeit!","Gold: $36→$615/oz in 10 Jahren 🚀","Ölkrise 1973 → 14% Inflation","1g(1980) = $19,77 → 4,9 TAGE Essen!","Stunden pro 1g: 0,7h(1970)→6,4h(1980)"],
+hdec_1980_t:"Höchstwert & 20-jähriger Bärenmarkt",hdec_1980_d:"Der Goldrausch endet. Die Fed bekämpft Inflation mit 20% Zinsen. Gold halbiert sich. Die Aktienära beginnt.",
+hdec_1980_f:["1980 Höchstwert: $615/oz → 1g = $19,77","Volcker erhöht Zinsen auf 20% → Gold fällt!","$615→$317 bis 1985 (fast -50%)","1g(1985) = $10,19 → 2,4 Tage Essen","Aktien boomen, Gold 20 Jahre vergessen"],
+hdec_1990_t:"Golds verlorenes Jahrzehnt",hdec_1990_d:"Gold ist 'tot'. Zentralbanken verkaufen Reserven. Die Dotcom-Blase macht alle auf dem Papier 'reich'. 1g kauft nur 1,5 Tage Essen.",
+hdec_1990_f:["Gold erreicht 20-Jahres-Tief: $279 (1999)","Zentralbanken VERKAUFEN Goldreserven","Internetboom → alle wollen .com-Aktien","1g(2000) = $8,97 → 1,5 Tage Essen","Mindestlohn: $4,25→$5,15/Std"],
+hdec_2000_t:"Gold erwacht",hdec_2000_d:"Die Blase platzt. Aktien verlieren 50%. Gold beginnt zu steigen und hört 12 Jahre nicht auf.",
+hdec_2000_f:["2001: Dotcom-Crash → Gold Tief $271","9/11 → Sicherheitsnachfrage","2008: Lehman Brothers → Gold $872","1g: $8,97(2000)→$13,18(2005)","📊 Klicken für Länderdaten"],
+hdec_2010_t:"Bullenmarkt & Korrektur",hdec_2010_d:"Gold erreicht Rekord, dann Korrektur um 45%. Aber Zentralbanken KAUFEN jetzt. Mindestlohn eingefroren — $7,25 seit 2009.",
+hdec_2010_f:["2011: Neues ATH $1.920/oz → 1g = $50,5","1g(2011) = 7,2 Tage Familienessen","2016: Zyklustief $1.060","Zentralbanken → NETTO-KÄUFER","Mindestlohn $7,25 EINGEFROREN seit 2009 🥶"],
+hdec_2020_t:"Explosion & Neue Realität",hdec_2020_d:"Pandemie, Ukraine-Krieg, Rekord-Gelddrucken. Gold EXPLODIERT. 1 Gramm = $167 = fast 20 Tage Familienessen. Mindestlohn 17 Jahre eingefroren!",
+hdec_2020_f:["COVID 2020: Gold bricht $2.000","2024: Zentralbanken kaufen Rekord 1.037 Tonnen","2026: $5.200! → 1g = $167 = 19,5 TAGE Essen!","$7,25/Std × 23h = 1 GRAMM Gold","Bulgarien tritt der Eurozone bei 01.01.2026"],
+hdec_2030_t:"Prognose: Höchststand & Korrektur",hdec_2030_d:"Wenn der 16-Jahres-Zyklus anhält, Höchststand um 2028, dann Korrektur. Die Frage ist nicht 'Wie viel ist Gold wert?' sondern 'Wie WENIG ist Geld wert?'.",
+hdec_2030_f:["~2028: Möglicher Höchststand ~$9.200/oz → 1g ≈ $296","1g(2028) ≈ 35 Tage Essen = 5 WOCHEN!","~2029-32: Korrektur -30-40%","16-Jahres-Zyklus (1968→1984→2000→2016)","Gold = Thermometer des Systemvertrauens"],
+hevents:{1920:"Goldstandard. $1=$20,67 Gold.",1925:"Boom. UK kehrt zum Goldstandard zurück.",1929:"24. Okt: Schwarzer Donnerstag — Wall Street bricht ein!",1930:"Große Depression. 25% Arbeitslosigkeit.",1932:"Tiefstwert der Depression. Warenkorb $5,20.",1933:"FDR konfisziert Gold! Privatbesitz verboten.",1934:"Gold: $20,67→$35 (+69%). Abwertung.",1938:"Erster Mindestlohn: $0,25/Std.",1940:"WWII — Lebensmittel- und Benzinrationierung.",1944:"Bretton Woods: $ = $35/oz.",1945:"Ende des WWII.",1950:"Koreakrieg. Suburbanisierung.",1955:"Mittelklasse: Auto, Haus, Kühlschrank.",1960:"JFK. Weltraumrennen.",1965:"Vietnam eskaliert.",1967:"Gold Pool unter Druck.",1968:"Gold Pool kollabiert! MiLo=$1,60/Std (Höchststand!).",1970:"Vietnam. Inflation steigt.",1971:"15. Aug: NIXON SCHLIEßT DAS GOLDFENSTER!",1973:"Ölembargo. Benzin: $0,39→$0,53.",1974:"Gold jetzt legal für Amerikaner.",1975:"Rezession. 12% Inflation.",1978:"Iranische Revolution naht.",1979:"Iran-Krise. Gold→$306.",1980:"Gold HÖCHSTSTAND $850! 14% Inflation! Volcker: 20%.",1982:"Rezession 10,8% Arbeitslosigkeit.",1985:"Plaza-Abkommen: $ schwächt ab.",1987:"Schwarzer Montag: -22% an 1 Tag.",1989:"Berliner Mauer fällt.",1990:"UdSSR löst sich auf.",1995:"Internetboom. Amazon, eBay.",1997:"Asienkrise.",1999:"Dotcom-Blase. Gold Tief: $279!",2000:"Dotcom-Crash.",2002:"9/11 Nachwirkungen. Gold→$310.",2004:"Gold→$410. Irak-Krieg."}
+},
+it:{tl:"Potere d'acquisto in grammi d'oro",sb:"10 paesi · 2005–2036 · ciclo 16 anni",ht:"Come leggere?",hx:"Prezzi e salari in grammi d'oro — indipendente dall'inflazione. Trascina il cursore.",op:"🌞 Ottimistico",ps:"🌧️ Pessimistico",fc:"PREVISIONE",hq:"⏱ Salario minimo. Ore per 1g d'oro?",wu:"Salario +",sn:"ma",gu:"oro +",bf:"Prima:",nw:"Ora:",wd:"giorni lav.",ls:"Lavoro ↓",vg:"vs oro.",rr:"Raro: salario>oro!",bt:"🪙 CON 1g D'ORO compri:",gl:"Litri benzina",kw:"kWh elettr.",ff:"Giorni cibo (fam.4)",tk:"Pieno≈50L→",hh:"Casa≈300kWh/m",mr:"di più!",ft:"🛒 CIBO DAL SALARIO",fs:"Famiglia ~",fp:"/mese.",fi:"Sal. minimo",fh:"❌ Più della metà!",f3:"⚠️ Più di 1/3",fo:"✅ Sotto 1/3",gt:"💰 SALARIO=ORO",gwt:"Con 1 sal. minimo",gc:"compri",ga:"d'oro.",gp:"più poveri in oro",gri:"↑ Più ricchi!",wt:"📅 1 SALARIO=SETTIMANE CIBO",we:"la famiglia mangia",wk:"settimane",ct:"📜 Ciclo 16 anni oro",ci:'Minimi: <b style="color:var(--gn)">1968→1984→2000→2016</b> · Picchi: <b style="color:var(--yl)">1980,2011,~2028?</b> · Correzione: <b style="color:var(--rd)">~2029-2032</b>',dc:"NON è consulenza.",mn:"Min.",av:"Media",ig:"In oro",hr:"ore",wm:"/mese",
+hgl:"🌌 Oro: 106 Anni (1920–2036)",hsb:"Scala log. · Clicca decennio · 📊 = dati paese",
+hdl:"━ Giorni cibo per 1g oro",hhl:"━ Ore lavoro (sal.min.) per 1g",
+hbs:"Paniere: carne, patate, farina, pane, latte, uova, riso, zucchero",
+hyr:"Anno",hgg:"1g=$",hmw:"Sal.m/h",hdf:"🛒 Giorni/g",hhg:"⏱ ore/g",hhd:"🍽 ore/giorno",hwk:"$/sett",hbk:"🛒 Paniere",hin:"include",hth:"ore",hlb:"lavoro a sal.min.",hm1:"Più di 1 giorno lav.!",hl1:"Meno di 1 giorno lav.",hdg:"giorni/g",hch:"Variazione",hbm:"1g compra DI PIÙ",hbl:"1g compra meno",hle:"= oro economico",hme:"= medio",hhe:"= costoso",
+hcy:"📜 Ciclo 16 anni (GoldBroker/JPM)",hpa:"Fase A",hri:"crescita",hpk:"picco→correzione",hbt:"fondo (comprare)",hbn:"Minimi",hps:"Picchi",hnw:"Ora",
+hqi:"Inflazione nascosta: qualità cala!",hmt:"Carne",hm50:"1950: allevamento, senza ormoni",hm26:"2026: industriale, acqua +20-30%",hb26:"2026: additivi, shrinkflation",he50:"1950: galline libere",he26:"2026: in gabbia, più piccole",hpo:"Patate",hpq:"più piccole, più chimica",hcl:"Vestiti",hc50:"1960: cotone, lana, 10+ anni",hc26:"2026: poliestere, fast fashion",hsh:"Shrinkflation",hsq:"Confezioni: patatine 200g→150g",hef:"Effetto",heq:"Inflazione reale +15-30% superiore",hrd:"giorni veri di cibo",h1d:"1 giorno",h1w:"1 sett.",
+hhistbtn:"📜 Storia 1920–2036",hcountrybtn:"📊 → Modalità paese",
+hbasket:"Paniere",hincludes:"include",hweekly:"sett.",hworkday:"giorno lav.",
+hgold_cheap:"🟢 <2 giorni = oro economico",hgold_med:"🟡 2-7 giorni = medio",hgold_exp:"🔴 >7 giorni = costoso",
+hpeak1968:"🏆 1968: 45 min di lavoro compra 1g oro che sfama la famiglia per 19 ore",
+hcycle_desc:'<b style="color:var(--gn)">Fase A</b> = crescita · <b style="color:var(--yl)">B</b> = picco→correzione · <b style="color:var(--rd)">C</b> = fondo (comprare)',
+hcycle_now:"Ora",hcycle_phase:"Fase",
+hquality_title:"⚠️ Inflazione nascosta: qualità cala!",
+hquality_desc:"Il paniere ha lo <b>stesso prezzo</b>, ma ricevi <b>meno</b>:",
+hquality_meat1:"1950: allevamento, senza ormoni",hquality_meat2:"2026: industriale, acqua +20-30%",
+hquality_bread:"2026: additivi, shrinkflation",
+hquality_eggs1:"1950: galline libere",hquality_eggs2:"2026: in gabbia, più piccole",
+hquality_potato:"più piccole, più chimica",
+hquality_clothes1:"1960: cotone, lana, 10+ anni",hquality_clothes2:"2026: poliestere, fast fashion",
+hquality_shrink:"Confezioni: patatine 200g→150g",
+hquality_effect:"Inflazione reale +15-30% superiore",
+hquality_result:"Se il paniere del 1960 avesse la <b>stessa qualità</b> oggi, costerebbe <b>×1.3-1.5 di più</b>.",
+hquality_realdays:"Ciò significa: 1g oro (2026) compra NON 19,5 ma piuttosto <b style=\"color:var(--au)\">~13-15 giorni veri di cibo</b>.",
+hdaysfoodperg:"giorni/g",hleader_line:"━ Giorni cibo per 1g",hleader_hours:"━ Ore lavoro per 1g",
+hdec_1920_t:"Standard Oro & Anni Ruggenti",hdec_1920_d:"Oro fisso a $20,67/oz dal 1879. Un grammo costa $0,66 — così economico da non comprare 1 giorno di cibo per la famiglia.",
+hdec_1920_f:["Oro FISSO a $20,67/oz — 1 grammo = $0,66","Paniere ~$7,50/sett → 1g oro = solo 0,6 GIORNI cibo","Nessun salario minimo — media ~$100/mese","Ford Model T = $260 = 12,6oz oro = 394 grammi","1929: Crollo Wall Street → Grande Depressione"],
+hdec_1930_t:"Depressione & FDR confisca l'oro",hdec_1930_d:"La Grande Depressione distrugge i risparmi. FDR vieta l'oro privato e aumenta il prezzo del 69%. Deflazione.",
+hdec_1930_f:["1933: FDR CONFISCA l'oro privato!","Oro balza $20,67→$35 in una notte (+69%)","Possedere oro ILLEGALE per i cittadini","1938: Primo salario minimo $0,25/ora","1g = $1,13 → 1,4 giorni di cibo"],
+hdec_1940_t:"WWII & Bretton Woods",hdec_1940_d:"La guerra raziona tutto. Bretton Woods rende il dollaro equivalente all'oro — $35/oz. Un grammo d'oro compra circa 1 giorno di cibo.",
+hdec_1940_f:["1944: Bretton Woods → $ fisso a $35/oz","Cibo e benzina RAZIONATI","Sal. min.: $0,30→$0,40/ora","1g oro = $1,11 → ~1 giorno cibo","Il dollaro diventa valuta di riserva mondiale"],
+hdec_1950_t:"Boom post-bellico, l'oro dorme",hdec_1950_d:"Boom economico, suburbanizzazione. Il salario minimo si triplica ma l'oro è bloccato. 1g compra sempre meno.",
+hdec_1950_f:["Oro bloccato a ~$38-40 per 20 ANNI","Sal. min.: $0,75/ora (×3 dal 1938!)","1g = $1,29 → solo 1,1 giorni cibo","L'oro PERDE potere d'acquisto","I salari crescono, l'oro resta fermo"],
+hdec_1960_t:"Vietnam & collasso del Gold Pool",hdec_1960_d:"Massimo salario minimo + oro basso = un grammo d'oro compra meno di 1 giorno di cibo! 45 min di lavoro = 1g oro.",
+hdec_1960_f:["I governi vendono segretamente oro per mantenere $35","1968: Gold Pool collassa! Il mercato vince","Sal. min. $1,60/ora — RECORD STORICO!","1g = $1,17 → SOLO 0,8 giorni cibo","Oro più economico della storia! 🏆"],
+hdec_1970_t:"Shock Nixon! L'oro è LIBERO",hdec_1970_d:"IL MOMENTO CHIAVE. Nixon stacca il dollaro dall'oro. L'oro sale 17× in 10 anni! Chi vince? Chi ha l'oro.",
+hdec_1970_f:["1971: Nixon TERMINA la convertibilità del $!","Oro: $36→$615/oz in 10 anni 🚀","Crisi petrolifera 1973 → inflazione 14%","1g(1980) = $19,77 → 4,9 GIORNI cibo!","Ore per 1g: 0,7h(1970)→6,4h(1980)"],
+hdec_1980_t:"Picco & Mercato Orso 20 anni",hdec_1980_d:"La corsa all'oro finisce. La Fed schiaccia l'inflazione con tassi al 20%. L'oro dimezza. Inizia l'era delle azioni.",
+hdec_1980_f:["1980 picco: $615/oz → 1g = $19,77","Volcker alza i tassi al 20% → oro crolla!","$615→$317 entro 1985 (quasi -50%)","1g(1985) = $10,19 → 2,4 giorni cibo","Azioni in boom, oro dimenticato 20 anni"],
+hdec_1990_t:"Il decennio perduto dell'oro",hdec_1990_d:"L'oro è 'morto'. Le banche centrali vendono riserve. La bolla dot-com rende tutti 'ricchi' sulla carta. 1g oro compra solo 1,5 giorni di cibo.",
+hdec_1990_f:["Oro tocca minimo 20 anni: $279 (1999)","Le banche centrali VENDONO riserve auree","Internet boom → tutti vogliono azioni .com","1g(2000) = $8,97 → 1,5 giorni cibo","Sal. min.: $4,25→$5,15/ora"],
+hdec_2000_t:"L'oro si sveglia",hdec_2000_d:"La bolla scoppia. Le azioni perdono il 50%. L'oro inizia a salire e non si ferma per 12 anni.",
+hdec_2000_f:["2001: Crollo dot-com → oro minimo $271","9/11 → domanda rifugio sicuro","2008: Lehman Brothers → oro $872","1g: $8,97(2000)→$13,18(2005)","📊 Clicca per dati completi"],
+hdec_2010_t:"Mercato Toro & Correzione",hdec_2010_d:"L'oro tocca il record poi corregge del 45%. Ma le banche centrali ora COMPRANO. Sal. min. congelato — $7,25 dal 2009.",
+hdec_2010_f:["2011: Nuovo ATH $1.920/oz → 1g = $50,5","1g(2011) = 7,2 giorni cibo famiglia","2016: Fondo ciclo $1.060","Banche centrali → COMPRATORI NETTI","Sal. min. $7,25 CONGELATO dal 2009 🥶"],
+hdec_2020_t:"Esplosione & Nuova Realtà",hdec_2020_d:"Pandemia, guerra in Ucraina, stampa di denaro record. L'oro ESPLODE. 1 grammo = $167 = quasi 20 giorni di cibo. Sal. min. congelato 17 anni!",
+hdec_2020_f:["COVID 2020: oro supera $2.000","2024: Banche centrali comprano record 1.037 tonnellate","2026: $5.200! → 1g = $167 = 19,5 GIORNI cibo!","$7,25/ora × 23h = 1 GRAMMO d'oro","Bulgaria entra nell'Eurozona 01.01.2026"],
+hdec_2030_t:"Previsione: Picco & Correzione",hdec_2030_d:"Se il ciclo di 16 anni continua, picco intorno al 2028, poi correzione. La domanda non è 'quanto vale l\'oro?' ma 'quanto POCO vale il denaro?'.",
+hdec_2030_f:["~2028: Possibile picco ~$9.200/oz → 1g ≈ $296","1g(2028) ≈ 35 giorni cibo = 5 SETTIMANE!","~2029-32: Correzione -30-40%","Ciclo 16 anni (1968→1984→2000→2016)","Oro = termometro della fiducia nel sistema"],
+hevents:{1920:"Standard oro. $1=$20,67 oro.",1925:"Boom. UK torna al gold standard.",1929:"24 ott: Giovedì Nero — Wall St crolla!",1930:"Grande Depressione. 25% disoccupazione.",1932:"Fondo della depressione. Paniere $5,20.",1933:"FDR confisca l'oro! Possesso privato vietato.",1934:"Oro: $20,67→$35 (+69%). Svalutazione.",1938:"Primo salario minimo: $0,25/ora.",1940:"WWII — razionamento cibo e benzina.",1944:"Bretton Woods: $ = $35/oz.",1945:"Fine WWII.",1950:"Guerra di Corea. Suburbanizzazione.",1955:"Classe media: auto, casa, frigorifero.",1960:"JFK. Corsa allo spazio.",1965:"Vietnam si intensifica.",1967:"Gold Pool sotto pressione.",1968:"Gold Pool collassa! Sal.min.=$1,60/ora (picco!).",1970:"Vietnam. L'inflazione sale.",1971:"15 ago: NIXON CHIUDE LA FINESTRA DELL'ORO!",1973:"Embargo petrolifero. Benzina: $0,39→$0,53.",1974:"Oro ora legale per gli americani.",1975:"Recessione. Inflazione 12%.",1978:"Rivoluzione iraniana si avvicina.",1979:"Crisi iraniana. Oro→$306.",1980:"Oro PICCO $850! Inflazione 14%! Volcker: 20%.",1982:"Recessione 10,8% disoccupazione.",1985:"Accordo Plaza: $ si indebolisce.",1987:"Lunedì Nero: -22% in 1 giorno.",1989:"Caduta del Muro di Berlino.",1990:"Dissoluzione URSS.",1995:"Internet boom. Amazon, eBay.",1997:"Crisi asiatica.",1999:"Bolla dot-com. Oro minimo: $279!",2000:"Crollo dot-com.",2002:"Conseguenze 9/11. Oro→$310.",2004:"Oro→$410. Guerra Iraq."}
+},
+fr:{tl:"Pouvoir d'achat en grammes d'or",sb:"10 pays · 2005–2036 · cycle 16 ans",ht:"Comment lire?",hx:"Prix & salaires en grammes d'or — indépendant de l'inflation. Glissez le curseur.",op:"🌞 Optimiste",ps:"🌧️ Pessimiste",fc:"PRÉVISION",hq:"⏱ SMIC. Heures pour 1g d'or?",wu:"Salaire +",sn:"mais",gu:"or +",bf:"Avant:",nw:"Maint.:",wd:"jours ouvrés",ls:"Travail ↓",vg:"face à l'or.",rr:"Rare: salaire>or!",bt:"🪙 AVEC 1g D'OR tu achètes:",gl:"Litres essence",kw:"kWh élec",ff:"Jours nourriture (4p.)",tk:"Plein≈50L→",hh:"Ménage≈300kWh/m",mr:"de plus!",ft:"🛒 ALIMENTATION/SALAIRE",fs:"Famille ~",fp:"/mois.",fi:"SMIC",fh:"❌ Plus de moitié!",f3:"⚠️ Plus d'1/3",fo:"✅ Moins d'1/3",gt:"💰 SALAIRE=OR",gwt:"Avec 1 SMIC",gc:"tu achètes",ga:"d'or.",gp:"plus pauvres",gri:"↑ Plus riches!",wt:"📅 1 SALAIRE=SEMAINES",we:"la famille mange",wk:"semaines",ct:"📜 Cycle 16 ans",ci:'Creux: <b style="color:var(--gn)">1968→1984→2000→2016</b> · Pics: <b style="color:var(--yl)">1980,2011,~2028?</b> · Correction: <b style="color:var(--rd)">~2029-2032</b>',dc:"PAS un conseil financier.",mn:"SMIC",av:"Moyen",ig:"En or",hr:"h",wm:"/mois",
+hgl:"🌌 Or: 106 Ans (1920–2036)",hsb:"Éch. log. · Cliquez décennie · 📊 = données pays",
+hdl:"━ Jours nourriture par 1g or",hhl:"━ Heures travail (SMIC) par 1g",
+hbs:"Panier: viande, p.d.terre, farine, pain, lait, oeufs, riz, sucre",
+hyr:"Année",hgg:"1g=$",hmw:"SMIC/h",hdf:"🛒 Jours/g",hhg:"⏱ h/g",hhd:"🍽 h/jour",hwk:"$/sem",hbk:"🛒 Panier",hin:"contient",hth:"heures",hlb:"travail au SMIC",hm1:"Plus de 1 jour!",hl1:"Moins de 1 jour",hdg:"jours/g",hch:"Variation",hbm:"1g achète PLUS",hbl:"1g achète moins",hle:"= or bon marché",hme:"= moyen",hhe:"= cher",
+hcy:"📜 Cycle 16 ans (GoldBroker/JPM)",hpa:"Phase A",hri:"hausse",hpk:"pic→correction",hbt:"creux (acheter)",hbn:"Creux",hps:"Pics",hnw:"Maint.",
+hqi:"Inflation cachée: qualité baisse!",hmt:"Viande",hm50:"1950: élevage, sans hormones",hm26:"2026: industriel, eau +20-30%",hb26:"2026: additifs, shrinkflation",he50:"1950: poules libres",he26:"2026: en cage, plus petits",hpo:"P.d.terre",hpq:"plus petites, plus chimie",hcl:"Vêtements",hc50:"1960: coton, laine, 10+ ans",hc26:"2026: polyester, fast fashion",hsh:"Shrinkflation",hsq:"Emballages: chips 200g→150g",hef:"Effet",heq:"Inflation réelle +15-30% supérieure",hrd:"jours vrais de nourriture",h1d:"1 jour",h1w:"1 sem.",
+hhistbtn:"📜 Histoire 1920–2036",hcountrybtn:"📊 → Mode pays",
+hbasket:"Panier",hincludes:"contient",hweekly:"sem.",hworkday:"jour ouvré",
+hgold_cheap:"🟢 <2 jours = or bon marché",hgold_med:"🟡 2-7 jours = moyen",hgold_exp:"🔴 >7 jours = cher",
+hpeak1968:"🏆 1968: 45 min de travail achète 1g or qui nourrit la famille 19 heures",
+hcycle_desc:'<b style="color:var(--gn)">Phase A</b> = hausse · <b style="color:var(--yl)">B</b> = pic→correction · <b style="color:var(--rd)">C</b> = creux (acheter)',
+hcycle_now:"Maint.",hcycle_phase:"Phase",
+hquality_title:"⚠️ Inflation cachée: qualité baisse!",
+hquality_desc:"Le panier est au <b>même prix</b>, mais vous recevez <b>moins</b>:",
+hquality_meat1:"1950: élevage, sans hormones",hquality_meat2:"2026: industriel, eau +20-30%",
+hquality_bread:"2026: additifs, shrinkflation",
+hquality_eggs1:"1950: poules libres",hquality_eggs2:"2026: en cage, plus petits",
+hquality_potato:"plus petites, plus chimie",
+hquality_clothes1:"1960: coton, laine, 10+ ans",hquality_clothes2:"2026: polyester, fast fashion",
+hquality_shrink:"Emballages: chips 200g→150g",
+hquality_effect:"Inflation réelle +15-30% supérieure",
+hquality_result:"Si le panier de 1960 avait la <b>même qualité</b> aujourd'hui, il coûterait <b>×1.3-1.5 plus cher</b>.",
+hquality_realdays:"Cela signifie: 1g or (2026) achète PAS 19,5 mais plutôt <b style=\"color:var(--au)\">~13-15 vrais jours de nourriture</b>.",
+hdaysfoodperg:"jours/g",hleader_line:"━ Jours nourriture par 1g",hleader_hours:"━ Heures travail par 1g",
+hdec_1920_t:"Étalon-or & Années Folles",hdec_1920_d:"Or fixé à $20,67/oz depuis 1879. Un gramme coûte $0,66 — si peu cher qu'il n'achète pas 1 jour de nourriture familiale.",
+hdec_1920_f:["Or FIXÉ à $20,67/oz — 1 gramme = $0,66","Panier ~$7,50/sem → 1g or = seulement 0,6 JOURS nourriture","Pas de SMIC — moyenne ~$100/mois","Ford Model T = $260 = 12,6oz or = 394 grammes","1929: Krach de Wall Street → Grande Dépression"],
+hdec_1930_t:"Dépression & FDR confisque l'or",hdec_1930_d:"La Grande Dépression détruit les économies. FDR interdit l'or privé et augmente le prix de 69%. Déflation.",
+hdec_1930_f:["1933: FDR CONFISQUE l'or privé!","Or bondit $20,67→$35 une nuit (+69%)","Posséder de l'or ILLÉGAL pour les citoyens","1938: Premier SMIC $0,25/h","1g = $1,13 → 1,4 jours de nourriture"],
+hdec_1940_t:"WWII & Bretton Woods",hdec_1940_d:"La guerre rationne tout. Bretton Woods rend le dollar équivalent à l'or — $35/oz. Un gramme d'or achète environ 1 jour de nourriture familiale.",
+hdec_1940_f:["1944: Bretton Woods → $ fixé à $35/oz","Nourriture et essence RATIONNÉES","SMIC: $0,30→$0,40/h","1g or = $1,11 → ~1 jour nourriture","Le dollar devient monnaie de réserve mondiale"],
+hdec_1950_t:"Boom d'après-guerre, l'or dort",hdec_1950_d:"Boom économique, suburbanisation. Le SMIC triple mais l'or est bloqué. 1g achète de moins en moins.",
+hdec_1950_f:["Or bloqué à ~$38-40 pendant 20 ANS","SMIC: $0,75/h (×3 depuis 1938!)","1g = $1,29 → seulement 1,1 jours nourriture","L'or PERD du pouvoir d'achat","Les salaires montent, l'or reste en place"],
+hdec_1960_t:"Vietnam & effondrement du Gold Pool",hdec_1960_d:"SMIC maximum + or bas = un gramme d'or achète moins d'1 jour de nourriture! 45 min de travail = 1g or.",
+hdec_1960_f:["Les gouvernements vendent secrètement l'or pour maintenir $35","1968: Gold Pool s'effondre! Le marché gagne","SMIC $1,60/h — RECORD HISTORIQUE!","1g = $1,17 → SEULEMENT 0,8 jours nourriture","Or le moins cher de l'histoire! 🏆"],
+hdec_1970_t:"Choc Nixon! L'or est LIBRE",hdec_1970_d:"LE MOMENT CLÉ. Nixon détache le dollar de l'or. L'or monte 17× en 10 ans! Qui gagne? Ceux qui ont de l'or.",
+hdec_1970_f:["1971: Nixon MET FIN à la convertibilité du $!","Or: $36→$615/oz en 10 ans 🚀","Crise pétrolière 1973 → inflation 14%","1g(1980) = $19,77 → 4,9 JOURS nourriture!","Heures par 1g: 0,7h(1970)→6,4h(1980)"],
+hdec_1980_t:"Pic & Marché Baissier 20 ans",hdec_1980_d:"La ruée vers l'or se termine. La Fed écrase l'inflation avec des taux à 20%. L'or chute de moitié. L'ère des actions commence.",
+hdec_1980_f:["1980 pic: $615/oz → 1g = $19,77","Volcker monte les taux à 20% → or s'effondre!","$615→$317 en 1985 (presque -50%)","1g(1985) = $10,19 → 2,4 jours nourriture","Actions en boom, or oublié 20 ans"],
+hdec_1990_t:"La décennie perdue de l'or",hdec_1990_d:"L'or est 'mort'. Les banques centrales vendent leurs réserves. La bulle dot-com rend tout le monde 'riche' sur le papier. 1g achète seulement 1,5 jours.",
+hdec_1990_f:["Or touche son plus bas en 20 ans: $279 (1999)","Les banques centrales VENDENT leurs réserves d'or","Internet boom → tous veulent des actions .com","1g(2000) = $8,97 → 1,5 jours nourriture","SMIC: $4,25→$5,15/h"],
+hdec_2000_t:"L'or se réveille",hdec_2000_d:"La bulle éclate. Les actions perdent 50%. L'or commence à monter et ne s'arrête pas pendant 12 ans.",
+hdec_2000_f:["2001: Krach dot-com → or plancher $271","9/11 → demande de valeur refuge","2008: Lehman Brothers → or $872","1g: $8,97(2000)→$13,18(2005)","📊 Cliquez pour données complètes"],
+hdec_2010_t:"Marché Haussier & Correction",hdec_2010_d:"L'or bat un record puis corrige de 45%. Mais les banques centrales ACHÈTENT maintenant. SMIC gelé — $7,25 depuis 2009.",
+hdec_2010_f:["2011: Nouveau ATH $1.920/oz → 1g = $50,5","1g(2011) = 7,2 jours nourriture famille","2016: Creux de cycle $1.060","Banques centrales → ACHETEURS NETS","SMIC $7,25 GELÉ depuis 2009 🥶"],
+hdec_2020_t:"Explosion & Nouvelle Réalité",hdec_2020_d:"Pandémie, guerre en Ukraine, impression monétaire record. L'or EXPLOSE. 1 gramme = $167 = presque 20 jours de nourriture. SMIC gelé 17 ans!",
+hdec_2020_f:["COVID 2020: or dépasse $2.000","2024: Banques centrales achètent record 1.037 tonnes","2026: $5.200! → 1g = $167 = 19,5 JOURS nourriture!","$7,25/h × 23h = 1 GRAMME d'or","La Bulgarie rejoint la zone euro 01.01.2026"],
+hdec_2030_t:"Prévision: Pic & Correction",hdec_2030_d:"Si le cycle de 16 ans continue, pic vers 2028, puis correction. La question n\'est pas 'combien vaut l\'or?' mais 'combien peu valent les billets?'.",
+hdec_2030_f:["~2028: Pic possible ~$9.200/oz → 1g ≈ $296","1g(2028) ≈ 35 jours nourriture = 5 SEMAINES!","~2029-32: Correction -30-40%","Cycle 16 ans (1968→1984→2000→2016)","Or = thermomètre de la confiance dans le système"],
+hevents:{1920:"Étalon-or. $1=$20,67 or.",1925:"Boom. Le Royaume-Uni retourne à l'étalon-or.",1929:"24 oct: Jeudi Noir — Wall St s'effondre!",1930:"Grande Dépression. 25% chômage.",1932:"Creux de la dépression. Panier $5,20.",1933:"FDR confisque l'or! Possession privée interdite.",1934:"Or: $20,67→$35 (+69%). Dévaluation.",1938:"Premier SMIC: $0,25/h.",1940:"WWII — rationnement alimentaire et carburant.",1944:"Bretton Woods: $ = $35/oz.",1945:"Fin de la WWII.",1950:"Guerre de Corée. Suburbanisation.",1955:"Classe moyenne: voiture, maison, frigo.",1960:"JFK. Course à l'espace.",1965:"Vietnam s'intensifie.",1967:"Gold Pool sous pression.",1968:"Gold Pool s'effondre! SMIC=$1,60/h (pic!).",1970:"Vietnam. L'inflation monte.",1971:"15 août: NIXON FERME LA FENÊTRE DE L'OR!",1973:"Embargo pétrolier. Essence: $0,39→$0,53.",1974:"Or désormais légal pour les Américains.",1975:"Récession. Inflation 12%.",1978:"Révolution iranienne approche.",1979:"Crise iranienne. Or→$306.",1980:"Or PIC $850! Inflation 14%! Volcker: 20%.",1982:"Récession 10,8% chômage.",1985:"Accord du Plaza: $ s'affaiblit.",1987:"Lundi Noir: -22% en 1 jour.",1989:"Chute du Mur de Berlin.",1990:"Dissolution de l'URSS.",1995:"Internet boom. Amazon, eBay.",1997:"Crise asiatique.",1999:"Bulle dot-com. Or plancher: $279!",2000:"Krach dot-com.",2002:"Séquelles 9/11. Or→$310.",2004:"Or→$410. Guerre en Irak."}
+}
 };
+
 let lang='bg',yr=2026,co='bg',md='o',drg=false;
 const t=k=>(LL[lang]||LL.en)[k]||(LL.en)[k]||k;
 const $=id=>document.getElementById(id);
 
+const HDEC_KEYS=['1920','1930','1940','1950','1960','1970','1980','1990','2000','2010','2020','2030'];
+const HDEC_COLORS={'1920':'#fbbf24','1930':'#ef4444','1940':'#818cf8','1950':'#4ade80','1960':'#f97316','1970':'#ef4444','1980':'#fbbf24','1990':'#818cf8','2000':'#4ade80','2010':'#f97316','2020':'#D4A843','2030':'#666'};
+
+function getDec(decKey){
+  const k=String(decKey);
+  return{
+    t:t('hdec_'+k+'_t'),
+    d:t('hdec_'+k+'_d'),
+    f:t('hdec_'+k+'_f'),
+    c:HDEC_COLORS[k]||'#888'
+  };
+}
+
 function bLB(){const e=$('LB');e.innerHTML='';
 const lb={bg:'🇧🇬 БГ',en:'🇬🇧 EN',de:'🇩🇪 DE',it:'🇮🇹 IT',fr:'🇫🇷 FR'};
-Object.keys(LL).forEach(k=>{const b=document.createElement('button');b.className='sf'+(lang===k?' on':'');b.textContent=lb[k]||k;b.addEventListener('click',()=>{lang=k;bLB();R()});e.appendChild(b)})}
+Object.keys(LL).forEach(k=>{const b=document.createElement('button');b.className='sf'+(lang===k?' on':'');b.textContent=lb[k]||k;b.addEventListener('click',()=>{lang=k;bLB();bHistBtn();R();if(hMode)renderH()});e.appendChild(b)})}
+
+function bHistBtn(){
+  const b=$('histBtn');
+  b.textContent=hMode?t('hcountrybtn'):t('hhistbtn');
+}
 
 function bCB(){const e=$('CB');e.innerHTML='';
 Object.entries(CC).forEach(([k,v])=>{const b=document.createElement('button');b.className='sf'+(co===k?' on':'');b.textContent=v.f;b.title=v.n;
@@ -143,6 +412,240 @@ function uCH(){const W=620,H=140,mx=Math.max(...Object.values(G$),...Object.valu
 const oz=gD(yr,md),cx=((yr-2005)/31)*W,cy=H-10-oz/mx*(H-20),mc=yr>2026?(md==='o'?'#4ade80':'#f97316'):'#D4A843';
 const d=$('CD'),l=$('CLL');if(d){d.setAttribute('cx',cx);d.setAttribute('cy',cy);d.setAttribute('fill',mc)}if(l){l.setAttribute('x',cx);l.setAttribute('y',cy-10);l.textContent='$'+oz;l.setAttribute('fill',mc)}}
 
+const GH={1920:20.67,1925:20.67,1930:20.67,1934:35,1938:35,1940:34.5,1945:34.71,1950:40.25,1955:38.7,1960:36.5,1965:35.15,1968:39.26,1970:36.02,1971:40.62,1973:97.39,1975:161,1978:193,1980:615,1985:317,1990:384,1995:384,2000:279,2004:410};
+const HMW={1920:0,1930:0,1934:0,1938:.25,1940:.30,1945:.40,1950:.75,1955:.75,1960:1.00,1965:1.25,1968:1.60,1970:1.60,1973:1.60,1975:2.10,1978:2.65,1980:3.10,1985:3.35,1990:3.80,1995:4.25,2000:5.15,2004:5.15};
+const HBSK={1920:7.50,1922:7.30,1925:7.20,1928:7.40,1930:6.80,1932:5.20,1934:5.50,1936:5.70,1938:5.80,1940:5.60,1942:6.20,1944:6.50,1946:7.80,1948:8.50,1950:8.40,1952:8.80,1955:9.20,1957:9.50,1960:9.80,1962:10.00,1965:10.50,1967:11.00,1968:11.20,1970:12.50,1972:13.50,1973:16.00,1974:18.00,1975:19.50,1976:19.00,1978:22.00,1979:25.00,1980:28.00,1982:29.00,1984:29.50,1985:30.00,1987:31.00,1989:33.00,1990:35.00,1992:36.00,1994:37.50,1995:38.00,1997:39.50,1999:41.00,2000:42.00,2002:44.00,2004:46.00};
+const HPROD={
+1920:{beef:.30,potato:.02,flour:.06,sugar:.12,bread:.12,milk:.35,eggs:.47},
+1930:{beef:.22,potato:.02,flour:.04,sugar:.06,bread:.09,milk:.28,eggs:.29},
+1940:{beef:.28,potato:.02,flour:.04,sugar:.05,bread:.08,milk:.26,eggs:.33},
+1950:{beef:.60,potato:.04,flour:.05,sugar:.09,bread:.14,milk:.42,eggs:.60},
+1960:{beef:.65,potato:.05,flour:.06,sugar:.12,bread:.20,milk:.49,eggs:.57},
+1968:{beef:.75,potato:.06,flour:.07,sugar:.12,bread:.22,milk:.55,eggs:.53},
+1970:{beef:.90,potato:.07,flour:.08,sugar:.13,bread:.24,milk:.58,eggs:.61},
+1975:{beef:1.30,potato:.12,flour:.15,sugar:.33,bread:.36,milk:.73,eggs:.77},
+1980:{beef:2.40,potato:.15,flour:.14,sugar:.36,bread:.52,milk:1.05,eggs:.84},
+1985:{beef:2.40,potato:.18,flour:.13,sugar:.22,bread:.55,milk:1.08,eggs:.80},
+1990:{beef:2.80,potato:.25,flour:.15,sugar:.30,bread:.70,milk:1.32,eggs:1.00},
+2000:{beef:3.00,potato:.35,flour:.20,sugar:.35,bread:.99,milk:1.50,eggs:.96}};
+
+function getMW(y){const ks=Object.keys(HMW).map(Number).sort((a,b)=>a-b);let w=0;for(const k of ks)if(k<=y)w=HMW[k];if(y>=2005)return+(gv(CC.us.minW,y,md)/160).toFixed(2);return w}
+function getGold(y){return GH[y]||G$[y]||(GF[y]?(md==='o'?GF[y].o:GF[y].p):0)}
+function getBsk(y){if(y>=2005)return gv(CC.us.food,y,md)||HBSK[y]||0;return HBSK[y]||0}
+function getEvt(y){const evts=(LL[lang]||LL.en).hevents||{};return evts[y]||''}
+
+let hMode=false,hDecY=2020;
+
+function toggleHist(){hMode=!hMode;
+$('histPanel').style.display=hMode?'block':'none';
+$('mainPanel').style.display=hMode?'none':'block';
+bHistBtn();
+if(hMode)renderH()}
+
+function renderH(){
+  if($('histTitle'))$('histTitle').textContent=t('hgl');
+  if($('histSub'))$('histSub').textContent=t('hsb');
+  const allG={};for(const[y,v]of Object.entries(GH))allG[+y]=v;
+  for(const[y,v]of Object.entries(G$))allG[+y]=v;
+  for(let y=2027;y<=2036;y++){const f=GF[y];if(f)allG[y]=md==='o'?f.o:f.p}
+  const W=700,H=220,yrs=Object.keys(allG).map(Number).sort((a,b)=>a-b);
+
+  const series=[];
+  yrs.forEach(y=>{
+    const gOz=allG[y],g1g=+(gOz/OZ).toFixed(2);
+    const bsk=getBsk(y),mw=getMW(y);
+    const dailyF=bsk>0?bsk/7:0;
+    const daysPerG=dailyF>0?+(g1g/dailyF).toFixed(1):0;
+    const hrsPerG=mw>0?+(g1g/mw).toFixed(1):0;
+    series.push({y,gOz,g1g,bsk,mw,daysPerG,hrsPerG,dailyF});
+  });
+
+  const mxD=Math.max(...series.filter(d=>d.daysPerG>0).map(d=>d.daysPerG),25);
+  const mxH=Math.max(...series.filter(d=>d.hrsPerG>0).map(d=>d.hrsPerG),25);
+  const x=y=>((y-1920)/116)*W;
+  const yD=v=>H-18-Math.min(v/mxD,1)*(H-30);
+  const yHr=v=>H-18-Math.min(v/mxH,1)*(H-30);
+
+  let s='<svg viewBox="0 0 '+W+' '+H+'">';
+  for(let d=1920;d<=2030;d+=10){const sel=d===hDecY;
+  s+='<rect x="'+x(d)+'" width="'+(x(Math.min(d+10,2036))-x(d))+'" y="0" height="'+(H-18)+'" fill="'+(sel?'rgba(212,168,67,.08)':d%20===0?'rgba(255,255,255,.015)':'transparent')+'" rx="1"/>'}
+  s+='<line x1="0" y1="'+yD(1)+'" x2="'+W+'" y2="'+yD(1)+'" stroke="#4ade80" stroke-width=".3" stroke-dasharray="2,3"/>';
+  s+='<text x="3" y="'+(yD(1)-2)+'" fill="#4ade80" font-size="5" font-family="DM Sans" opacity=".5">'+t('h1d')+'</text>';
+  s+='<line x1="0" y1="'+yD(7)+'" x2="'+W+'" y2="'+yD(7)+'" stroke="#fbbf24" stroke-width=".3" stroke-dasharray="2,3"/>';
+  s+='<text x="3" y="'+(yD(7)-2)+'" fill="#fbbf24" font-size="5" font-family="DM Sans" opacity=".5">'+t('h1w')+'</text>';
+  s+='<line x1="'+x(1971)+'" y1="0" x2="'+x(1971)+'" y2="'+(H-18)+'" stroke="#ef4444" stroke-width=".7" stroke-dasharray="2,2" opacity=".4"/>';
+  s+='<text x="'+(x(1971)+2)+'" y="9" fill="#ef4444" font-size="5" font-family="DM Sans" opacity=".5">Nixon 1971</text>';
+  s+='<line x1="'+x(1938)+'" y1="0" x2="'+x(1938)+'" y2="'+(H-18)+'" stroke="#4ade80" stroke-width=".4" stroke-dasharray="2,2" opacity=".3"/>';
+  s+='<text x="'+(x(1938)+2)+'" y="14" fill="#4ade80" font-size="4" font-family="DM Sans" opacity=".4">'+t('fi')+' 1938</text>';
+
+  const bP=series.filter(d=>d.daysPerG>0),hP=bP.filter(d=>d.y<=2026),fP=bP.filter(d=>d.y>=2026);
+  if(hP.length>1){
+    s+='<polygon points="'+hP.map(d=>x(d.y)+','+yD(d.daysPerG)).join(' ')+' '+x(hP[hP.length-1].y)+','+(H-18)+' '+x(hP[0].y)+','+(H-18)+'" fill="rgba(212,168,67,.06)"/>';
+    s+='<polyline points="'+hP.map(d=>x(d.y)+','+yD(d.daysPerG)).join(' ')+'" fill="none" stroke="#D4A843" stroke-width="2"/>'}
+  if(fP.length>1)s+='<polyline points="'+fP.map(d=>x(d.y)+','+yD(d.daysPerG)).join(' ')+'" fill="none" stroke="var(--gn)" stroke-width="1.5" stroke-dasharray="3,2"/>';
+  const hrS=series.filter(d=>d.hrsPerG>0),hrH=hrS.filter(d=>d.y<=2026),hrF=hrS.filter(d=>d.y>=2026);
+  if(hrH.length>1)s+='<polyline points="'+hrH.map(d=>x(d.y)+','+yHr(d.hrsPerG)).join(' ')+'" fill="none" stroke="var(--bl)" stroke-width="1" opacity=".4"/>';
+  if(hrF.length>1)s+='<polyline points="'+hrF.map(d=>x(d.y)+','+yHr(d.hrsPerG)).join(' ')+'" fill="none" stroke="var(--bl)" stroke-width="1" stroke-dasharray="3,2" opacity=".3"/>';
+  [1938,1950,1960,1968,1980,1990,2000,2011,2026].forEach(ky=>{
+    const d=bP.find(p=>p.y===ky);if(!d)return;
+    const col=d.daysPerG>7?'#ef4444':d.daysPerG>2?'#fbbf24':'#4ade80';
+    s+='<circle cx="'+x(d.y)+'" cy="'+yD(d.daysPerG)+'" r="2.5" fill="'+col+'" stroke="#000" stroke-width=".5"/>';
+    s+='<text x="'+x(d.y)+'" y="'+(yD(d.daysPerG)-5)+'" fill="'+col+'" font-size="6" font-family="DM Sans" text-anchor="middle" font-weight="bold">'+d.daysPerG+'</text>';
+    s+='<text x="'+x(d.y)+'" y="'+(yD(d.daysPerG)+9)+'" fill="#444" font-size="4" font-family="DM Sans" text-anchor="middle">'+d.y+'</text>'});
+  for(let d=1920;d<=2030;d+=10){const sel=d===hDecY;
+  s+='<text x="'+((x(d)+x(Math.min(d+10,2036)))/2)+'" y="'+(H-4)+'" fill="'+(sel?'#D4A843':'#333')+'" font-size="6" font-family="DM Sans" text-anchor="middle" font-weight="'+(sel?'bold':'normal')+'">'+d+'s</text>'}
+  s+='</svg>';
+  $('histChart').innerHTML=s;
+  $('histChartSub').innerHTML='<span style="color:var(--au)">'+t('hdl')+'</span> · <span style="color:var(--bl);opacity:.5">'+t('hhl')+'</span><br><span style="color:#333">'+t('hbs')+'</span>';
+
+  // Decade buttons
+  const dEl=$('histDecades');dEl.innerHTML='';
+  HDEC_KEYS.forEach(dk=>{const dy=+dk,sel=dy===hDecY,dc_col=HDEC_COLORS[dk]||'#888';
+  const b=document.createElement('button');b.className='sf'+(sel?' on':'');
+  b.style.cssText='padding:3px 7px;border-radius:3px;border:1px solid '+(sel?dc_col+'55':'#1a1a1a')+';background:'+(sel?dc_col+'12':'transparent')+';color:'+(sel?dc_col:'#444')+';font-size:9px;cursor:pointer;font-weight:'+(sel?'700':'400');
+  b.textContent=(dy>=2000?'📊 ':'')+dk+'s';
+  b.addEventListener('click',function(){if(dy>=2005){hMode=false;yr=Math.max(2005,dy);
+  $('histPanel').style.display='none';$('mainPanel').style.display='block';
+  bHistBtn();R()}
+  else{hDecY=dy;renderH()}});dEl.appendChild(b)});
+
+  // Detail
+  const dec=getDec(hDecY);
+  const dS=hDecY,dE=Math.min(hDecY+9,2036);
+  let h='<div style="text-align:center;margin-bottom:8px"><span style="font-size:14px;font-weight:700;color:'+dec.c+'">'+dec.t+'</span><span style="font-size:9px;color:#555"> '+dS+'–'+dE+'</span></div>';
+
+  if(dec.d)h+='<div style="font-size:10px;color:#888;line-height:1.6;padding:8px;background:#080808;border:1px solid #141414;border-radius:6px;margin-bottom:8px">'+dec.d+'</div>';
+
+  let rows=series.filter(d=>d.y>=dS&&d.y<=dE);
+  if(rows.length>10){const step=Math.ceil(rows.length/9);rows=rows.filter((_,i)=>i%step===0);if(rows[rows.length-1]!==series.filter(d=>d.y<=dE).pop())rows.push(series.filter(d=>d.y<=dE).pop())}
+
+  const maxDays=Math.max(...rows.filter(r=>r.daysPerG>0).map(r=>r.daysPerG),1);
+
+  if(rows.length>0){
+    h+='<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:8px;margin-bottom:8px">';
+    h+='<tr style="border-bottom:1px solid #1a1a1a;background:#080808">'
+      +'<th style="text-align:left;color:#555;padding:3px 4px">'+t('hyr')+'</th>'
+      +'<th style="color:var(--au);padding:3px">'+t('hgg')+'</th>'
+      +'<th style="color:#4ade80;padding:3px">'+t('hmw')+'</th>'
+      +'<th style="color:var(--au);padding:3px;font-weight:800;min-width:90px">'+t('hdf')+'</th>'
+      +'<th style="color:var(--bl);padding:3px">'+t('hhg')+'</th>'
+      +'<th style="color:#f97316;padding:3px">'+t('hhd')+'</th>'
+      +'<th style="color:#555;padding:3px">'+t('hwk')+'</th></tr>';
+    rows.forEach(r=>{
+      const dCol=r.daysPerG>7?'var(--rd)':r.daysPerG>2?'var(--yl)':'var(--gn)';
+      const hCol=r.hrsPerG>10?'var(--rd)':r.hrsPerG>3?'var(--yl)':'var(--gn)';
+      const hrsPerDayFood=r.mw>0&&r.dailyF>0?+(r.dailyF/r.mw).toFixed(1):0;
+      const fdCol=hrsPerDayFood>4?'var(--rd)':hrsPerDayFood>2?'var(--yl)':'var(--gn)';
+      const barW=r.daysPerG>0?Math.min(r.daysPerG/maxDays*100,100):0;
+      const barCol=r.daysPerG>7?'var(--rd)':r.daysPerG>2?'var(--yl)':'var(--gn)';
+      const evt=getEvt(r.y)||'';
+      h+='<tr style="border-bottom:1px solid #0d0d0d" title="'+evt.replace(/"/g,"&quot;")+'">';
+      h+='<td style="padding:3px 4px;color:#666;font-weight:600">'+r.y+(evt?'*':'')+'</td>';
+      h+='<td style="padding:3px;color:var(--au);font-weight:700">'+r.g1g.toFixed(1)+'</td>';
+      h+='<td style="padding:3px;color:#4ade80">'+(r.mw>0?'$'+r.mw.toFixed(2):'—')+'</td>';
+      h+='<td style="padding:3px"><div style="display:flex;align-items:center;gap:3px"><span style="color:'+dCol+';font-weight:800;font-size:10px;min-width:22px">'+(r.daysPerG>0?r.daysPerG:'—')+'</span><div style="flex:1;height:6px;background:#111;border-radius:2px;overflow:hidden"><div style="width:'+barW+'%;height:100%;background:'+barCol+';border-radius:2px"></div></div></div></td>';
+      h+='<td style="padding:3px;color:'+hCol+'">'+(r.hrsPerG>0?r.hrsPerG+t('hr'):'—')+'</td>';
+      h+='<td style="padding:3px;color:'+fdCol+';font-weight:600">'+(hrsPerDayFood>0?hrsPerDayFood+t('hr'):'—')+'</td>';
+      h+='<td style="padding:3px;color:#555">'+(r.bsk>0?'$'+r.bsk.toFixed(0):'—')+'</td></tr>';
+      if(evt)h+='<tr><td colspan="7" style="padding:1px 4px 3px;font-size:7px;color:#444;border-bottom:1px solid #0a0a0a">↳ '+evt+'</td></tr>';
+    });
+    h+='</table></div>';
+    h+='<div style="font-size:7px;color:#444;margin-bottom:6px">🛒 <b>'+t('hdaysfoodperg')+'</b> = '+t('hdf')+' · ⏱ '+t('hhg')+' · 🍽 '+t('hhd')+'</div>';
+  }
+
+  // Product basket breakdown
+  const prodYrs=Object.keys(HPROD).map(Number).filter(y=>y>=dS&&y<=dE);
+  if(prodYrs.length>0){
+    const py=prodYrs[Math.floor(prodYrs.length/2)]||prodYrs[0];
+    const pr=HPROD[py];
+    if(pr){
+      const mwY=getMW(py);
+      h+='<div style="background:#0a0a08;border:1px solid #151510;border-radius:6px;padding:8px;margin-bottom:8px">';
+      h+='<div style="font-size:9px;color:var(--au);font-weight:700;margin-bottom:4px">🛒 '+t('hbasket')+' '+py+' — '+t('hincludes')+' ($'+getBsk(py).toFixed(0)+'/'+t('hweekly')+')</div>';
+      h+='<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:4px">';
+      const items=[
+        {n:'🥩 '+t('hmt')+' 5lb',p:pr.beef*5},
+        {n:'🥔 '+t('hpo')+' 10lb',p:pr.potato*10},
+        {n:'🌾 5lb',p:pr.flour*5},
+        {n:'🍞 ×7',p:pr.bread*7},
+        {n:'🥛 4gal',p:pr.milk*4},
+        {n:'🥚 12',p:pr.eggs},
+        {n:'🍚 2lb',p:(pr.flour||.05)*2},
+        {n:'🍬 2lb',p:pr.sugar*2}
+      ];
+      items.forEach(it=>{
+        const hrs=mwY>0?+(it.p/mwY).toFixed(1):0;
+        h+='<div style="background:#0c0c0a;padding:4px;border-radius:3px;text-align:center"><div style="font-size:7px;color:#555">'+it.n+'</div><div style="font-size:11px;color:var(--au);font-weight:700">$'+it.p.toFixed(2)+'</div>'+(hrs>0?'<div style="font-size:6px;color:var(--bl)">'+hrs+t('hr')+'</div>':'')+'</div>';
+      });
+      h+='</div>';
+      if(mwY>0){
+        const totalHrs=+(getBsk(py)/mwY).toFixed(1);
+        h+='<div style="margin-top:4px;font-size:8px;color:#777;text-align:center">'
+          +t('hbasket')+' = <b style="color:var(--bl)">'+totalHrs+' '+t('hth')+'</b> '+t('hlb')+' ($'+mwY.toFixed(2)+'/'+t('hr')+') · '
+          +(totalHrs>8?'⚠️ '+t('hm1'):'✅ '+t('hl1'))
+          +'</div>';
+      }
+      h+='</div>';
+    }
+  }
+
+  // Facts
+  const facts=dec.f;
+  if(Array.isArray(facts)&&facts.length>0){
+    h+='<div style="background:#0a0a0a;border:1px solid #141414;border-radius:6px;padding:8px;margin-bottom:8px">';
+    facts.forEach((f,i)=>{h+='<div style="font-size:10px;color:#999;padding:3px 0;border-bottom:'+(i<facts.length-1?'1px solid #111':'none')+'"><span style="color:'+dec.c+';font-weight:700">'+(i+1)+'.</span> '+f+'</div>'});
+    h+='</div>';
+  }
+
+  // Start vs End comparison
+  const s0=series.find(d=>d.y>=dS&&d.daysPerG>0);
+  const s1=[...series].reverse().find(d=>d.y<=dE&&d.daysPerG>0);
+  if(s0&&s1&&s0!==s1){
+    const chg=s0.daysPerG>0&&s1.daysPerG>0?((s1.daysPerG/s0.daysPerG-1)*100).toFixed(0):'?';
+    const up=parseFloat(chg)>0;
+    h+='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;text-align:center">';
+    h+='<div style="background:#0c0c0c;padding:8px;border-radius:5px"><div style="font-size:7px;color:#555">'+s0.y+'</div><div style="font-size:20px;color:var(--au);font-weight:700">'+s0.daysPerG+'</div><div style="font-size:7px;color:#444">'+t('hdaysfoodperg')+'</div><div style="font-size:8px;color:#555">$'+s0.g1g.toFixed(1)+'/g</div></div>';
+    h+='<div style="background:#0c0c0c;padding:8px;border-radius:5px"><div style="font-size:7px;color:#555">'+t('hch')+'</div><div style="font-size:20px;color:'+(up?'var(--gn)':'var(--rd)')+';font-weight:700">'+(up?'↑+':'↓')+chg+'%</div><div style="font-size:7px;color:#444">'+(up?t('hbm'):t('hbl'))+'</div></div>';
+    h+='<div style="background:#0c0c0c;padding:8px;border-radius:5px"><div style="font-size:7px;color:#555">'+s1.y+'</div><div style="font-size:20px;color:var(--au);font-weight:700">'+s1.daysPerG+'</div><div style="font-size:7px;color:#444">'+t('hdaysfoodperg')+'</div><div style="font-size:8px;color:#555">$'+s1.g1g.toFixed(1)+'/g</div></div></div>';
+  }
+  $('histDetail').innerHTML=h;
+
+  // Global stats panel
+  const cycYr=Math.max(hDecY,1968);
+  const curPhase=cycYr<1980?t('hpa')+' ('+t('hri')+')':cycYr<1985?'B ('+t('hpk')+')':cycYr<2000?'C ('+t('hbt')+')':cycYr<2011?t('hpa')+' ('+t('hri')+')':cycYr<2016?'B ('+t('hpk')+')':cycYr<2028?t('hpa')+' ('+t('hri')+' 🔥)':'B ('+t('hpk')+'?)';
+
+  $('histStats').innerHTML=
+    '<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:4px;text-align:center;margin-top:6px">'
+    +'<div style="background:#0c0c0c;padding:5px;border-radius:5px"><div style="font-size:6px;color:#555">1968 🏆</div><div style="font-size:14px;color:var(--gn);font-weight:700">0.8</div><div style="font-size:6px;color:#444">'+t('hdaysfoodperg')+'</div></div>'
+    +'<div style="background:#0c0c0c;padding:5px;border-radius:5px"><div style="font-size:6px;color:#555">1980</div><div style="font-size:14px;color:var(--rd);font-weight:700">4.9</div><div style="font-size:6px;color:#444">'+t('hdaysfoodperg')+'</div></div>'
+    +'<div style="background:#0c0c0c;padding:5px;border-radius:5px"><div style="font-size:6px;color:#555">2000</div><div style="font-size:14px;color:var(--gn);font-weight:700">1.5</div><div style="font-size:6px;color:#444">'+t('hdaysfoodperg')+'</div></div>'
+    +'<div style="background:#0c0c0c;padding:5px;border-radius:5px"><div style="font-size:6px;color:#555">2026 🔥</div><div style="font-size:14px;color:var(--rd);font-weight:700">19.5</div><div style="font-size:6px;color:#444">'+t('hdaysfoodperg')+'</div></div></div>'
+    +'<div style="margin-top:4px;font-size:8px;color:#555;text-align:center;line-height:1.5">'+t('hgold_cheap')+' · '+t('hgold_med')+' · '+t('hgold_exp')+'<br>'+t('hpeak1968')+'</div>'
+
+    +'<div style="margin-top:8px;background:#0a0808;border:1px solid #1a1410;border-radius:6px;padding:8px">'
+    +'<div style="font-size:9px;color:var(--au);font-weight:700;margin-bottom:4px">'+t('hcy')+'</div>'
+    +'<div style="font-size:8px;color:#666;line-height:1.6">'+t('hcycle_desc')+'<br>'
+    +t('hbn')+': <b style="color:var(--gn)">1968 → 1984 → 2000 → 2016</b> (~16yr)<br>'
+    +t('hps')+': <b style="color:var(--yl)">1980 → 2011 → ~2028?</b><br>'
+    +'<span style="color:var(--au)">'+t('hcycle_now')+' ('+hDecY+'s):</span> <b style="color:var(--or)">'+curPhase+'</b>'
+    +'</div></div>'
+
+    +'<div style="margin-top:8px;background:#0a0505;border:1px solid #1a1212;border-radius:6px;padding:8px">'
+    +'<div style="font-size:9px;color:var(--rd);font-weight:700;margin-bottom:4px">'+t('hquality_title')+'</div>'
+    +'<div style="font-size:8px;color:#666;line-height:1.7">'
+    +t('hquality_desc')+'<br>'
+    +'<span style="color:var(--rd)">🥩 '+t('hmt')+':</span> '+t('hquality_meat1')+' → '+t('hquality_meat2')+'<br>'
+    +'<span style="color:var(--rd)">🍞</span> '+t('hquality_bread')+'<br>'
+    +'<span style="color:var(--rd)">🥚</span> '+t('hquality_eggs1')+' → '+t('hquality_eggs2')+'<br>'
+    +'<span style="color:var(--rd)">🥔 '+t('hpo')+':</span> '+t('hquality_potato')+'<br>'
+    +'<span style="color:var(--rd)">👔 '+t('hcl')+':</span> '+t('hquality_clothes1')+' → '+t('hquality_clothes2')+'<br>'
+    +'<span style="color:var(--rd)">📦 '+t('hsh')+':</span> '+t('hquality_shrink')+'<br><br>'
+    +'<b style="color:var(--yl)">⚡ '+t('hef')+':</b> '+t('hquality_effect')+'<br>'
+    +t('hquality_result')+'<br>'
+    +t('hquality_realdays')
+    +'</div></div>';
+}
+
 function R(){
 const c=CC[co],iF=yr>2026,gP=g1(yr,md),gP05=g1(2005,'o'),gEur=+(gP*FX.USD).toFixed(2);
 const loc=tL(gEur,c.cur),minW=gv(c.minW,yr,md),avgW=gv(c.avgW,yr,md);
@@ -159,25 +662,20 @@ const fPct=minW>0?+((food*4.33)/minW*100).toFixed(0):0;
 const ph=PH.find(p=>yr>=p.a&&yr<=p.b)||PH[PH.length-1];
 const mc=md==='o'?'#4ade80':'#f97316',pct=((yr-2005)/31)*100;
 
-// Translate
 $('T').textContent=t('tl');$('S').textContent=t('sb');$('HT').textContent=t('ht');$('HX').textContent=t('hx');$('IQ').textContent=t('hq');
 $('CT').textContent=t('ct');$('CI').innerHTML=t('ci');$('FT').innerHTML='BLS·OECD·Eurostat·WGC·ECB·JPM·UBS·2026<br>'+t('dc');
 
-// Mode btn
 const mb=$('MB');mb.textContent=md==='o'?t('op'):t('ps');mb.style.color=mc;mb.style.borderColor=mc+'33';mb.style.background=mc+'08';
 mb.onclick=()=>{md=md==='o'?'p':'o';R()};
 
-// Year
 $('YB').textContent=yr;$('YB').style.color=iF?mc:'var(--au)';
 const fl=$('FL');fl.style.display=iF?'inline':'none';fl.textContent=iF?'📡 '+t('fc'):'';fl.style.color=mc;
 $('GP').textContent=c.f+' 1g = €'+gEur;
 $('GS').textContent='$'+gP.toFixed(0)+'/g · ×'+(gP/gP05).toFixed(1)+' 2005';
 
-// Slider
 $('TF').style.width=pct+'%';$('TF').style.background='linear-gradient(90deg,#1a1408,'+(iF?mc:'var(--au)')+')';
 const th=$('TT');th.style.left='calc('+pct+'% - 12px)';th.textContent=yr;th.style.background=iF?mc:'var(--au)';
 
-// Hours
 $('H5').innerHTML=hrs05+'<span style="font-size:12px">'+t('hr')+'</span>';
 $('HL').textContent=yr;$('HL').style.color=iF?mc:'#555';
 const he=$('HN');he.innerHTML=hrs+'<span style="font-size:12px">'+t('hr')+'</span>';he.className='vl '+(hrs>50?'bd':hrs>20?'wr':'gd');
@@ -186,12 +684,10 @@ const lP=hrs05>0?((1-hrs05/hrs)*100).toFixed(0):0,d1=(hrs/8).toFixed(1),d05=(hrs
 $('IX').innerHTML=hrs>hrs05?c.f+' <b>'+t('wu')+wP+'%</b> (€'+minE05+'→€'+minE+'), '+t('sn')+' <b>'+t('gu')+aP+'%</b>. '+t('bf')+' '+d05+' '+t('wd')+'. '+t('nw')+' <b style="color:var(--rd)">'+d1+' '+t('wd')+'</b>. '+t('ls')+' <b style="color:var(--rd)">'+lP+'%</b> '+t('vg'):'<b style="color:var(--gn)">'+t('rr')+'</b>';
 $('SI').innerHTML=t('mn')+': €'+minE05+' → €'+minE+t('wm')+' · '+t('av')+': €'+avgE+t('wm')+' · '+t('ig')+': '+mGr05.toFixed(1)+'g → '+mGr.toFixed(1)+'g';
 
-// Buy cards
 $('BT').innerHTML=t('bt')+' (€'+gEur+')';
 const buys=[{i:'⛽',l:t('gl'),v:g1G,v0:g1G05,ex:t('tk')+(g1G>0?(50/g1G).toFixed(1):0)+'g'},{i:'⚡',l:t('kw'),v:g1E,v0:g1E05,ex:t('hh')},{i:'👨‍👩‍👧‍👦',l:t('ff'),v:g1F,v0:g1F05,ex:'('+Math.round(food)+' '+c.cur+'/'+t('wk')+')'}];
 $('BG').innerHTML=buys.map(x=>{const up=parseFloat(x.v)>=parseFloat(x.v0);return'<div class="bc"><div class="ic">'+x.i+'</div><div class="lb sf">'+x.l+'</div><div class="nm sf '+(up?'up':'dn')+'">'+x.v+'</div><div class="cm sf">2005: '+x.v0+' · '+(up?'×'+(x.v/x.v0).toFixed(1)+' '+t('mr'):'↓'+((1-x.v/x.v0)*100).toFixed(0)+'%')+'</div><div class="cm sf" style="color:#444;margin-top:2px">'+x.ex+'</div></div>'}).join('');
 
-// Dual forecast
 const db=$('DB');
 if(iF){db.style.display='grid';
 db.innerHTML=[{m:'o',l:t('op'),cl:'#4ade80'},{m:'p',l:t('ps'),cl:'#f97316'}].map(sc=>{
@@ -200,17 +696,14 @@ const mwx=gv(c.minW,yr,sc.m),fx=gv(c.food,yr,sc.m),gsx=gv(c.gas,yr,sc.m);
 const hx=mwx>0?+(lx/(mwx/160)).toFixed(0):0,fdx=fx>0?+(lx/(fx/7)).toFixed(1):0,glx=gsx>0?+(lx/gsx).toFixed(0):0;
 return'<div class="dc" style="background:'+sc.cl+'08;border:1px solid '+sc.cl+'1a"><div class="dt sf" style="color:'+sc.cl+'">'+sc.l+'</div><div class="dp sf" style="color:'+sc.cl+'">1g=€'+gex+'</div><div class="di sf">$'+gD(yr,sc.m)+'/oz<br>⏱ '+hx+t('hr')+' ('+(hx/8).toFixed(1)+' '+t('wd')+')/1g<br>⛽ '+glx+' '+t('gl')+'<br>👨‍👩‍👧‍👦 '+fdx+' '+t('ff')+'</div></div>'}).join('')}else db.style.display='none';
 
-// Metrics
 const wkF=food>0?(minW/food).toFixed(1):0,fM=food>0?(food*4.33).toFixed(0):0;
 $('MG').innerHTML='<div class="mt"><div class="ml sf">'+t('ft')+'</div><div class="mv sf" style="color:'+(fPct>50?'var(--rd)':fPct>35?'var(--yl)':'var(--gn)')+'">'+fPct+'%</div><div class="ms sf">'+t('fs')+fM+' '+c.cur+t('fp')+'<br>'+t('fi')+' '+Math.round(minW)+' '+c.cur+'<br>'+(fPct>50?t('fh'):fPct>35?t('f3'):t('fo'))+'</div></div>'
 +'<div class="mt"><div class="ml sf">'+t('gt')+'</div><div class="mv sf" style="color:'+(mGr<mGr05?'var(--rd)':'var(--gn)')+'">'+mGr.toFixed(1)+'g</div><div class="ms sf">'+t('gwt')+' (€'+minE+')<br>'+t('gc')+' '+mGr.toFixed(1)+'g '+t('ga')+'<br>2005: '+mGr05.toFixed(1)+'g · '+(mGr<mGr05?'↓'+((1-mGr/mGr05)*100).toFixed(0)+'% '+t('gp'):t('gri'))+'</div></div>'
 +'<div class="mt"><div class="ml sf">'+t('wt')+'</div><div class="mv sf" style="color:var(--bl)">'+wkF+'</div><div class="ms sf">'+t('we')+'<br>'+wkF+' '+t('wk')+(wkF>5?' ✅':wkF>3?' ⚠️':' ❌')+'</div></div>';
 
-// Phase & tip
 $('PB').innerHTML='<span class="pe">'+ph.e+'</span><div class="sf"><div class="pn">'+ph.e+' ('+ph.a+'–'+ph.b+')</div></div>';
 $('TI').textContent=c.tip;
 
-// Cycle bars
 $('CYB').innerHTML=PH.map(p=>{const on=yr>=p.a&&yr<=p.b;return'<div class="cybb'+(on?' on':'')+'" data-yr="'+Math.round((p.a+p.b)/2)+'" style="flex:'+(p.b-p.a+1)+(on?';background:'+p.bg:'')+'"'+'><div class="cv sf">'+p.a+'</div><div class="ce">'+p.e+'</div></div>'}).join('');
 document.querySelectorAll('.cybb').forEach(el=>{el.addEventListener('click',function(){yr=parseInt(this.dataset.yr);R();uCH()})});
 uCH()}
@@ -225,332 +718,5 @@ tk.addEventListener('touchstart',e=>{drg=true;sP(e)},{passive:true});
 window.addEventListener('touchmove',e=>{if(drg){e.preventDefault();sP(e)}},{passive:false});
 window.addEventListener('touchend',()=>drg=false);
 
-
-
-
-
-// ═══ HISTORY MODE v5 — Golden Basket in DAYS ═══
-const GH={1920:20.67,1925:20.67,1930:20.67,1934:35,1938:35,1940:34.5,1945:34.71,1950:40.25,1955:38.7,1960:36.5,1965:35.15,1968:39.26,1970:36.02,1971:40.62,1973:97.39,1975:161,1978:193,1980:615,1985:317,1990:384,1995:384,2000:279,2004:410};
-const HMW={1920:0,1930:0,1934:0,1938:.25,1940:.30,1945:.40,1950:.75,1955:.75,1960:1.00,1965:1.25,1968:1.60,1970:1.60,1973:1.60,1975:2.10,1978:2.65,1980:3.10,1985:3.35,1990:3.80,1995:4.25,2000:5.15,2004:5.15};
-const HSAL={1920:100,1925:115,1930:110,1934:85,1938:100};
-// Weekly basket $ (US family of 4): 5lb beef, 10lb potatoes, 5lb flour, 2lb sugar, 2lb rice, 7 loaves, 4gal milk, 12 eggs
-const HBSK={1920:7.50,1922:7.30,1925:7.20,1928:7.40,1930:6.80,1932:5.20,1934:5.50,1936:5.70,1938:5.80,1940:5.60,1942:6.20,1944:6.50,1946:7.80,1948:8.50,1950:8.40,1952:8.80,1955:9.20,1957:9.50,1960:9.80,1962:10.00,1965:10.50,1967:11.00,1968:11.20,1970:12.50,1972:13.50,1973:16.00,1974:18.00,1975:19.50,1976:19.00,1978:22.00,1979:25.00,1980:28.00,1982:29.00,1984:29.50,1985:30.00,1987:31.00,1989:33.00,1990:35.00,1992:36.00,1994:37.50,1995:38.00,1997:39.50,1999:41.00,2000:42.00,2002:44.00,2004:46.00};
-// Individual product prices (US $/lb or $/unit) for basket breakdown
-const HPROD={
-1920:{beef:.30,potato:.02,flour:.06,sugar:.12,bread:.12,milk:.35,eggs:.47},
-1930:{beef:.22,potato:.02,flour:.04,sugar:.06,bread:.09,milk:.28,eggs:.29},
-1940:{beef:.28,potato:.02,flour:.04,sugar:.05,bread:.08,milk:.26,eggs:.33},
-1950:{beef:.60,potato:.04,flour:.05,sugar:.09,bread:.14,milk:.42,eggs:.60},
-1960:{beef:.65,potato:.05,flour:.06,sugar:.12,bread:.20,milk:.49,eggs:.57},
-1968:{beef:.75,potato:.06,flour:.07,sugar:.12,bread:.22,milk:.55,eggs:.53},
-1970:{beef:.90,potato:.07,flour:.08,sugar:.13,bread:.24,milk:.58,eggs:.61},
-1975:{beef:1.30,potato:.12,flour:.15,sugar:.33,bread:.36,milk:.73,eggs:.77},
-1980:{beef:2.40,potato:.15,flour:.14,sugar:.36,bread:.52,milk:1.05,eggs:.84},
-1985:{beef:2.40,potato:.18,flour:.13,sugar:.22,bread:.55,milk:1.08,eggs:.80},
-1990:{beef:2.80,potato:.25,flour:.15,sugar:.30,bread:.70,milk:1.32,eggs:1.00},
-2000:{beef:3.00,potato:.35,flour:.20,sugar:.35,bread:.99,milk:1.50,eggs:.96}};
-// Key historical events per year
-const HEVT_BG={
-1920:'Златен стандарт. $1=$20.67 злато.',1925:'Бум. UK връща златния стандарт.',1929:'24 окт: Черният четвъртък — Уол Стрийт се срива!',1930:'Великата депресия. 25% безработица.',1932:'Дъно на депресията. Кошница $5.20.',1933:'FDR конфискува златото! Забранява частно притежание.',1934:'Злато: $20.67→$35 (+69%). Девалвация.',1938:'Първа минимална заплата: $0.25/час.',1940:'WWII — рациониране на храна, бензин.',1944:'Бретън Уудс: $ = $35/oz.',1945:'Край на WWII.',1950:'Корейска война. Субурбанизация.',1955:'Средна класа: кола, къща, хладилник.',1960:'JFK. Космическа надпревара.',1965:'Vietnam ескалира.',1967:'Gold Pool под натиск.',1968:'Gold Pool се разпада! Мін.з.=$1.60/ч (пик!).',1970:'Vietnam. Инфлация тръгва.',1971:'15 авг: НИКСЪН ЗАТВАРЯ ЗЛАТНИЯ ПРОЗОРЕЦ!',1973:'Петролно ембарго. Бензин: $0.39→$0.53.',1974:'Златото вече легално за американци.',1975:'Рецесия. Инфлация 12%.',1978:'Иранска революция наближава.',1979:'Иранска криза. Злато→$306.',1980:'Злато ПИК $850! Инфлация 14%! Volcker: 20%.',1982:'Рецесия 10.8% безработица.',1985:'Плаза акорд: $ отслабва.',1987:'Черен понеделник: -22% за 1 ден.',1989:'Берлинската стена пада.',1990:'Разпад на СССР.',1995:'Интернет бум. Amazon, eBay.',1997:'Азиатска криза.',1999:'Dot-com балон. Злато дъно: $279!',2000:'Dot-com крах.',2002:'9/11 последици. Злато→$310.',2004:'Злато→$410. Iraq война.'};
-const HEVT_EN={
-1920:'Gold standard. $1=$20.67 gold.',1925:'Boom. UK returns to gold standard.',1929:'Oct 24: Black Thursday — Wall St crashes!',1930:'Great Depression. 25% unemployment.',1932:'Depression bottom. Basket $5.20.',1933:'FDR confiscates gold! Private ownership banned.',1934:'Gold: $20.67→$35 (+69%). Devaluation.',1938:'First minimum wage: $0.25/hr.',1940:'WWII — food, gas rationing.',1944:'Bretton Woods: $ = $35/oz.',1945:'End of WWII.',1950:'Korean War. Suburbanization.',1955:'Middle class: car, house, fridge.',1960:'JFK. Space race. Abundance.',1965:'Vietnam escalates.',1967:'Gold Pool under pressure.',1968:'Gold Pool collapses! Min.w.=$1.60/hr (peak!).',1970:'Vietnam. Inflation rises.',1971:'Aug 15: NIXON CLOSES THE GOLD WINDOW!',1973:'Oil embargo. Gas: $0.39→$0.53.',1974:'Gold now legal for Americans.',1975:'Recession. 12% inflation.',1978:'Iranian revolution approaching.',1979:'Iran crisis. Gold→$306.',1980:'Gold PEAK $850! 14% inflation! Volcker: 20%.',1982:'Recession 10.8% unemployment.',1985:'Plaza Accord: $ weakens.',1987:'Black Monday: -22% in 1 day.',1989:'Berlin Wall falls.',1990:'USSR dissolves.',1995:'Internet boom. Amazon, eBay.',1997:'Asian crisis.',1999:'Dot-com bubble. Gold bottom: $279!',2000:'Dot-com crash.',2002:'9/11 aftermath. Gold→$310.',2004:'Gold→$410. Iraq war.'};
-function getEvt(y){return lang==='bg'?(HEVT_BG[y]||''):(HEVT_EN[y]||'')}
-
-const HDEC={
-1920:{t:'Златен стандарт & Ревящите 20-ти',te:'Gold Standard & Roaring 20s',c:'#fbbf24',
-f:['Злато ФИКСИРАНО на $20.67/oz по закон — 1 грам = $0.66','Кошница ~$7.50/седмица → 1g злато = само 0.6 ДНИ храна','Няма мінімална заплата — средна ~$100/мес','Форд Model T = $260 = 12.6oz злато = 394 грама','1929: Крахът на Уол Стрийт → Великата депресия'],
-fe:['Gold FIXED at $20.67/oz by law — 1 gram = $0.66','Basket ~$7.50/wk → 1g gold = only 0.6 DAYS of food','No minimum wage — average ~$100/mo','Ford Model T = $260 = 12.6oz gold = 394 grams','1929: Wall Street Crash → Great Depression'],
-desc:'Златото е фиксирано на $20.67/oz от 1879г. Един грам струва $0.66 — толкова евтино, че дори не купува 1 ден храна за семейство. Златният стандарт означава, че всеки долар е конвертируем в злато.',
-desce:'Gold fixed at $20.67/oz since 1879. One gram costs $0.66 — so cheap it cannot buy 1 day of family food. The gold standard means every dollar is convertible to gold — money has real value.'},
-1930:{t:'Депресия & FDR конфискува златото',te:'Depression & FDR Gold Confiscation',c:'#ef4444',
-f:['1933: Рузвелт КОНФИСКУВА частното злато!','Злато скача от $20.67→$35 за нощ (+69%)','Притежанието на злато ЗАБРАНЕНО за граждани','1938: Първата мін. заплата $0.25/час','1g = $1.13 → 1.4 дни храна за семейство'],
-fe:['1933: FDR CONFISCATES private gold!','Gold jumps $20.67→$35 overnight (+69%)','Owning gold ILLEGAL for citizens','1938: First minimum wage $0.25/hr','1g = $1.13 → 1.4 days of family food'],
-desc:'Голямата депресия унищожава спестяванията. Рузвелт забранява частното злато и вдига цената с 69%. Кошницата пада до $5.50 (дефлация). Въведена е първата минимална заплата — $0.25/час.',
-desce:'The Great Depression destroys savings. FDR bans private gold and raises the price by 69%. The basket drops to $5.50 (deflation). The first minimum wage is introduced — $0.25/hr.'},
-1940:{t:'WWII & Бретън Уудс',te:'WWII & Bretton Woods',c:'#818cf8',
-f:['1944: Бретън Уудс → $ фиксиран на $35/oz','Храна и бензин РАЦИОНИРАНИ','Мін. заплата: $0.30→$0.40/час','1g злато = $1.11 → ~1 ден храна','Доларът става световна резервна валута'],
-fe:['1944: Bretton Woods → $ fixed at $35/oz','Food and gas RATIONED','Min wage: $0.30→$0.40/hr','1g gold = $1.11 → ~1 day of food','Dollar becomes world reserve currency'],
-desc:'Войната рационира всичко. Бретън Уудс прави долара еквивалент на злато — $35/oz. Златният грам купува около 1 ден храна за семейство.',
-desce:'War rations everything. Bretton Woods makes the dollar equivalent to gold — $35/oz. A gold gram buys about 1 day of family food.'},
-1950:{t:'Следвоенен бум, златото спи',te:'Post-War Boom, Gold Sleeps',c:'#4ade80',
-f:['Злато заковано на ~$38-40 за 20 ГОДИНИ','Мін. заплата: $0.75/час (×3 от 1938!)','1g = $1.29 → само 1.1 дни храна','Златото ГУБИ покупателна сила','Заплатите растат, златото стои на място'],
-fe:['Gold stuck at ~$38-40 for 20 YEARS','Min wage: $0.75/hr (×3 from 1938!)','1g = $1.29 → only 1.1 days food','Gold LOSES purchasing power','Wages rise, gold stays flat'],
-desc:'Бум на икономиката, субурбанизация. Минималната заплата се утроява, но златото е заковано. 1g купува всё по-малко.',
-desce:'Economic boom, suburbanization. Minimum wage triples but gold is frozen. 1g buys less and less.'},
-1960:{t:'Виетнам & Gold Pool се разпада',te:'Vietnam & Gold Pool Collapse',c:'#f97316',
-f:['Държавите тайно продават злато за да задържат $35','1968: Gold Pool се срива! Пазарът надделява','Мін. заплата $1.60/час — ИСТОРИЧЕСКИ пик!','1g = $1.17 → САМО 0.8 дни храна','Най-евтиното злато в историята! 🏆'],
-fe:['Govts secretly sell gold to hold $35','1968: Gold Pool collapses! Market wins','Min wage $1.60/hr — ALL-TIME PEAK!','1g = $1.17 → ONLY 0.8 days food','Cheapest gold in history! 🏆'],
-desc:'Пикът на мін. заплата + ниско злато = златният грам купува по-малко от 1 ден храна! За 45 мин. работа можеш да купиш 1g злато. Никога повече няма да е толкова евтино.',
-desce:'Peak min wage + low gold = a gold gram buys less than 1 day of food! 45 min of work buys 1g gold. Never this cheap again.'},
-1970:{t:'Никсън! Златото е СВОБОДНО',te:'Nixon Shock! Gold Goes FREE',c:'#ef4444',
-f:['1971: Никсън ПРЕКРАТЯВА конвертируемостта на $!','Злато: $36→$615/oz за 10 години 🚀','Нефтена криза 1973 → инфлация 14%','1g(1980) = $19.77 → 4.9 ДНИ храна!','Часове за 1g: 0.7ч(1970)→6.4ч(1980)'],
-fe:['1971: Nixon ENDS dollar convertibility!','Gold: $36→$615/oz in 10 years 🚀','Oil crisis 1973 → 14% inflation','1g(1980) = $19.77 → 4.9 DAYS food!','Hours per 1g: 0.7h(1970)→6.4h(1980)'],
-desc:'КЛЮЧОВИЯТ момент. Никсън откачва долара от златото. Златото се покачва 17× за 10 години! Бензинът се утроява, храната удвоява. Кой печели? Този с злато.',
-desce:'THE KEY MOMENT. Nixon detaches dollar from gold. Gold rises 17× in 10 years! Gas triples, food doubles. Who wins? Those holding gold.'},
-1980:{t:'Пик & 20-годишен мечи пазар',te:'Peak & 20-Year Bear Market',c:'#fbbf24',
-f:['1980 пик: $615/oz → 1g = $19.77','Volcker вдига лихвите до 20% → златото пада!','$615→$317 до 1985 (почти -50%)','1g(1985) = $10.19 → 2.4 дни храна','Акциите бумтят, златото забравено 20 години'],
-fe:['1980 peak: $615/oz → 1g = $19.77','Volcker raises rates to 20% → gold crashes!','$615→$317 by 1985 (almost -50%)','1g(1985) = $10.19 → 2.4 days food','Stocks boom, gold forgotten for 20 years'],
-desc:'Златната треска свършва. Централната банка смазва инфлацията с лихви от 20%. Златото пада наполовина. Ерата на акциите — S&P 500 расте 10× за 20 години.',
-desce:'The gold rush ends. The Fed crushes inflation with 20% rates. Gold drops by half. The stock era begins — S&P 500 rises 10× in 20 years.'},
-1990:{t:'Изгубеното десетилетие на златото',te:"Gold's Lost Decade",c:'#818cf8',
-f:['Злато удря 20-годишно дъно: $279 (1999)','Централните банки РАЗПРОДАВАТ златни резерви','Интернет бум → всички искат .com акции','1g(2000) = $8.97 → 1.5 дни храна','Мін. заплата: $4.25→$5.15/час'],
-fe:['Gold hits 20-year low: $279 (1999)','Central banks SELL gold reserves','Internet boom → everyone wants .com stocks','1g(2000) = $8.97 → 1.5 days food','Min wage: $4.25→$5.15/hr'],
-desc:'Златото е „мъртво". Централните банки продават резерви. Дот-ком балонът прави всички „богати" на хартия. 1g злато купува само 1.5 дни храна.',
-desce:'Gold is "dead". Central banks sell reserves. The dot-com bubble makes everyone "rich" on paper. 1g gold buys only 1.5 days of food.'},
-2000:{t:'Златото се събужда',te:'Gold Awakens',c:'#4ade80',
-f:['2001: Дот-ком крах → злато дъно $271','9/11 → търсене на сигурност','2008: Lehman Brothers → злато $872','1g: $8.97(2000)→$13.18(2005)','📊 Кликни за пълни данни по държави'],
-fe:['2001: Dot-com crash → gold bottom $271','9/11 → safe haven demand','2008: Lehman Brothers → gold $872','1g: $8.97(2000)→$13.18(2005)','📊 Click for full country data'],
-desc:'Балонът се спука. Акциите губят 50%. Златото тръгва нагоре и не спира 12 години.',
-desce:'The bubble bursts. Stocks lose 50%. Gold starts rising and does not stop for 12 years.'},
-2010:{t:'Бичи пазар & корекция',te:'Bull Run & Correction',c:'#f97316',
-f:['2011: Ново ATH $1,920/oz → 1g = $50.5','1g(2011) = 7.2 дни храна за семейство','2016: Цикъл дъно $1,060','Централните банки → НЕТНИ купувачи','Мін. заплата $7.25 ЗАМРАЗЕНА от 2009 🥶'],
-fe:['2011: New ATH $1,920/oz → 1g = $50.5','1g(2011) = 7.2 days family food','2016: Cycle bottom $1,060','Central banks → NET BUYERS','Min wage $7.25 FROZEN since 2009 🥶'],
-desc:'Златото удря рекорд, после коригира с 45%. Но централните банки вече КУПУВАТ вместо да продават. Мін. заплата замразена — $7.25 от 2009.',
-desce:'Gold hits a record then corrects 45%. But central banks now BUY instead of selling. Min wage frozen — $7.25 since 2009.'},
-2020:{t:'Експлозия & Нова реалност',te:'Explosion & New Reality',c:'#D4A843',
-f:['COVID 2020: злато пробива $2,000','2024: Централни банки купуват рекордни 1,037 тона','2026: $5,200! → 1g = $167 = 19.5 ДНИ храна!','$7.25/час × 23ч = 1 ГРАМ злато','България влиза в Еврозоната 01.01.2026'],
-fe:['COVID 2020: gold breaks $2,000','2024: Central banks buy record 1,037 tonnes','2026: $5,200! → 1g = $167 = 19.5 DAYS food!','$7.25/hr × 23h = 1 GRAM of gold','Bulgaria joins Eurozone 01.01.2026'],
-desc:'Пандемия, война в Украйна, рекордно печатане на пари. Златото ЕКСПЛОДИРА. 1 грам = $167 = почти 20 дни храна за семейство. За сравнение, през 1968 беше по-малко от 1 ден. Минималната заплата е замразена 17 години!',
-desce:'Pandemic, Ukraine war, record money printing. Gold EXPLODES. 1 gram = $167 = almost 20 days of family food. Compare: in 1968 it was less than 1 day. Minimum wage frozen 17 years!'},
-2030:{t:'Прогноза: Пик & Корекция',te:'Forecast: Peak & Correction',c:'#666',
-f:['~2028: Възможен пик ~$9,200/oz → 1g ≈ $296','1g(2028) ≈ 35 дни храна = 5 СЕДМИЦИ!','~2029-32: Корекция -30-40%','16-годишен цикъл (1968→1984→2000→2016)','Златото = термометър на доверието в системата'],
-fe:['~2028: Possible peak ~$9,200/oz → 1g ≈ $296','1g(2028) ≈ 35 days food = 5 WEEKS!','~2029-32: Correction -30-40%','16-year cycle (1968→1984→2000→2016)','Gold = thermometer of trust in the system'],
-desc:'Ако 16-годишният цикъл продължи, пикът е около 2028, после корекция. Въпросът не е „колко струва златото?" а „колко МАЛКО струват парите?".',
-desce:'If the 16-year cycle continues, peak is around 2028, then correction. The question is not "how much is gold worth?" but "how LITTLE is money worth?".'}
-};
-let hMode=false,hDecY=2020;
-
-function getMW(y){const ks=Object.keys(HMW).map(Number).sort((a,b)=>a-b);let w=0;for(const k of ks)if(k<=y)w=HMW[k];if(y>=2005)return+(gv(CC.us.minW,y,md)/160).toFixed(2);return w}
-function getGold(y){return GH[y]||G$[y]||(GF[y]?(md==='o'?GF[y].o:GF[y].p):0)}
-function getBsk(y){if(y>=2005)return gv(CC.us.food,y,md)||HBSK[y]||0;return HBSK[y]||0}
-
-function toggleHist(){hMode=!hMode;
-$('histPanel').style.display=hMode?'block':'none';
-$('mainPanel').style.display=hMode?'none':'block';
-const b=$('histBtn');b.textContent=hMode?'📊 → Country Mode':'📜 History 1920–2036';
-b.style.background=hMode?'rgba(212,168,67,.15)':'rgba(212,168,67,.04)';
-if(hMode)renderH()}
-
-function renderH(){
-  if($('histTitle'))$('histTitle').textContent=t('hgl');
-  if($('histSub'))$('histSub').textContent=t('hsb');
-  const allG={};for(const[y,v]of Object.entries(GH))allG[+y]=v;
-  for(const[y,v]of Object.entries(G$))allG[+y]=v;
-  for(let y=2027;y<=2036;y++){const f=GF[y];if(f)allG[y]=md==='o'?f.o:f.p}
-  const W=700,H=220,yrs=Object.keys(allG).map(Number).sort((a,b)=>a-b);
-  
-  const series=[];
-  yrs.forEach(y=>{
-    const gOz=allG[y],g1g=+(gOz/OZ).toFixed(2);
-    const bsk=getBsk(y),mw=getMW(y);
-    const dailyF=bsk>0?bsk/7:0;
-    const daysPerG=dailyF>0?+(g1g/dailyF).toFixed(1):0;
-    const hrsPerG=mw>0?+(g1g/mw).toFixed(1):0;
-    series.push({y,gOz,g1g,bsk,mw,daysPerG,hrsPerG,dailyF});
-  });
-  
-  const mxD=Math.max(...series.filter(d=>d.daysPerG>0).map(d=>d.daysPerG),25);
-  const mxH=Math.max(...series.filter(d=>d.hrsPerG>0).map(d=>d.hrsPerG),25);
-  const x=y=>((y-1920)/116)*W;
-  const yD=v=>H-18-Math.min(v/mxD,1)*(H-30);
-  const yHr=v=>H-18-Math.min(v/mxH,1)*(H-30);
-  
-  let s='<svg viewBox="0 0 '+W+' '+H+'">';
-  for(let d=1920;d<=2030;d+=10){const sel=d===hDecY;
-  s+='<rect x="'+x(d)+'" width="'+(x(Math.min(d+10,2036))-x(d))+'" y="0" height="'+(H-18)+'" fill="'+(sel?'rgba(212,168,67,.08)':d%20===0?'rgba(255,255,255,.015)':'transparent')+'" rx="1"/>'}
-  // Reference lines
-  s+='<line x1="0" y1="'+yD(1)+'" x2="'+W+'" y2="'+yD(1)+'" stroke="#4ade80" stroke-width=".3" stroke-dasharray="2,3"/>';
-  s+='<text x="3" y="'+(yD(1)-2)+'" fill="#4ade80" font-size="5" font-family="DM Sans" opacity=".5">1 ден</text>';
-  s+='<line x1="0" y1="'+yD(7)+'" x2="'+W+'" y2="'+yD(7)+'" stroke="#fbbf24" stroke-width=".3" stroke-dasharray="2,3"/>';
-  s+='<text x="3" y="'+(yD(7)-2)+'" fill="#fbbf24" font-size="5" font-family="DM Sans" opacity=".5">1 седм.</text>';
-  // Nixon
-  s+='<line x1="'+x(1971)+'" y1="0" x2="'+x(1971)+'" y2="'+(H-18)+'" stroke="#ef4444" stroke-width=".7" stroke-dasharray="2,2" opacity=".4"/>';
-  s+='<text x="'+(x(1971)+2)+'" y="9" fill="#ef4444" font-size="5" font-family="DM Sans" opacity=".5">Nixon 1971</text>';
-  s+='<line x1="'+x(1938)+'" y1="0" x2="'+x(1938)+'" y2="'+(H-18)+'" stroke="#4ade80" stroke-width=".4" stroke-dasharray="2,2" opacity=".3"/>';
-  s+='<text x="'+(x(1938)+2)+'" y="14" fill="#4ade80" font-size="4" font-family="DM Sans" opacity=".4">Мін.запл. 1938</text>';
-  
-  // DAYS LINE (main - gold)
-  const bP=series.filter(d=>d.daysPerG>0),hP=bP.filter(d=>d.y<=2026),fP=bP.filter(d=>d.y>=2026);
-  if(hP.length>1){
-    s+='<polygon points="'+hP.map(d=>x(d.y)+','+yD(d.daysPerG)).join(' ')+' '+x(hP[hP.length-1].y)+','+(H-18)+' '+x(hP[0].y)+','+(H-18)+'" fill="rgba(212,168,67,.06)"/>';
-    s+='<polyline points="'+hP.map(d=>x(d.y)+','+yD(d.daysPerG)).join(' ')+'" fill="none" stroke="#D4A843" stroke-width="2"/>'}
-  if(fP.length>1)s+='<polyline points="'+fP.map(d=>x(d.y)+','+yD(d.daysPerG)).join(' ')+'" fill="none" stroke="var(--gn)" stroke-width="1.5" stroke-dasharray="3,2"/>';
-  // HOURS LINE (secondary - blue)
-  const hrS=series.filter(d=>d.hrsPerG>0),hrH=hrS.filter(d=>d.y<=2026),hrF=hrS.filter(d=>d.y>=2026);
-  if(hrH.length>1)s+='<polyline points="'+hrH.map(d=>x(d.y)+','+yHr(d.hrsPerG)).join(' ')+'" fill="none" stroke="var(--bl)" stroke-width="1" opacity=".4"/>';
-  if(hrF.length>1)s+='<polyline points="'+hrF.map(d=>x(d.y)+','+yHr(d.hrsPerG)).join(' ')+'" fill="none" stroke="var(--bl)" stroke-width="1" stroke-dasharray="3,2" opacity=".3"/>';
-  // Key dots
-  [1938,1950,1960,1968,1980,1990,2000,2011,2026].forEach(ky=>{
-    const d=bP.find(p=>p.y===ky);if(!d)return;
-    const col=d.daysPerG>7?'#ef4444':d.daysPerG>2?'#fbbf24':'#4ade80';
-    s+='<circle cx="'+x(d.y)+'" cy="'+yD(d.daysPerG)+'" r="2.5" fill="'+col+'" stroke="#000" stroke-width=".5"/>';
-    s+='<text x="'+x(d.y)+'" y="'+(yD(d.daysPerG)-5)+'" fill="'+col+'" font-size="6" font-family="DM Sans" text-anchor="middle" font-weight="bold">'+d.daysPerG+'</text>';
-    s+='<text x="'+x(d.y)+'" y="'+(yD(d.daysPerG)+9)+'" fill="#444" font-size="4" font-family="DM Sans" text-anchor="middle">'+d.y+'</text>'});
-  // Decade labels
-  for(let d=1920;d<=2030;d+=10){const sel=d===hDecY;
-  s+='<text x="'+((x(d)+x(Math.min(d+10,2036)))/2)+'" y="'+(H-4)+'" fill="'+(sel?'#D4A843':'#333')+'" font-size="6" font-family="DM Sans" text-anchor="middle" font-weight="'+(sel?'bold':'normal')+'">'+d+'s</text>'}
-  s+='</svg>';
-  $('histChart').innerHTML=s;
-  $('histChartSub').innerHTML='<span style="color:var(--au)">'+t('hdl')+'</span> · <span style="color:var(--bl);opacity:.5">━ Часове труд (мін.запл.) за 1g</span><br><span style="color:#333">'+t('hbs')+'</span>';
-  
-  // Decade buttons
-  const dEl=$('histDecades');dEl.innerHTML='';
-  Object.keys(HDEC).forEach(d=>{const dy=+d,sel=dy===hDecY,inf=HDEC[d];
-  const b=document.createElement('button');b.className='sf'+(sel?' on':'');
-  b.style.cssText='padding:3px 7px;border-radius:3px;border:1px solid '+(sel?inf.c+'55':'#1a1a1a')+';background:'+(sel?inf.c+'12':'transparent')+';color:'+(sel?inf.c:'#444')+';font-size:9px;cursor:pointer;font-weight:'+(sel?'700':'400');
-  b.textContent=(dy>=2000?'📊 ':'')+d+'s';
-  b.addEventListener('click',function(){if(dy>=2005){hMode=false;yr=Math.max(2005,dy);
-  $('histPanel').style.display='none';$('mainPanel').style.display='block';
-  $('histBtn').textContent='📜 History 1920–2036';$('histBtn').style.background='rgba(212,168,67,.04)';R()}
-  else{hDecY=dy;renderH()}});dEl.appendChild(b)});
-  
-  // Detail
-  const dec=HDEC[hDecY];if(!dec)return;
-  const dS=hDecY,dE=Math.min(hDecY+9,2036);
-  let h='<div style="text-align:center;margin-bottom:8px"><span style="font-size:14px;font-weight:700;color:'+dec.c+'">'+(lang==='bg'?dec.t:(dec.te||dec.t))+'</span><span style="font-size:9px;color:#555"> '+dS+'–'+dE+'</span></div>';
-  
-  // Description
-  const _desc=lang==="bg"?dec.desc:(dec.desce||dec.desc);if(_desc)h+='<div style="font-size:10px;color:#888;line-height:1.6;padding:8px;background:#080808;border:1px solid #141414;border-radius:6px;margin-bottom:8px">'+_desc+'</div>';
-  
-  // Enhanced table with more columns + mini bars + events
-  let rows=series.filter(d=>d.y>=dS&&d.y<=dE);
-  // Keep all rows for this decade (more detail)
-  if(rows.length>10){const step=Math.ceil(rows.length/9);rows=rows.filter((_,i)=>i%step===0);if(rows[rows.length-1]!==series.filter(d=>d.y<=dE).pop())rows.push(series.filter(d=>d.y<=dE).pop())}
-  
-  const maxDays=Math.max(...rows.filter(r=>r.daysPerG>0).map(r=>r.daysPerG),1);
-  
-  if(rows.length>0){
-    h+='<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:8px;margin-bottom:8px">';
-    h+='<tr style="border-bottom:1px solid #1a1a1a;background:#080808">'
-      +'<th style="text-align:left;color:#555;padding:3px 4px">'+t('hyr')+'</th>'
-      +'<th style="color:var(--au);padding:3px">'+t('hgg')+'</th>'
-      +'<th style="color:#4ade80;padding:3px">'+t('hmw')+'</th>'
-      +'<th style="color:var(--au);padding:3px;font-weight:800;min-width:90px">'+t('hdf')+'</th>'
-      +'<th style="color:var(--bl);padding:3px">'+t('hhg')+'</th>'
-      +'<th style="color:#f97316;padding:3px">'+t('hhd')+'</th>'
-      +'<th style="color:#555;padding:3px">'+t('hwk')+'</th></tr>';
-    rows.forEach(r=>{
-      const dCol=r.daysPerG>7?'var(--rd)':r.daysPerG>2?'var(--yl)':'var(--gn)';
-      const hCol=r.hrsPerG>10?'var(--rd)':r.hrsPerG>3?'var(--yl)':'var(--gn)';
-      // Hours of work per 1 day of food for family
-      const hrsPerDayFood=r.mw>0&&r.dailyF>0?+(r.dailyF/r.mw).toFixed(1):0;
-      const fdCol=hrsPerDayFood>4?'var(--rd)':hrsPerDayFood>2?'var(--yl)':'var(--gn)';
-      // Mini bar width
-      const barW=r.daysPerG>0?Math.min(r.daysPerG/maxDays*100,100):0;
-      const barCol=r.daysPerG>7?'var(--rd)':r.daysPerG>2?'var(--yl)':'var(--gn)';
-      // Event
-      const evt=getEvt(r.y)||'';
-      h+='<tr style="border-bottom:1px solid #0d0d0d" title="'+evt.replace(/"/g,"&quot;")+'">';
-      h+='<td style="padding:3px 4px;color:#666;font-weight:600">'+r.y+(evt?'*':'')+'</td>';
-      h+='<td style="padding:3px;color:var(--au);font-weight:700">'+r.g1g.toFixed(1)+'</td>';
-      h+='<td style="padding:3px;color:#4ade80">'+(r.mw>0?'$'+r.mw.toFixed(2):'—')+'</td>';
-      h+='<td style="padding:3px"><div style="display:flex;align-items:center;gap:3px"><span style="color:'+dCol+';font-weight:800;font-size:10px;min-width:22px">'+(r.daysPerG>0?r.daysPerG:'—')+'</span><div style="flex:1;height:6px;background:#111;border-radius:2px;overflow:hidden"><div style="width:'+barW+'%;height:100%;background:'+barCol+';border-radius:2px"></div></div></div></td>';
-      h+='<td style="padding:3px;color:'+hCol+'">'+(r.hrsPerG>0?r.hrsPerG+'ч':'—')+'</td>';
-      h+='<td style="padding:3px;color:'+fdCol+';font-weight:600">'+(hrsPerDayFood>0?hrsPerDayFood+'ч':'—')+'</td>';
-      h+='<td style="padding:3px;color:#555">'+(r.bsk>0?'$'+r.bsk.toFixed(0):'—')+'</td></tr>';
-      // Event row
-      if(evt)h+='<tr><td colspan="7" style="padding:1px 4px 3px;font-size:7px;color:#444;border-bottom:1px solid #0a0a0a">↳ '+evt+'</td></tr>';
-    });
-    h+='</table></div>';
-    h+='<div style="font-size:7px;color:#444;margin-bottom:6px">🛒 <b>Дни храна/g</b> = '+t('hdf')+' · ⏱ '+t('hhg')+' · 🍽 '+t('hhd')+'</div>';
-  }
-  
-  // Product breakdown if available for this decade
-  const prodYrs=Object.keys(HPROD).map(Number).filter(y=>y>=dS&&y<=dE);
-  if(prodYrs.length>0){
-    const py=prodYrs[Math.floor(prodYrs.length/2)]||prodYrs[0];
-    const pr=HPROD[py];
-    if(pr){
-      const mwY=getMW(py);
-      h+='<div style="background:#0a0a08;border:1px solid #151510;border-radius:6px;padding:8px;margin-bottom:8px">';
-      h+='<div style="font-size:9px;color:var(--au);font-weight:700;margin-bottom:4px">🛒 Кошница '+py+' — '+t('hin')+' ($'+getBsk(py).toFixed(0)+'/седм.)</div>';
-      h+='<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:4px">';
-      const items=[
-        {n:'🥩 Месо 5lb',p:pr.beef*5},
-        {n:'🥔 Картофи 10lb',p:pr.potato*10},
-        {n:'🌾 Брашно 5lb',p:pr.flour*5},
-        {n:'🍞 Хляб ×7',p:pr.bread*7},
-        {n:'🥛 Мляко 4gal',p:pr.milk*4},
-        {n:'🥚 Яйца 12бр',p:pr.eggs},
-        {n:'🍚 Ориз 2lb',p:(pr.flour||.05)*2},
-        {n:'🍬 Захар 2lb',p:pr.sugar*2}
-      ];
-      items.forEach(it=>{
-        const hrs=mwY>0?+(it.p/mwY).toFixed(1):0;
-        h+='<div style="background:#0c0c0a;padding:4px;border-radius:3px;text-align:center"><div style="font-size:7px;color:#555">'+it.n+'</div><div style="font-size:11px;color:var(--au);font-weight:700">$'+it.p.toFixed(2)+'</div>'+(hrs>0?'<div style="font-size:6px;color:var(--bl)">'+hrs+'ч труд</div>':'')+'</div>';
-      });
-      h+='</div>';
-      if(mwY>0){
-        const totalHrs=+(getBsk(py)/mwY).toFixed(1);
-        h+='<div style="margin-top:4px;font-size:8px;color:#777;text-align:center">Цялата кошница = <b style="color:var(--bl)">'+totalHrs+' '+t('hth')+'</b> '+t('hlb')+' ($'+mwY.toFixed(2)+'/ч) · '+(totalHrs>8?'⚠️ Повече от 1 работен ден!':'✅ По-малко от 1 работен ден')+'</div>';
-      }
-      h+='</div>';
-    }
-  }
-  
-  // Facts
-  h+='<div style="background:#0a0a0a;border:1px solid #141414;border-radius:6px;padding:8px;margin-bottom:8px">';
-  (lang==="bg"?dec.f:(dec.fe||dec.f)).forEach((f,i)=>{h+='<div style="font-size:10px;color:#999;padding:3px 0;border-bottom:'+(i<dec.f.length-1?'1px solid #111':'none')+'"><span style="color:'+dec.c+';font-weight:700">'+(i+1)+'.</span> '+f+'</div>'});
-  h+='</div>';
-  
-  // Start vs End
-  const s0=series.find(d=>d.y>=dS&&d.daysPerG>0);
-  const s1=[...series].reverse().find(d=>d.y<=dE&&d.daysPerG>0);
-  if(s0&&s1&&s0!==s1){
-    const chg=s0.daysPerG>0&&s1.daysPerG>0?((s1.daysPerG/s0.daysPerG-1)*100).toFixed(0):'?';
-    const up=parseFloat(chg)>0;
-    h+='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;text-align:center">';
-    h+='<div style="background:#0c0c0c;padding:8px;border-radius:5px"><div style="font-size:7px;color:#555">'+s0.y+'</div><div style="font-size:20px;color:var(--au);font-weight:700">'+s0.daysPerG+'</div><div style="font-size:7px;color:#444">дни храна/g</div><div style="font-size:8px;color:#555">$'+s0.g1g.toFixed(1)+'/g</div></div>';
-    h+='<div style="background:#0c0c0c;padding:8px;border-radius:5px"><div style="font-size:7px;color:#555">Промяна</div><div style="font-size:20px;color:'+(up?'var(--gn)':'var(--rd)')+';font-weight:700">'+(up?'↑+':'↓')+chg+'%</div><div style="font-size:7px;color:#444">'+(up?t('hbm'):t('hbl'))+'</div></div>';
-    h+='<div style="background:#0c0c0c;padding:8px;border-radius:5px"><div style="font-size:7px;color:#555">'+s1.y+'</div><div style="font-size:20px;color:var(--au);font-weight:700">'+s1.daysPerG+'</div><div style="font-size:7px;color:#444">дни храна/g</div><div style="font-size:8px;color:#555">$'+s1.g1g.toFixed(1)+'/g</div></div></div>'}
-  $('histDetail').innerHTML=h;
-  
-  // Global
-  $('histStats').innerHTML=
-    '<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:4px;text-align:center;margin-top:6px">'
-    +'<div style="background:#0c0c0c;padding:5px;border-radius:5px"><div style="font-size:6px;color:#555">1968 🏆</div><div style="font-size:14px;color:var(--gn);font-weight:700">0.8</div><div style="font-size:6px;color:#444">дни/g</div></div>'
-    +'<div style="background:#0c0c0c;padding:5px;border-radius:5px"><div style="font-size:6px;color:#555">1980 пик</div><div style="font-size:14px;color:var(--rd);font-weight:700">4.9</div><div style="font-size:6px;color:#444">дни/g</div></div>'
-    +'<div style="background:#0c0c0c;padding:5px;border-radius:5px"><div style="font-size:6px;color:#555">2000 дъно</div><div style="font-size:14px;color:var(--gn);font-weight:700">1.5</div><div style="font-size:6px;color:#444">дни/g</div></div>'
-    +'<div style="background:#0c0c0c;padding:5px;border-radius:5px"><div style="font-size:6px;color:#555">2026 🔥</div><div style="font-size:14px;color:var(--rd);font-weight:700">19.5</div><div style="font-size:6px;color:#444">дни/g</div></div></div>'
-    +'<div style="margin-top:4px;font-size:8px;color:#555;text-align:center;line-height:1.5">🟢 &lt;2 дни = злато евтино · 🟡 2-7 дни = средно · 🔴 &gt;7 дни = скъпо<br>🏆 1968: За 45 мин. работа купуваш 1g злато, което хранеше семейството ти 19 часа</div>';
-  
-  // === CYCLE PHASE PANEL (from user's GoldBroker chart) ===
-  const cyclePhases=[
-    {a:1968,peak:1980,b:1984,label:'Цикъл I',note:'Nixon→петролна криза→пик $850'},
-    {a:1984,peak:2011,b:2000,label:'Цикъл II',note:'20г мечи пазар→дъно $252→ръст до $1920'},
-    {a:2000,peak:2011,b:2016,label:'Цикъл III',note:'Dot-com→QE→пик $1920→корекция→дъно $1060'},
-    {a:2016,peak:2028,b:2032,label:'Цикъл IV (сега!)',note:'COVID→инфлация→~пик 2028?→корекция 2029-32'}
-  ];
-  const curCyc=cyclePhases[cyclePhases.length-1];
-  const cycYr=Math.max(hDecY,1968);
-  const curPhase=cycYr<1980?'A (ръст)':cycYr<1985?'B (корекция)':cycYr<2000?'C (дъно)':cycYr<2011?'A (ръст)':cycYr<2016?'B (корекция)':cycYr<2028?'A (ръст 🔥)':'B (корекция?)';
-  
-  $('histStats').innerHTML+='<div style="margin-top:8px;background:#0a0808;border:1px solid #1a1410;border-radius:6px;padding:8px">'
-    +'<div style="font-size:9px;color:var(--au);font-weight:700;margin-bottom:4px">📜 16-годишен цикъл (GoldBroker / JPM)</div>'
-    +'<div style="font-size:8px;color:#666;line-height:1.6">'
-    +'<b style="color:var(--gn)">Фаза A</b> = ръст (злато поскъпва) · <b style="color:var(--yl)">B</b> = пик→корекция · <b style="color:var(--rd)">C</b> = дъно (време за покупка)<br>'
-    +''+t('hbn')+': <b style="color:var(--gn)">1968 → 1984 → 2000 → 2016</b> (~всеки 16г)<br>'
-    +''+t('hps')+': <b style="color:var(--yl)">1980 → 2011 → ~2028?</b><br>'
-    +'<span style="color:var(--au)">'+t('hnw')+' ('+hDecY+'s):</span> <b style="color:var(--or)">'+curPhase+'</b>'
-    +'</div></div>';
-  
-  // === QUALITY DEGRADATION WARNING ===
-  $('histStats').innerHTML+='<div style="margin-top:8px;background:#0a0505;border:1px solid #1a1212;border-radius:6px;padding:8px">'
-    +'<div style="font-size:9px;color:var(--rd);font-weight:700;margin-bottom:4px">⚠️ Скритата инфлация: качеството пада!</div>'
-    +'<div style="font-size:8px;color:#666;line-height:1.7">'
-    +'Кошницата е на <b>една и съща цена</b>, но реално получаваш <b>по-малко</b>:<br>'
-    +'<span style="color:var(--rd)">🥩 '+t('hmt')+':</span> '+t('hm50')+' → 2026: '+t('hm26')+'<br>'
-    +'<span style="color:var(--rd)">🍞 Хляб:</span> 1950: 100% → '+t('hb26')+'<br>'
-    +'<span style="color:var(--rd)">🥚 Яйца:</span> '+t('he50')+' → '+t('he26')+'<br>'
-    +'<span style="color:var(--rd)">🥔 '+t('hpo')+':</span> '+t('hpq')+'<br>'
-    +'<span style="color:var(--rd)">👔 '+t('hcl')+':</span> '+t('hc50')+' → '+t('hc26')+'<br>'
-    +'<span style="color:var(--rd)">📦 '+t('hsh')+':</span> '+t('hsq')+'<br><br>'
-    +'<b style="color:var(--yl)">⚡ '+t('hef')+':</b> '+t('heq')+'<br>'
-    +'Ако кошницата от 1960 беше със <b>същото качество</b> днес, тя щеше да струва <b>×1.3-1.5 повече</b>.<br>'
-    +'Това означава: 1g злато (2026) реално купува НЕ 19.5, а по-скоро <b style="color:var(--au)">~13-15 \"истински\" дни храна</b>.'
-    +'</div></div>'}
-
-
-
-bCH();bLB();bCB();bST();R();
+bCH();bLB();bCB();bST();bHistBtn();R();
 </script></body></html>
